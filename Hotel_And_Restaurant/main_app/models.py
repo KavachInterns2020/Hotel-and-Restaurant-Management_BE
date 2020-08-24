@@ -12,7 +12,8 @@ class UserProfile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     phone= models.CharField(max_length=10)
     address= models.TextField()
-    aadhaar_number= models.CharField(max_length=12)
+    aadhar_number= models.CharField(max_length=12)
+    room_number=models.CharField(max_length=3)
 
 class GuestProfile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
@@ -22,6 +23,7 @@ class GuestProfile(models.Model):
 
 class Rooms(models.Model):
     room_id=models.AutoField(primary_key=True)
+    room_number=models.CharField(max_length=3)
     room_type= models.CharField(max_length=50)
     accomodations= models.IntegerField()
     price= models.FloatField()
