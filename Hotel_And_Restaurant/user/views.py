@@ -1,0 +1,114 @@
+from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User,auth
+from django.contrib import messages
+from main_app.models import *
+from datetime import datetime,timedelta,date
+
+# Create your views here.
+def dashboard(request):
+	user=request.user
+	costs=Services.objects.filter(user=user)
+	total_cost=0.0
+	for cost in costs:
+		total_cost+=cost.amount
+	return render(request,'user_dashboard.html',{'cost':total_cost})
+
+def roomservice(request):
+	if request.method=='POST':
+		user=request.user
+		service_type='roomservice'
+		amount=0.0
+		user_room_number=user.userprofile.room.room_number
+		option=request.POST['optradio']
+		message=request.POST['message']
+		service=Services.objects.create(user=user,amount=amount,service_type=service_type,user_room_number=user_room_number)
+		roomservice_object=RoomServices.objects.create(service=service,option=option,message=message)
+		service.save()
+		roomservice_object.save()
+		messages.info(request, 'Your order has been placed! Check in your order history for all the roomservice orders placed.')
+		return render(request,'roomservice_form.html')
+
+	else:
+		return render(request,'roomservice_form.html')
+
+def laundry(request):
+	if request.method=='POST':
+		now= datetime.now()
+		tomorrow=datetime.now() + timedelta(days=1)
+		user=request.user
+		user_room_number=user.userprofile.room.room_number
+		service_type='laundry'
+		amount=float(request.POST['cost'])
+		quantity=request.POST['quantity']
+		if quantity=='':
+			messages.info(request, 'Quantity cannot be zero!')
+			return render(request,'user_laundry_form.html',{'today':now,'tomorrow':tomorrow})
+		quantity=int(request.POST['quantity'])
+		garment_type=request.POST['garment_type']
+		laundry_type=request.POST['laundry_type']
+		instructions=request.POST['instructions']
+		
+
+		if garment_type=='notchoosen':
+			messages.info(request, 'Choose a Garment Type!')
+			return render(request,'user_laundry_form.html',{'today':now,'tomorrow':tomorrow})
+		if amount==0:
+			if laundry_type=='wash':
+				amount=quantity*30
+			elif laundry_type=='iron':
+				amount=quantity*60
+			else:
+				amount=quantity*100
+		service=Services.objects.create(user=user,amount=amount,service_type=service_type,user_room_number=user_room_number)
+		laundry_object=LaundryService.objects.create(service=service,quantity=quantity,garment_type=garment_type,laundry_type=laundry_type,instructions=instructions)
+		service.save()
+		laundry_object.save()
+		messages.info(request, 'Your order has been placed! Check in your order history for all the Laundry orders placed.')
+		return render(request,'user_laundry_form.html',{'today':now,'tomorrow':tomorrow})
+	else:
+		now= datetime.now()
+		tomorrow=datetime.now() + timedelta(days=1)
+		return render(request,'user_laundry_form.html',{'today':now,'tomorrow':tomorrow})
+
+
+def transactions(request):
+	user=request.user
+	costs=Services.objects.filter(user=user)
+	total_cost=0.0
+	for cost in costs:
+		total_cost+=cost.amount
+	transactions=Services.objects.filter(user=user)
+	return render(request,'view_transactions.html',{'transactions':transactions,'cost':total_cost})
+
+
+def extendstay(request):
+	user=request.user
+	price=user.userprofile.room.price
+	if request.method=='GET':
+		return render(request,'stay_extend.html',{'price': price})
+	else:
+		old_date=user.userprofile.end_date
+		new_date=request.POST['newcheckout']
+		new_date=datetime.strptime(new_date,'%Y-%m-%d').date()
+		delta=new_date-old_date
+		days=delta.days
+		if days<1:
+			messages.info(request, 'New Date cannot be less than Old date!!!!')
+			return redirect('/user/extendstay')
+		total_amount=price*days
+		user_room_number=user.userprofile.room.room_number
+		amount=total_amount
+		service_type='date extension'
+		order_status=False
+		service=Services.objects.create(user=user,user_room_number=user_room_number,amount=amount,service_type=service_type,order_status=order_status)
+		service.save()
+		user_id=user.id
+		user_obj=UserProfile.objects.get(user_id=user_id)
+		user_obj.end_date=new_date
+		user_obj.save()
+		messages.info(request, 'Your date has been extended!!!')
+		return redirect('/user/extendstay')
+
+
+

@@ -1,56 +1,77 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-# Create your models here.
+from datetime import date
+
 class AdminProfile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     admin_type=models.CharField(max_length=20)
     phone=models.CharField(max_length=10)
-
-
-class UserProfile(models.Model):
-    user=models.OneToOneField(User,on_delete=models.CASCADE)
-    phone= models.CharField(max_length=10)
-    address= models.TextField()
-    aadhar_number= models.CharField(max_length=12)
-    room_number=models.CharField(max_length=3)
+    status=models.BooleanField(default=True)
 
 class GuestProfile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     table_number=models.CharField(max_length=3)
     phone=models.CharField(max_length=10)
+    date=models.DateTimeField(default=timezone.now)
 
-
-class Rooms(models.Model):
-    room_id=models.AutoField(primary_key=True)
+class Room(models.Model):
     room_number=models.CharField(max_length=3)
-    room_type= models.CharField(max_length=50)
-    accomodations= models.IntegerField()
-    price= models.FloatField()
-    available= models.CharField(max_length=3,default='yes')
+    room_type=models.CharField(max_length=50)
+    price=models.FloatField()
+    available=models.BooleanField(default=True)
 
-class Bookings(models.Model):
-    booking_id= models.AutoField(primary_key=True)
-    customer_id= models.IntegerField()
-    room_id= models.IntegerField()
-    amount= models.FloatField()
-    start_date= models.DateTimeField(default=timezone.now)
-    end_date= models.DateTimeField()
+class UserProfile(models.Model):
+    user=models.OneToOneField(User,on_delete=models.CASCADE)
+    phone=models.CharField(max_length=10)
+    address=models.CharField(max_length=150)
+    aadhar_number=models.CharField(max_length=12)
+    room=models.OneToOneField(Room,on_delete=models.CASCADE)
+    start_date=models.DateTimeField(default=timezone.now)
+    end_date=models.DateField()
+    status=models.BooleanField(default=True)
 
-class Bills(models.Model):
-    bill_id= models.AutoField(primary_key=True)
-    bill_type= models.CharField(max_length=20)
-    amount= models.FloatField()
-    date= models.DateTimeField(default=timezone.now)
-    customer_id= models.IntegerField()
 
-class Orders(models.Model):
-    order_id= models.AutoField(primary_key=True)
-    name= models.CharField(max_length=50)
-    customer_id=models.IntegerField()
+
+class Services(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    user_room_number=models.CharField(max_length=3)
+    amount=models.FloatField()
+    service_type=models.CharField(max_length=50)
+    order_date=models.DateTimeField(default=timezone.now)
+    order_status=models.BooleanField(default=True)
+
+class LaundryService(models.Model):
+    service=models.OneToOneField(Services,on_delete=models.CASCADE)
+    quantity=models.IntegerField()
+    garment_type=models.CharField(max_length=50)
+    laundry_type=models.CharField(max_length=50)
+    instructions=models.CharField(max_length=100)
+    
+
+class RoomServices(models.Model):
+    service=models.OneToOneField(Services,on_delete=models.CASCADE)
+    option=models.CharField(max_length=50)
+    message=models.CharField(max_length=100)
 
 class MenuItems(models.Model):
     item_name=models.CharField(max_length=50)
-    item_description=models.TextField(max_length=50)
-    item_price=models.IntegerField()
-    item_available=models.BooleanField(default=True)
+    item_description=models.CharField(max_length=150)
+    item_picture=models.ImageField(upload_to='pics')
+    item_price=models.FloatField()
+    menu_type=models.CharField(max_length=50)
+    food_type=models.CharField(max_length=10)
+    available_status=models.BooleanField(default=True)
+
+class Bills(models.Model):
+    user=models.OneToOneField(User,on_delete=models.CASCADE)
+    total_amount=models.FloatField()
+    billing_date_from=models.DateTimeField()
+    billing_date_to=models.DateField()
+    bill_type=models.CharField(max_length=100)
+
+class FoodServices(models.Model):
+    service=models.OneToOneField(Services,on_delete=models.CASCADE)
+    menu_item=models.ForeignKey(MenuItems,on_delete=models.CASCADE)
+    quantity=models.IntegerField()
+    message=models.CharField(max_length=100)

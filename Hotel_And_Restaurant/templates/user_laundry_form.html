@@ -1,0 +1,227 @@
+{% load static %}
+{% static 'images' as baseURL %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="manifest" href="site.webmanifest">
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+        <script src= 
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"> 
+    </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <title>Order Laundry Services-MMVR International</title>
+    <style>
+      *{
+        font-family: 'Lato', sans-serif;
+      }
+      .navbar-text{
+        padding-left:30px;
+        padding-right:30px;
+
+    }
+        .footer{
+  background: #152F4F;
+  color:white;
+  
+  .links{
+    ul {list-style-type: none;}
+    li a{
+      color: white;
+      transition: color .2s;
+      &:hover{
+        text-decoration:none;
+        color:#4180CB;
+        }
+    }
+  }  
+  .about-company{
+    i{font-size: 25px;}
+    a{
+      color:white;
+      transition: color .2s;
+      &:hover{color:#4180CB}
+    }
+  } 
+  .location{
+    i{font-size: 18px;}
+  }
+  .copyright p{border-top:1px solid rgba(255,255,255,.1);} 
+}
+    </style>
+    </head>
+    <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <a class="navbar-brand" href="/">
+    <img src="{% static 'assets/img/logo/logo1.png' %}" width="104" height="24" class="d-inline-block align-top" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">About Us</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Contact</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      Welcome {{user.first_name}}!
+    </span>
+    <form class="form-inline">
+    <a class="btn btn-sm btn-outline-secondary" href="/logout">Logout</a>
+  </form>
+  </div>
+</nav>
+<h1 style="text-align: center; margin-bottom: 50px; margin-top: 20px;">Order Laundry Services</h1>
+
+<div class="card" style="margin-left: 200px; margin-right: 200px;">
+  <form style="padding: 30px;" action="laundry" method="POST">
+    {% csrf_token %}
+  <div class="form-group row">
+    <label for="fname" class="col-sm-2 col-form-label">Number of Garments</label>
+    <div class="col-sm-10">
+      <input type="number" min="1"class="form-control" id="fname" value="1" name="quantity" placeholder="Enter number of garments">
+    </div>
+  </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label" for="inlineFormCustomSelect">Type of garments</label>
+      <div class="col-sm-10">
+      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="garment_type">
+        <option selected value="notchoosen">Choose...</option>
+        <option value="suits">Mens Suits</option>
+        <option value="saari">Saari</option>
+        <option value="shirts">Shirts and TShirts</option>
+        <option value="trousers">Jeans and Trousers</option>
+        <option value="others">Others</option>
+      </select>
+    </div>
+    </div>
+  <div class="form-group row">
+    <label for="staticRoomType" class="col-sm-2 col-form-label">Order Time</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="staticRoomType" value="{{ today }}" name="ordertime">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="radiogrp" class="col-sm-2 col-form-label">Type of Laundry Services</label>
+      <div class="col-sm-10">
+          <div class="form-check form-check-inline" title="₹30 per garment">
+            <input class="form-check-input" type="radio" name="laundry_type" id="inlineRadio1" value="wash" checked="checked">
+            <label class="form-check-label" for="inlineRadio1">Wash (₹30 per garment)</label>
+          </div>
+          <div class="form-check form-check-inline" title="₹60 per garment">
+            <input class="form-check-input" type="radio" name="laundry_type" id="inlineRadio2" value="iron">
+            <label class="form-check-label" for="inlineRadio2">Washing plus Ironing (₹60 per garment)</label>
+          </div>
+          <div class="form-check form-check-inline" title="₹100 per garment">
+            <input class="form-check-input" type="radio" name="laundry_type" id="inlineRadio3" value="dryclean">
+            <label class="form-check-label" for="inlineRadio3">Drycleaning (₹100 per garment)</label>
+          </div>
+      </div>
+  </div>
+  <div class="form-group row">
+    <label for="cost" class="col-sm-2 col-form-label">Total Cost in Rs.</label>
+    <div class="col-sm-10">
+      <div class="row">
+        <div class="col-sm-2">
+          <input type="number" readonly class="form-control-plaintext" id="cost" value="0" name="cost" style="font-weight: bold;">
+          </div>
+          <div class="col-sm-10">
+            <a class="btn btn-primary" id="btn">Calculate Total Cost</a>
+            <script>
+      $('#btn').on('click', function (e) {
+          var num=document.getElementById('cost').value;
+          var rate_value;
+          if (document.getElementById('inlineRadio1').checked) {
+              rate_value = 30;
+          }
+          else if (document.getElementById('inlineRadio2').checked) {
+              rate_value = 60;
+          }
+          else {
+              rate_value = 100;
+          }
+          var choice=document.getElementById('fname').value
+          var ans=choice*rate_value;
+          document.getElementById('cost').value=ans.toString();
+      })
+    </script>
+          </div>
+      </div>
+    </div>
+
+</div>
+    <div class="form-group row">
+    <label for="staticRoomType" class="col-sm-2 col-form-label">Expected Delivery Time</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="expectime" value="{{ tomorrow }}" name="returntime">
+    </div>
+  </div>
+    <div class="form-group row">
+    <label for="addr" class="col-sm-2 col-form-label">Instructions to the Laundry Manager</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" id="addr" rows="5" name="instructions" placeholder="Instructions"></textarea>
+    </div>
+  </div>
+  <div style="text-align: center;">
+<button  type="submit" class="btn btn-primary">Submit</button>
+</div>
+
+</form>
+</div>
+
+{% if messages %}
+<div  style="margin-top:50px; margin-bottom: 50px; margin-left: 200px;margin-right: 200px;" class="card">
+  <div class="card-body text-center" style="text-align: center; font-weight: bold;">
+    {% for message in messages %}
+    <p>{{message}}</p><br>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<!-- footer-->
+<div class="mt-5 pt-5 pb-5 footer">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5 col-xs-12 about-company">
+      <h2>MMVR International</h2>
+      <p class="pr-5 text-white-50">The best Hotel and Restaurant in the town. </p>
+      <p><a href="#"><i class="fa fa-facebook-square mr-1"></i></a><a href="#"><i class="fa fa-linkedin-square"></i></a></p>
+    </div>
+    <div class="col-lg-3 col-xs-12 links">
+      <h4 class="mt-lg-0 mt-sm-3">Links</h4>
+        <ul class="m-0 p-0">
+          <li>- <a href="/">Home</a></li>
+          <li>- <a href="#">About Us</a></li>
+          <li>- <a href="#">Restaurant</a></li>
+          <li>- <a href="#">Contact</a></li>
+        </ul>
+    </div>
+    <div class="col-lg-4 col-xs-12 location">
+      <h4 class="mt-lg-0 mt-sm-4">Location</h4>
+      <p>Mysuru, Karnataka</p>
+      <p class="mb-0"><i class="fa fa-phone mr-3"></i>(541) 754-3010</p>
+      <p><i class="fa fa-envelope-o mr-3"></i>info@hsdf.com</p>
+    </div>
+  </div>
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>
