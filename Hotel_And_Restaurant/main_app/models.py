@@ -26,7 +26,8 @@ class UserProfile(models.Model):
     phone=models.CharField(max_length=10)
     address=models.CharField(max_length=150)
     aadhar_number=models.CharField(max_length=12)
-    room=models.OneToOneField(Room,on_delete=models.CASCADE)
+    room_number=models.CharField(max_length=3,null=True)
+    room=models.OneToOneField(Room,on_delete=models.CASCADE,null=True,blank=True)
     start_date=models.DateTimeField(default=timezone.now)
     end_date=models.DateField()
     status=models.BooleanField(default=True)
@@ -69,6 +70,7 @@ class Bills(models.Model):
     billing_date_from=models.DateTimeField()
     billing_date_to=models.DateField()
     bill_type=models.CharField(max_length=100)
+    payment_type=models.CharField(max_length=100)
 
 class FoodServices(models.Model):
     service=models.OneToOneField(Services,on_delete=models.CASCADE)

@@ -27,7 +27,7 @@ def roomservice(request):
 		service.save()
 		roomservice_object.save()
 		messages.info(request, 'Your order has been placed! Check in your order history for all the roomservice orders placed.')
-		return render(request,'roomservice_form.html')
+		return redirect('/user/dashboard')
 
 	else:
 		return render(request,'roomservice_form.html')
@@ -65,7 +65,7 @@ def laundry(request):
 		service.save()
 		laundry_object.save()
 		messages.info(request, 'Your order has been placed! Check in your order history for all the Laundry orders placed.')
-		return render(request,'user_laundry_form.html',{'today':now,'tomorrow':tomorrow})
+		return redirect('/user/dashboard')
 	else:
 		now= datetime.now()
 		tomorrow=datetime.now() + timedelta(days=1)
@@ -109,6 +109,24 @@ def extendstay(request):
 		user_obj.save()
 		messages.info(request, 'Your date has been extended!!!')
 		return redirect('/user/extendstay')
+
+
+def changepassword(request):
+	if request.method=='GET':
+		return render(request,'change_password.html')
+	else:
+		oldpassword=request.POST['oldpassword']
+		newpassword=request.POST['newpassword']
+		newpassword_confirm=request.POST['confirmnewpassword']
+		user=request.user
+		if newpassword!=newpassword_confirm:
+			messages.info(request, 'New passwords do not match! Try again')
+			return redirect('/user/changepassword')
+		else:
+			user.set_password(newpassword)
+			user.save()
+			messages.info(request,'Your password has been changed, please relogin')
+			return redirect('/logout')
 
 
 

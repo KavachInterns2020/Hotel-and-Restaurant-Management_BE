@@ -7,5 +7,6 @@ path('roomservice',views.roomservice,name='roomservice'),
 path('laundry',views.laundry,name='laundry'),
 path('transactions',views.transactions,name='transactions'),
 path('extendstay',views.extendstay,name='extendstay'),
+path('changepassword',views.changepassword,name='changepassword'),
 #path('getdelta',views.getdelta,name='getdelta')
 ]

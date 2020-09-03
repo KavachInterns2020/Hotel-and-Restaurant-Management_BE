@@ -129,13 +129,13 @@
 </form>
 </div>
 {% if messages %}
-<div  style="margin-top:50px; margin-bottom: 50px; margin-left: 200px;margin-right: 200px;" class="card">
-  <div class="card-body text-center" style="text-align: center; font-weight: bold;">
-    {% for message in messages %}
-    <p>{{message}}</p><br>
-    {% endfor %}
-  </div>
-</div>
+<script>
+  {% for message in messages %}
+  alert("{{ message }}");
+  
+</script>
+{% endfor %}
+
 {% endif %}
 
 

@@ -121,7 +121,7 @@
       <h6 style="margin-bottom: 5px; margin-left: -10px;">Current Room Service Requests</h6>
     </div>
     <div class="col-sm-2">
-      <button class="btn btn-primary float-right" type="submit" style="margin-bottom: 5px;">View Orders History</button>
+      <a class="btn btn-primary float-right" href="/staff/roomservice/history" style="margin-bottom: 5px;">View Orders History</a>
     </div>
     </div>
 
@@ -152,6 +152,15 @@
   </tbody>
 </table>
 </div>
+{% if messages %}
+<script>
+  {% for message in messages %}
+  alert("{{ message }}");
+  
+</script>
+{% endfor %}
+
+{% endif %}
 
 <!-- footer-->
 <div class="mt-5 pt-5 pb-5 footer">

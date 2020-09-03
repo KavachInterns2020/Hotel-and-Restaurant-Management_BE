@@ -78,7 +78,7 @@ thead, tbody tr {
     </head>
     <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" href="/">
     <img src="{% static 'assets/img/logo/logo1.png' %}" width="104" height="24" class="d-inline-block align-top" alt="">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -110,12 +110,12 @@ thead, tbody tr {
     <div class="row row-offcanvas row-offcanvas-left">
         <div class="col-md-3 col-lg-2 sidebar-offcanvas bg-light pl-0" id="sidebar" role="navigation">
             <ul class="nav flex-column sticky-top pl-0 pt-5 mt-3">
-                <li class="nav-item"><a class="nav-link" href="#">Add Employee</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">View Hotel Customers</a> </li>
+                <li class="nav-item"><a class="nav-link" href="/staff/add">Add Employee</a></li>
+                <li class="nav-item"><a class="nav-link" href="/staff/owner/viewhotelcustomers">View Hotel Customers</a> </li>
                 <li class="nav-item"><a class="nav-link" href="#">View Restaurant Customers</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">View Employees</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Manage Menu</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">View Hotel Bills</a></li>
+                <li class="nav-item"><a class="nav-link" href="/staff/owner/viewemployees">View Employees</a></li>
+                <li class="nav-item"><a class="nav-link" href="/staff/managemenu">Manage Menu</a></li>
+                <li class="nav-item"><a class="nav-link" href="/staff/owner/hotelbills">View Hotel Bills</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">View Restaurant Bills</a></li>
             </ul>
         </div>
@@ -129,7 +129,7 @@ thead, tbody tr {
                 <div class="col-xl-3 col-sm-6 py-2">
                     <div class="card bg-success text-white h-100">
                       <div class="card-header">
-                        <h6>Today's Hotel Customers</h6>
+                        <h6>Today's Restaurant Customers</h6>
                       </div>
                         <div class="card-body bg-success">
                           <i class="fa fa-user fa-4x"></i>
@@ -140,18 +140,18 @@ thead, tbody tr {
                 <div class="col-xl-3 col-sm-6 py-2">
                     <div class="card text-white bg-danger h-100">
                       <div class="card-header">
-                        <h6>Today's Restaurant Customers</h6>
+                        <h6>Today's Hotel Customers</h6>
                       </div>
                         <div class="card-body bg-danger">
                                 <i class="fa fa-user fa-4x"></i>
-                      <h1 style="display:inline-block;" class="display-4">178</h1>
+                      <h1 style="display:inline-block;" class="display-4">{{hotel_customers}}</h1>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-sm-6 py-2">
                     <div class="card text-white bg-info h-100">
                       <div class="card-header">
-                      <h6>Today's Hotel Earning</h6>
+                      <h6>Today's Restaurant Earning</h6>
                     </div>
                         <div class="card-body bg-info">
                               <i class="fa fa-rupee fa-4x"></i>
@@ -162,11 +162,11 @@ thead, tbody tr {
                 <div class="col-xl-3 col-sm-6 py-2">
                     <div class="card text-white bg-warning h-100">
                       <div class="card-header">
-                      <h6>Today's Restaurant Earning</h6>
+                      <h6>Today's Hotel Earning</h6>
                     </div>
                         <div class="card-body">
                                 <i class="fa fa-rupee fa-4x"></i>
-                            <h1 style="display:inline-block;" class="display-4">67684</h1>
+                            <h1 style="display:inline-block;" class="display-5">{{total_amount}}</h1>
                         </div>
                     </div>
                 </div>
@@ -187,76 +187,17 @@ thead, tbody tr {
         </tr>
       </thead>
       <tbody>
+        {% for customer in customers %}
+        {% if customer.userprofile.status %}
         <tr>
-          <th scope="row">101</th>
-          <td>Classic Single Bed</td>
-          <td>Mayur Hebbar</td>
-          <td>27-08-2020</td>
-          <td>29-08-2020</td>
+          <td>{{customer.userprofile.room.room_number}}</td>
+          <td>{{customer.userprofile.room.room_type}}</td>
+          <td>{{customer.first_name}} {{customer.last_name}}</td>
+          <td>{{customer.userprofile.start_date}}</td>
+          <td>{{customer.userprofile.end_date}}</td>
         </tr>
-        <tr>
-          <th scope="row">102</th>
-          <td>Classic Double Bed</td>
-          <td>Rohit Shetty</td>
-          <td>27-08-2020</td>
-          <td>29-08-2020</td>
-        </tr>
-        <tr>
-          <th scope="row">103</th>
-          <td>Deluxe Double Bed</td>
-          <td>Rohan Garg</td>
-          <td>27-08-2020</td>
-          <td>29-08-2020</td>
-        </tr>
-        <tr>
-          <th scope="row">101</th>
-          <td>Classic Single Bed</td>
-          <td>Mayur Hebbar</td>
-          <td>27-08-2020</td>
-          <td>29-08-2020</td>
-        </tr>
-        <tr>
-          <th scope="row">101</th>
-          <td>Classic Single Bed</td>
-          <td>Mayur Hebbar</td>
-          <td>27-08-2020</td>
-          <td>29-08-2020</td>
-        </tr>
-        <tr>
-          <th scope="row">101</th>
-          <td>Classic Single Bed</td>
-          <td>Mayur Hebbar</td>
-          <td>27-08-2020</td>
-          <td>29-08-2020</td>
-        </tr>
-        <tr>
-          <th scope="row">101</th>
-          <td>Classic Single Bed</td>
-          <td>Mayur Hebbar</td>
-          <td>27-08-2020</td>
-          <td>29-08-2020</td>
-        </tr>
-        <tr>
-          <th scope="row">101</th>
-          <td>Classic Single Bed</td>
-          <td>Mayur Hebbar</td>
-          <td>27-08-2020</td>
-          <td>29-08-2020</td>
-        </tr>
-        <tr>
-          <th scope="row">101</th>
-          <td>Classic Single Bed</td>
-          <td>Mayur Hebbar</td>
-          <td>27-08-2020</td>
-          <td>29-08-2020</td>
-        </tr>
-        <tr>
-          <th scope="row">101</th>
-          <td>Classic Single Bed</td>
-          <td>Mayur Hebbar</td>
-          <td>27-08-2020</td>
-          <td>29-08-2020</td>
-        </tr>
+        {% endif %}
+        {% endfor %}
       </tbody>
       </table>
       </div>

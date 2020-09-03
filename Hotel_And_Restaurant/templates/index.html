@@ -350,6 +350,15 @@
         </div>
         <!-- Gallery img End-->
     </main>
+    {% if messages %}
+<script>
+  {% for message in messages %}
+  alert("{{ message }}");
+  
+</script>
+{% endfor %}
+
+{% endif %}
    <footer>
        <!-- Footer Start-->
        <div class="footer-area black-bg footer-padding">

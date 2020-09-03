@@ -5,7 +5,7 @@
 -- Dumped from database version 11.8
 -- Dumped by pg_dump version 11.8
 
--- Started on 2020-09-01 20:15:38
+-- Started on 2020-09-03 19:30:54
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -454,7 +454,8 @@ CREATE TABLE public.main_app_bills (
     billing_date_from timestamp with time zone NOT NULL,
     billing_date_to date NOT NULL,
     bill_type character varying(100) NOT NULL,
-    user_id integer NOT NULL
+    user_id integer NOT NULL,
+    payment_type character varying(100) NOT NULL
 );
 
 
@@ -791,7 +792,8 @@ CREATE TABLE public.main_app_userprofile (
     end_date date NOT NULL,
     status boolean NOT NULL,
     user_id integer NOT NULL,
-    room_id integer NOT NULL
+    room_id integer,
+    room_number character varying(3)
 );
 
 
@@ -1068,13 +1070,21 @@ INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES 
 -- Data for Name: auth_user; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (3, 'pbkdf2_sha256$150000$kyaHJ1JPoZ0z$sjcY1mSf5H7vIJYZq3IwSkd6DYqAFNKrpAfJFW8jatE=', '2020-08-31 18:10:51.870412+05:30', false, 'recep1', 'Shreya', 'Verma', 'sverma@gmail.com', false, true, '2020-08-31 15:31:17+05:30');
-INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (2, 'pbkdf2_sha256$150000$JYRDZFnDpxD1$cqMjRL6N5K/sQmCOrv2QbSDxNBwZSxVHtWbREelUQoI=', '2020-08-31 18:13:35.580483+05:30', false, 'chef1', 'Praveen', 'Maharaj', 'pmaharaj@gmail.com', false, true, '2020-08-31 15:30:26+05:30');
-INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (1, 'pbkdf2_sha256$150000$cD8VCIiB6Ghq$bAQLv3KNvMbIFZsaDc68v86jqjPGD6AyHtUnQPdwjdE=', '2020-09-01 10:52:40.785718+05:30', true, 'backend', '', '', '', true, true, '2020-08-31 15:28:51.30134+05:30');
-INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (7, 'pbkdf2_sha256$150000$pYvzI9m1HetG$4bFhNNbPxNphrce653LlWqMT/cdBM7toW8SCsLSSlpw=', '2020-09-01 17:29:33.72027+05:30', false, 'laundry1', 'Naresh', 'Jha', 'njha@gmail.com', false, true, '2020-08-31 17:46:56+05:30');
-INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (5, 'pbkdf2_sha256$150000$BnYvAQa6QDSQ$USsgA40bFmh8QHeQN/l2J+GOJq/BzFYM6yip+WnYo68=', '2020-09-01 17:45:13.782684+05:30', false, 'roomservice1', 'Anuj', 'Kumar', 'anujkumar@gmail.com', false, true, '2020-08-31 15:35:23+05:30');
-INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (6, 'pbkdf2_sha256$150000$yqTJrIK16ibO$75RUC1iqZtjtMYlZsfc3hc89DpYBsOoS2asJBcS81WI=', '2020-09-01 19:34:44.864955+05:30', false, 'mayurhebbar', 'Mayur', 'Hebbar', 'mhebbar@gmail.com', false, true, '2020-08-31 15:36:36+05:30');
-INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (4, 'pbkdf2_sha256$150000$LbTgmjC8b7cA$AcLOblmVP1mnchBazi++hn8ttF/uGeJqCjp4QhBa5pA=', '2020-08-31 18:10:21.697484+05:30', false, 'owner1', 'Roy', 'Birla', 'rbirla@gmail.com', false, true, '2020-08-31 15:33:20+05:30');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (1, 'pbkdf2_sha256$150000$cD8VCIiB6Ghq$bAQLv3KNvMbIFZsaDc68v86jqjPGD6AyHtUnQPdwjdE=', '2020-09-03 12:48:15.512794+05:30', true, 'backend', '', '', '', true, true, '2020-08-31 15:28:51.30134+05:30');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (4, 'pbkdf2_sha256$150000$LbTgmjC8b7cA$AcLOblmVP1mnchBazi++hn8ttF/uGeJqCjp4QhBa5pA=', '2020-09-03 12:50:38.047601+05:30', false, 'owner1', 'Roy', 'Birla', 'rbirla@gmail.com', false, true, '2020-08-31 15:33:20+05:30');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (2, 'pbkdf2_sha256$150000$JYRDZFnDpxD1$cqMjRL6N5K/sQmCOrv2QbSDxNBwZSxVHtWbREelUQoI=', '2020-09-03 18:40:12.670061+05:30', false, 'chef1', 'Praveen', 'Maharaj', 'pmaharaj@gmail.com', false, true, '2020-08-31 15:30:26+05:30');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (8, 'pbkdf2_sha256$150000$daVJoi6CvmKK$inHf9jtfYcygUg1xXrhNR8HFkia/9qf+aiH6xcxJeT0=', NULL, false, 'kkulkarni@gmail.com', 'Kaushik', 'Kulkarni', 'kkulkarni@gmail.com', false, true, '2020-09-02 12:52:08.281353+05:30');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (6, 'pbkdf2_sha256$150000$Ju5kRS5urhXR$HeuNOrrU9dAjnCP5c8ESfPwfhdOGam5O1PlCaNz8uXk=', '2020-09-02 17:16:36.16698+05:30', false, 'mayurhebbar', 'Mayur', 'Hebbar', 'mhebbar@gmail.com', false, true, '2020-08-31 15:36:36+05:30');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (10, 'pbkdf2_sha256$150000$bDLHK1Mpsn3Z$evmZ38brQaFKlqbVPoUy42AuSyXCieAzvmGci4wJc1Q=', NULL, false, 'jcena', 'John', 'Cena', 'jcena@gmail.com', false, true, '2020-09-02 12:56:48.466566+05:30');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (9, 'pbkdf2_sha256$150000$iL4ipr6YT96V$gyPNuzXuMUdU4u3Y0n7n5TPCSsk5jHDjT3NT5q3avhY=', '2020-09-02 12:59:56.34235+05:30', false, 'rahulkp@gmail.com', 'Rahul', 'KP', 'rahulkp@gmail.com', false, true, '2020-09-02 12:53:52.16427+05:30');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (7, 'pbkdf2_sha256$150000$pYvzI9m1HetG$4bFhNNbPxNphrce653LlWqMT/cdBM7toW8SCsLSSlpw=', '2020-09-02 15:14:35.972706+05:30', false, 'laundry1', 'Naresh', 'Jha', 'njha@gmail.com', false, true, '2020-08-31 17:46:56+05:30');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (5, 'pbkdf2_sha256$150000$BnYvAQa6QDSQ$USsgA40bFmh8QHeQN/l2J+GOJq/BzFYM6yip+WnYo68=', '2020-09-02 15:19:36.317942+05:30', false, 'roomservice1', 'Anuj', 'Kumar', 'anujkumar@gmail.com', false, true, '2020-08-31 15:35:23+05:30');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (15, 'pbkdf2_sha256$150000$FTr2Xpv6wABD$GSJrnLnXkFoGzist69ObtO7i6vAGzyLupAdC+oBTYag=', NULL, false, 'mukundacharya154', 'Manas', 'Sharma', 'mukundacharya154@gmail.com', false, true, '2020-09-02 17:47:04.851641+05:30');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (11, 'pbkdf2_sha256$150000$iMlCMMRyNONB$nhoR1vdFpn5L5cTPBX9CbZpG2nyyeeVsUG3+AKGaVbY=', '2020-09-02 15:22:29.019902+05:30', false, 'nitinrao', 'Nitin', 'Rao', 'nitinrao@gmail.com', false, true, '2020-09-02 15:21:22.281309+05:30');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (16, 'pbkdf2_sha256$150000$Dk8C0Iu5aK2C$bXm5D5t1HK3MPvOlOgY50kgppnNj+V8Azr3A381y/YU=', NULL, false, 'mukundacharya1', 'Rahul', 'Dhaka', 'mukundacharya1@gmail.com', false, true, '2020-09-02 18:07:57.816712+05:30');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (12, 'pbkdf2_sha256$150000$3PU4Sb66t4ir$SrgsJqPPbMNEBxeLqa5y30Owl1+hlYScT4CMp0VuzRM=', NULL, false, 'mukuacharya30', 'Mukund', 'Acharya', 'mukuacharya30@gmail.com', false, true, '2020-09-02 16:36:32.390247+05:30');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (3, 'pbkdf2_sha256$150000$kyaHJ1JPoZ0z$sjcY1mSf5H7vIJYZq3IwSkd6DYqAFNKrpAfJFW8jatE=', '2020-09-02 18:25:45.269611+05:30', false, 'recep1', 'Shreya', 'Verma', 'sverma@gmail.com', false, true, '2020-08-31 15:31:17+05:30');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (13, 'pbkdf2_sha256$150000$ao8gXijNLTYq$hgMzYpDB8HOQpb3sZZQEfS63EKWxrszZ7hJJCIGxWF4=', NULL, false, 'mbhat', 'Madhur', 'Bhat', 'mbhat@gmail.com', false, true, '2020-09-02 17:45:57.522558+05:30');
 
 
 --
@@ -1134,6 +1144,35 @@ INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, ac
 INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (33, '2020-09-01 10:12:07.287521+05:30', '1', 'Room object (1)', 2, '[{"changed": {"fields": ["available"]}}]', 7, 1);
 INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (34, '2020-09-01 10:46:15.796508+05:30', '1', 'Services object (1)', 2, '[{"changed": {"fields": ["service_type"]}}]', 16, 1);
 INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (35, '2020-09-01 10:54:05.394531+05:30', '1', 'RoomServices object (1)', 2, '[{"changed": {"fields": ["option"]}}]', 12, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (36, '2020-09-02 11:46:48.081242+05:30', '1', 'Room object (1)', 2, '[]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (37, '2020-09-02 11:46:51.775832+05:30', '7', 'Room object (7)', 2, '[]', 7, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (38, '2020-09-02 17:54:48.715526+05:30', '2', 'UserProfile object (2)', 2, '[{"changed": {"fields": ["room_number"]}}]', 9, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (39, '2020-09-02 17:55:08.384076+05:30', '4', 'UserProfile object (4)', 2, '[{"changed": {"fields": ["room_number"]}}]', 9, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (40, '2020-09-02 17:55:16.684596+05:30', '5', 'UserProfile object (5)', 2, '[{"changed": {"fields": ["room_number"]}}]', 9, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (41, '2020-09-02 17:55:38.295005+05:30', '1', 'UserProfile object (1)', 2, '[{"changed": {"fields": ["room_number"]}}]', 9, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (42, '2020-09-02 17:56:56.222012+05:30', '3', 'UserProfile object (3)', 2, '[{"changed": {"fields": ["room_number"]}}]', 9, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (43, '2020-09-02 17:57:14.714983+05:30', '6', 'UserProfile object (6)', 2, '[{"changed": {"fields": ["room_number"]}}]', 9, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (44, '2020-09-02 20:43:31.971669+05:30', '1', 'MenuItems object (1)', 1, '[{"added": {}}]', 13, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (45, '2020-09-02 20:45:39.67978+05:30', '2', 'MenuItems object (2)', 1, '[{"added": {}}]', 13, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (46, '2020-09-02 20:48:13.897116+05:30', '3', 'MenuItems object (3)', 1, '[{"added": {}}]', 13, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (47, '2020-09-02 20:52:21.369139+05:30', '4', 'MenuItems object (4)', 1, '[{"added": {}}]', 13, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (48, '2020-09-02 20:54:52.042967+05:30', '5', 'MenuItems object (5)', 1, '[{"added": {}}]', 13, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (49, '2020-09-03 10:50:19.959137+05:30', '6', 'MenuItems object (6)', 1, '[{"added": {}}]', 13, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (50, '2020-09-03 10:53:36.627052+05:30', '7', 'MenuItems object (7)', 1, '[{"added": {}}]', 13, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (51, '2020-09-03 10:56:33.99725+05:30', '8', 'MenuItems object (8)', 1, '[{"added": {}}]', 13, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (52, '2020-09-03 10:58:34.901242+05:30', '9', 'MenuItems object (9)', 1, '[{"added": {}}]', 13, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (53, '2020-09-03 11:01:31.504994+05:30', '10', 'MenuItems object (10)', 1, '[{"added": {}}]', 13, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (54, '2020-09-03 11:57:54.117944+05:30', '11', 'MenuItems object (11)', 1, '[{"added": {}}]', 13, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (55, '2020-09-03 11:59:31.409861+05:30', '12', 'MenuItems object (12)', 1, '[{"added": {}}]', 13, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (56, '2020-09-03 12:02:38.546177+05:30', '13', 'MenuItems object (13)', 1, '[{"added": {}}]', 13, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (57, '2020-09-03 12:04:12.714739+05:30', '14', 'MenuItems object (14)', 1, '[{"added": {}}]', 13, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (58, '2020-09-03 12:07:01.809664+05:30', '15', 'MenuItems object (15)', 1, '[{"added": {}}]', 13, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (59, '2020-09-03 12:08:26.140445+05:30', '16', 'MenuItems object (16)', 1, '[{"added": {}}]', 13, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (60, '2020-09-03 12:48:30.335267+05:30', '8', 'MenuItems object (8)', 2, '[{"changed": {"fields": ["food_type"]}}]', 13, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (61, '2020-09-03 12:48:52.413072+05:30', '8', 'MenuItems object (8)', 2, '[{"changed": {"fields": ["food_type"]}}]', 13, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (62, '2020-09-03 16:19:42.349263+05:30', '17', 'MenuItems object (17)', 2, '[{"changed": {"fields": ["menu_type"]}}]', 13, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (63, '2020-09-03 16:29:23.846109+05:30', '17', 'MenuItems object (17)', 3, '', 13, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (64, '2020-09-03 16:45:48.547093+05:30', '19', 'MenuItems object (19)', 3, '', 13, 1);
 
 
 --
@@ -1199,6 +1238,9 @@ INSERT INTO public.django_migrations (id, app, name, applied) VALUES (30, 'main_
 INSERT INTO public.django_migrations (id, app, name, applied) VALUES (31, 'main_app', '0014_auto_20200901_1003', '2020-09-01 10:03:19.42817+05:30');
 INSERT INTO public.django_migrations (id, app, name, applied) VALUES (32, 'main_app', '0015_services_user_room_number', '2020-09-01 16:54:27.265749+05:30');
 INSERT INTO public.django_migrations (id, app, name, applied) VALUES (33, 'main_app', '0016_auto_20200901_1705', '2020-09-01 17:06:03.701809+05:30');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (34, 'main_app', '0017_auto_20200902_1442', '2020-09-02 14:42:20.342471+05:30');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (35, 'main_app', '0018_bills_payment_type', '2020-09-02 14:44:33.623961+05:30');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (36, 'main_app', '0019_userprofile_room_number', '2020-09-02 17:53:01.821946+05:30');
 
 
 --
@@ -1207,11 +1249,11 @@ INSERT INTO public.django_migrations (id, app, name, applied) VALUES (33, 'main_
 -- Data for Name: django_session; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.django_session (session_key, session_data, expire_date) VALUES ('vmddb8yjb5xs8g28m0j1b6m4s3xluy72', 'NGY3MGM3N2QzYmE4ODRiNWYwZjUyZTlhMmI5ZGE2OGY0ODYzM2JhODp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI1ODI2MmIwNjc3M2YwMWQ0ODM2YTY1ZmE0ZjAzNDFhNjUxNWVmNzQ2In0=', '2020-09-17 12:48:15.51671+05:30');
 INSERT INTO public.django_session (session_key, session_data, expire_date) VALUES ('jhoavlofbt4ui29h32285vjnzz6j8frc', 'YjE4YTA1YTY0ODk4YTI4NTQ2MWE2OTkwZjAyODE3ZGJlMDNjNzZiYjp7fQ==', '2020-09-14 16:30:28.68189+05:30');
 INSERT INTO public.django_session (session_key, session_data, expire_date) VALUES ('5qhwkqwqeyuknsra7lg6tnonztax7voo', 'MDIyMDVkNDYxZjIxMTY4NmU4Y2U5MDIzN2NhMGY2OWFmZGM0NTdlMzp7Il9hdXRoX3VzZXJfaWQiOiI2IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIxYjRlZDYwMTFiYTQ4NjU5NTU2ZGY3NTBmNDA0YzdlMjdhNGJkODEyIn0=', '2020-09-14 16:34:38.138294+05:30');
-INSERT INTO public.django_session (session_key, session_data, expire_date) VALUES ('kog8pitq8hbj1jse39o6ej1flfu33zxg', 'MDIyMDVkNDYxZjIxMTY4NmU4Y2U5MDIzN2NhMGY2OWFmZGM0NTdlMzp7Il9hdXRoX3VzZXJfaWQiOiI2IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIxYjRlZDYwMTFiYTQ4NjU5NTU2ZGY3NTBmNDA0YzdlMjdhNGJkODEyIn0=', '2020-09-15 10:06:39.381337+05:30');
+INSERT INTO public.django_session (session_key, session_data, expire_date) VALUES ('s1ykg8zdsezi7dnasoppbkkojxccuut7', 'M2EyZmNhMjQwYzk3OWM3YWE0YjI3NzNlOTcyOGNhM2ZjN2IyMmZhNjp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIwY2E1ZGMyYzE2N2Q4YTFlNWMzM2I5NWRhMGY2MGZiMDM5M2UxMzllIn0=', '2020-09-17 18:40:12.67704+05:30');
 INSERT INTO public.django_session (session_key, session_data, expire_date) VALUES ('obp7hktmfici5cgkoq8tw11smul880tu', 'YjE4YTA1YTY0ODk4YTI4NTQ2MWE2OTkwZjAyODE3ZGJlMDNjNzZiYjp7fQ==', '2020-09-14 17:48:24.988034+05:30');
-INSERT INTO public.django_session (session_key, session_data, expire_date) VALUES ('tizyjtdo7z2ekx5i6rdl58i8d5yzhirm', 'MDIyMDVkNDYxZjIxMTY4NmU4Y2U5MDIzN2NhMGY2OWFmZGM0NTdlMzp7Il9hdXRoX3VzZXJfaWQiOiI2IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIxYjRlZDYwMTFiYTQ4NjU5NTU2ZGY3NTBmNDA0YzdlMjdhNGJkODEyIn0=', '2020-09-15 19:34:44.874049+05:30');
 
 
 --
@@ -1225,6 +1267,8 @@ INSERT INTO public.main_app_adminprofile (id, admin_type, phone, status, user_id
 INSERT INTO public.main_app_adminprofile (id, admin_type, phone, status, user_id) VALUES (3, 'receptionist', '9876541234', true, 3);
 INSERT INTO public.main_app_adminprofile (id, admin_type, phone, status, user_id) VALUES (4, 'roomservice', '9876543210', true, 5);
 INSERT INTO public.main_app_adminprofile (id, admin_type, phone, status, user_id) VALUES (5, 'laundry', '9192939495', true, 7);
+INSERT INTO public.main_app_adminprofile (id, admin_type, phone, status, user_id) VALUES (6, 'laundry', '9080706050', true, 13);
+INSERT INTO public.main_app_adminprofile (id, admin_type, phone, status, user_id) VALUES (7, 'chef', '9898989898', true, 15);
 
 
 --
@@ -1233,6 +1277,8 @@ INSERT INTO public.main_app_adminprofile (id, admin_type, phone, status, user_id
 -- Data for Name: main_app_bills; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.main_app_bills (id, total_amount, billing_date_from, billing_date_to, bill_type, user_id, payment_type) VALUES (1, 45180, '2020-09-02 12:53:52.162277+05:30', '2020-09-20', 'Hotel Accomodation', 9, 'card');
+INSERT INTO public.main_app_bills (id, total_amount, billing_date_from, billing_date_to, bill_type, user_id, payment_type) VALUES (2, 12000, '2020-09-02 18:07:57.814718+05:30', '2020-09-02', 'Hotel Accomodation', 16, 'upi');
 
 
 --
@@ -1261,6 +1307,12 @@ INSERT INTO public.main_app_laundryservice (id, quantity, garment_type, laundry_
 INSERT INTO public.main_app_laundryservice (id, quantity, garment_type, laundry_type, instructions, service_id) VALUES (2, 5, 'shirts', 'iron', 'instr', 10);
 INSERT INTO public.main_app_laundryservice (id, quantity, garment_type, laundry_type, instructions, service_id) VALUES (3, 1, 'others', 'dryclean', '', 11);
 INSERT INTO public.main_app_laundryservice (id, quantity, garment_type, laundry_type, instructions, service_id) VALUES (4, 10, 'shirts', 'dryclean', 'I want neatly ironed.', 12);
+INSERT INTO public.main_app_laundryservice (id, quantity, garment_type, laundry_type, instructions, service_id) VALUES (5, 5, 'shirts', 'iron', 'Do Neatly', 17);
+INSERT INTO public.main_app_laundryservice (id, quantity, garment_type, laundry_type, instructions, service_id) VALUES (6, 4, 'saari', 'iron', 'instruction', 18);
+INSERT INTO public.main_app_laundryservice (id, quantity, garment_type, laundry_type, instructions, service_id) VALUES (7, 5, 'shirts', 'dryclean', '', 20);
+INSERT INTO public.main_app_laundryservice (id, quantity, garment_type, laundry_type, instructions, service_id) VALUES (8, 3, 'saari', 'iron', '', 24);
+INSERT INTO public.main_app_laundryservice (id, quantity, garment_type, laundry_type, instructions, service_id) VALUES (9, 1, 'saari', 'dryclean', 'please be careful!', 27);
+INSERT INTO public.main_app_laundryservice (id, quantity, garment_type, laundry_type, instructions, service_id) VALUES (10, 4, 'saari', 'iron', 'qw', 31);
 
 
 --
@@ -1269,6 +1321,23 @@ INSERT INTO public.main_app_laundryservice (id, quantity, garment_type, laundry_
 -- Data for Name: main_app_menuitems; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (2, 'Filter Coffee', 'Filter coffee is a coffee drink made by mixing frothed and boiled milk with the infusion obtained by percolation brewing of finely ground coffee.', 'pics/filter_coffee.jpg', 25, 'Breakfast', 'Veg', true);
+INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (7, 'Gobi Manchurian', 'Gobi Manchurian has crispy cauliflower florets tossed in a spicy, sweet and tangy manchurian sauce.', 'pics/gobi_manchurian.jpg', 120, 'Starters', 'Veg', true);
+INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (10, 'Tomato Soup', 'Tomato Soup is a classic soup recipe made with fresh ripe tomatoes and fresh herbs blended with a hint of cream.', 'pics/tomato_soup.jpg', 130, 'Starters', 'Veg', true);
+INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (11, 'Veg Manchow Soup', 'Manchow soup is a soup popular in Indian Chinese cuisine due to its easy preparation and hot spicy taste.', 'pics/manchow_soup.jpg', 130, 'Starters', 'Veg', true);
+INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (12, 'Masala Papad', 'Masala Papad is a delicious Indian snack made using roasted or fried papad topped with a tangy and spicy onion tomato mix.', 'pics/masala_papad.jpg', 100, 'Starters', 'Veg', true);
+INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (14, 'Tandoori Roti', 'Tandoori Roti is an Indian bread that was traditionally made in clay ovens or Tandoor.', 'pics/tandoori_roti.jpg', 50, 'Main Course', 'Veg', true);
+INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (8, 'Veg Spring Rolls', 'A spring roll is a Chinese food consisting of a small roll of thin pastry filled with vegetables and sometimes paneer,and then fried.', 'pics/spring_rolls.jpg', 135, 'Starters', 'Veg', true);
+INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (6, 'Fafda Jalebi', 'Fafda jalebi is a match made in heaven and Gujaratis treat themselves with this great combination on Dussehra.', 'pics/jalebi_fafda.jpg', 120, 'Breakfast', 'Veg', true);
+INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (3, 'Masala Dosa', 'Masala Dosa is made from rice, lentils, potato, methi, and curry leaves, and served with chutneys and sambar.', 'pics/masala_dosa.jpg', 85, 'Breakfast', 'Veg', true);
+INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (1, 'Masala Chai', 'Masala Chai is a flavoured tea beverage made by brewing black tea with a mixture of aromatic herb and spices', 'pics/masala_chai.jpg', 25, 'Breakfast', 'Veg', true);
+INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (4, 'Idli-Vada-Sambar', 'Idlis are made by steaming a batter consisting of fermented black lentils (de-husked) and rice.', 'pics/idli.jpeg', 85, 'Breakfast', 'Veg', true);
+INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (9, 'Chilli Paneer', 'Paneer (Indian cottage cheese) is tossed in a flavorful spicy sauce made with soy sauce, chili sauce, vinegar!', 'pics/chili_paneer.jpg', 135, 'Starters', 'Veg', true);
+INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (13, 'Paneer Butter Masala', 'Paneer butter masala is a rich and creamy dish of paneer (cottage cheese) in a tomato, butter and cashew sauce (known as makhani gravy).', 'pics/panneer_butter_masala.jpg', 210, 'Main Course', 'Veg', true);
+INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (5, 'Parantha', 'Parathas are one of the most popular unleavened flatbreads in the Indian Subcontinent, made by baking or cooking whole wheat dough on a tava.', 'pics/parata2.jpg', 125, 'Breakfast', 'Non Veg', true);
+INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (18, 'Mysore Pak', 'Mysore Pak is made of generous amounts of ghee, sugar, gram flour, and often cardamom. The texture of this sweet is similar to a buttery cookie.', 'pics/mysore_pak.jpg', 120, 'Dessert', 'Veg', true);
+INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (16, 'Ras Malai', 'Ras malai is a popular Indian dessert consisting of white cream, sugar, milk, and cardamom-flavored paneer cheese known as chhana.', 'pics/ras_malai.jpg', 150, 'Dessert', 'Veg', true);
+INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (15, 'Gulab Jamun', 'Gulab Jamun are deep-fried dumplings/donuts made of dried milk [khoya] are dipped in a rose-cardamom flavored sugar syrup. 2 per serving.', 'pics/gulab_jamun.jpg', 150, 'Dessert', 'Veg', true);
 
 
 --
@@ -1277,18 +1346,18 @@ INSERT INTO public.main_app_laundryservice (id, quantity, garment_type, laundry_
 -- Data for Name: main_app_room; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (2, '102', 'Classic Double Bed', 2500, true);
 INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (3, '103', 'Deluxe Double Bed', 3000, true);
-INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (4, '104', 'Classic Single Bed', 1500, true);
 INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (5, '105', 'Classic Double Bed', 2500, true);
 INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (6, '106', 'Deluxe Double Bed', 3000, true);
-INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (7, '201', 'Classic Single Bed', 1500, true);
-INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (8, '202', 'Classic Double Bed', 2500, true);
-INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (9, '203', 'Deluxe Double Bed', 3000, true);
 INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (10, '204', 'Classic Single Bed', 1500, true);
 INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (11, '205', 'Classic Double Bed', 2500, true);
-INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (12, '206', 'Deluxe Double Bed', 3000, true);
 INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (1, '101', 'Classic Single Bed', 1500, false);
+INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (7, '201', 'Classic Single Bed', 1500, true);
+INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (4, '104', 'Classic Single Bed', 1500, false);
+INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (12, '206', 'Deluxe Double Bed', 3000, false);
+INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (2, '102', 'Classic Double Bed', 2500, false);
+INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (8, '202', 'Classic Double Bed', 2500, false);
+INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (9, '203', 'Deluxe Double Bed', 3000, true);
 
 
 --
@@ -1306,6 +1375,11 @@ INSERT INTO public.main_app_roomservices (id, option, message, service_id) VALUE
 INSERT INTO public.main_app_roomservices (id, option, message, service_id) VALUES (7, 'cleaning', 'clean test', 7);
 INSERT INTO public.main_app_roomservices (id, option, message, service_id) VALUES (8, 'maintenance', 'main test', 8);
 INSERT INTO public.main_app_roomservices (id, option, message, service_id) VALUES (9, 'cleaning', 'Cleaning at 6.30pm today.', 13);
+INSERT INTO public.main_app_roomservices (id, option, message, service_id) VALUES (10, 'housekeeping', 'Come quickly', 19);
+INSERT INTO public.main_app_roomservices (id, option, message, service_id) VALUES (11, 'cleaning', 'help!!!', 26);
+INSERT INTO public.main_app_roomservices (id, option, message, service_id) VALUES (12, 'maintenance', 'maintenence', 28);
+INSERT INTO public.main_app_roomservices (id, option, message, service_id) VALUES (13, 'cleaning', '', 29);
+INSERT INTO public.main_app_roomservices (id, option, message, service_id) VALUES (14, 'cleaning', 'qw', 30);
 
 
 --
@@ -1314,15 +1388,11 @@ INSERT INTO public.main_app_roomservices (id, option, message, service_id) VALUE
 -- Data for Name: main_app_services; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (2, 0, 'roomservice', '2020-09-01 10:52:13.720875+05:30', 6, '101', true);
 INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (3, 0, 'roomservice', '2020-09-01 11:58:46.912704+05:30', 6, '101', true);
-INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (4, 0, 'roomservice', '2020-09-01 12:02:01.472796+05:30', 6, '101', true);
 INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (5, 0, 'roomservice', '2020-09-01 12:07:07.099548+05:30', 6, '101', true);
 INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (6, 0, 'roomservice', '2020-09-01 12:11:35.256152+05:30', 6, '101', true);
-INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (7, 0, 'roomservice', '2020-09-01 12:12:58.951059+05:30', 6, '101', true);
 INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (8, 0, 'roomservice', '2020-09-01 12:15:32.401857+05:30', 6, '101', true);
 INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (9, 240, 'laundry', '2020-09-01 13:55:13.167403+05:30', 6, '101', true);
-INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (10, 300, 'laundry', '2020-09-01 14:11:06.901169+05:30', 6, '101', true);
 INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (12, 1000, 'laundry', '2020-09-01 15:05:45.846574+05:30', 6, '101', true);
 INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (1, 0, 'roomservice', '2020-09-01 10:43:58+05:30', 6, '101', false);
 INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (13, 0, 'roomservice', '2020-09-01 16:57:54.563435+05:30', 6, '101', false);
@@ -1330,6 +1400,27 @@ INSERT INTO public.main_app_services (id, amount, service_type, order_date, user
 INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (14, 3000, 'date extension', '2020-09-01 20:01:32.77436+05:30', 6, '101', false);
 INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (15, 1500, 'date extension', '2020-09-01 20:04:34.653713+05:30', 6, '101', false);
 INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (16, 9000, 'date extension', '2020-09-01 20:08:18.725615+05:30', 6, '101', false);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (4, 0, 'roomservice', '2020-09-01 12:02:01.472796+05:30', 6, '101', false);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (2, 0, 'roomservice', '2020-09-01 10:52:13.720875+05:30', 6, '101', false);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (7, 0, 'roomservice', '2020-09-01 12:12:58.951059+05:30', 6, '101', false);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (10, 300, 'laundry', '2020-09-01 14:11:06.901169+05:30', 6, '101', false);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (17, 300, 'laundry', '2020-09-01 23:37:12.95967+05:30', 6, '101', false);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (18, 240, 'laundry', '2020-09-01 23:40:01.60608+05:30', 6, '101', true);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (19, 0, 'roomservice', '2020-09-01 23:40:41.318984+05:30', 6, '101', true);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (20, 500, 'laundry', '2020-09-02 10:46:05.118455+05:30', 6, '101', true);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (21, 13500, 'Checkin Fees', '2020-09-02 12:52:08.278362+05:30', 8, '104', true);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (23, 36000, 'Checkin Fees', '2020-09-02 12:56:48.46161+05:30', 10, '206', true);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (22, 45000, 'Checkin Fees', '2020-09-02 12:53:52.162277+05:30', 9, '102', false);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (24, 180, 'laundry', '2020-09-02 13:00:24.115582+05:30', 9, '102', false);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (25, 5000, 'Checkin Fees', '2020-09-02 15:21:22.276365+05:30', 11, '102', true);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (26, 0, 'roomservice', '2020-09-02 15:22:53.01395+05:30', 11, '102', true);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (27, 100, 'laundry', '2020-09-02 15:23:26.292348+05:30', 11, '102', true);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (28, 0, 'roomservice', '2020-09-02 15:39:10.66763+05:30', 6, '101', true);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (29, 0, 'roomservice', '2020-09-02 15:39:53.350622+05:30', 6, '101', true);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (30, 0, 'roomservice', '2020-09-02 16:17:35.137541+05:30', 6, '101', true);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (31, 240, 'laundry', '2020-09-02 16:18:04.28932+05:30', 6, '101', true);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (32, 5000, 'Checkin Fees', '2020-09-02 16:36:32.387231+05:30', 12, '202', true);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (33, 12000, 'Checkin Fees', '2020-09-02 18:07:57.814718+05:30', 16, '203', false);
 
 
 --
@@ -1338,7 +1429,13 @@ INSERT INTO public.main_app_services (id, amount, service_type, order_date, user
 -- Data for Name: main_app_userprofile; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.main_app_userprofile (id, phone, address, aadhar_number, start_date, end_date, status, user_id, room_id) VALUES (1, '9898989898', 'F102, near NIE College, Mysuru', '123456789012', '2020-08-31 15:42:34+05:30', '2020-09-17', true, 6, 1);
+INSERT INTO public.main_app_userprofile (id, phone, address, aadhar_number, start_date, end_date, status, user_id, room_id, room_number) VALUES (2, '9876543210', 'karnataka', '123456781234', '2020-09-02 12:52:08+05:30', '2020-09-11', true, 8, 4, '104');
+INSERT INTO public.main_app_userprofile (id, phone, address, aadhar_number, start_date, end_date, status, user_id, room_id, room_number) VALUES (4, '9765432198', 'USA', '543210983471', '2020-09-02 12:56:48+05:30', '2020-09-14', true, 10, 12, '206');
+INSERT INTO public.main_app_userprofile (id, phone, address, aadhar_number, start_date, end_date, status, user_id, room_id, room_number) VALUES (5, '9876567800', 'mumbai, Maharashtra', '122333444455', '2020-09-02 15:21:22+05:30', '2020-09-04', true, 11, 2, '102');
+INSERT INTO public.main_app_userprofile (id, phone, address, aadhar_number, start_date, end_date, status, user_id, room_id, room_number) VALUES (1, '9898989898', 'F102, near NIE College, Mysuru', '123456789012', '2020-08-31 15:42:34+05:30', '2020-09-17', true, 6, 1, '101');
+INSERT INTO public.main_app_userprofile (id, phone, address, aadhar_number, start_date, end_date, status, user_id, room_id, room_number) VALUES (3, '9886712113', 'Mysuru, Karnataka', '543210983471', '2020-09-02 12:53:52+05:30', '2020-09-20', false, 9, NULL, '102');
+INSERT INTO public.main_app_userprofile (id, phone, address, aadhar_number, start_date, end_date, status, user_id, room_id, room_number) VALUES (6, '9887857553', 'Hyderabad', '112233445566', '2020-09-02 16:36:32+05:30', '2020-09-04', true, 12, 8, '202');
+INSERT INTO public.main_app_userprofile (id, phone, address, aadhar_number, start_date, end_date, status, user_id, room_id, room_number) VALUES (7, '9887766551', 'Hyderabad', '543210983471', '2020-09-02 18:07:57.814718+05:30', '2020-09-02', false, 16, NULL, '203');
 
 
 --
@@ -1383,7 +1480,7 @@ SELECT pg_catalog.setval('public.auth_user_groups_id_seq', 1, false);
 -- Name: auth_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.auth_user_id_seq', 7, true);
+SELECT pg_catalog.setval('public.auth_user_id_seq', 16, true);
 
 
 --
@@ -1401,7 +1498,7 @@ SELECT pg_catalog.setval('public.auth_user_user_permissions_id_seq', 1, false);
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.django_admin_log_id_seq', 35, true);
+SELECT pg_catalog.setval('public.django_admin_log_id_seq', 64, true);
 
 
 --
@@ -1419,7 +1516,7 @@ SELECT pg_catalog.setval('public.django_content_type_id_seq', 16, true);
 -- Name: django_migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.django_migrations_id_seq', 33, true);
+SELECT pg_catalog.setval('public.django_migrations_id_seq', 36, true);
 
 
 --
@@ -1428,7 +1525,7 @@ SELECT pg_catalog.setval('public.django_migrations_id_seq', 33, true);
 -- Name: main_app_adminprofile_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.main_app_adminprofile_id_seq', 5, true);
+SELECT pg_catalog.setval('public.main_app_adminprofile_id_seq', 7, true);
 
 
 --
@@ -1437,7 +1534,7 @@ SELECT pg_catalog.setval('public.main_app_adminprofile_id_seq', 5, true);
 -- Name: main_app_bills_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.main_app_bills_id_seq', 1, false);
+SELECT pg_catalog.setval('public.main_app_bills_id_seq', 2, true);
 
 
 --
@@ -1464,7 +1561,7 @@ SELECT pg_catalog.setval('public.main_app_guestprofile_id_seq', 1, false);
 -- Name: main_app_laundryservice_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.main_app_laundryservice_id_seq', 4, true);
+SELECT pg_catalog.setval('public.main_app_laundryservice_id_seq', 10, true);
 
 
 --
@@ -1473,7 +1570,7 @@ SELECT pg_catalog.setval('public.main_app_laundryservice_id_seq', 4, true);
 -- Name: main_app_menuitems_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.main_app_menuitems_id_seq', 1, false);
+SELECT pg_catalog.setval('public.main_app_menuitems_id_seq', 20, true);
 
 
 --
@@ -1491,7 +1588,7 @@ SELECT pg_catalog.setval('public.main_app_room_id_seq', 12, true);
 -- Name: main_app_roomservices_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.main_app_roomservices_id_seq', 9, true);
+SELECT pg_catalog.setval('public.main_app_roomservices_id_seq', 14, true);
 
 
 --
@@ -1500,7 +1597,7 @@ SELECT pg_catalog.setval('public.main_app_roomservices_id_seq', 9, true);
 -- Name: main_app_services_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.main_app_services_id_seq', 16, true);
+SELECT pg_catalog.setval('public.main_app_services_id_seq', 33, true);
 
 
 --
@@ -1509,7 +1606,7 @@ SELECT pg_catalog.setval('public.main_app_services_id_seq', 16, true);
 -- Name: main_app_userprofile_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.main_app_userprofile_id_seq', 1, true);
+SELECT pg_catalog.setval('public.main_app_userprofile_id_seq', 7, true);
 
 
 --
@@ -2101,7 +2198,7 @@ ALTER TABLE ONLY public.main_app_services
 
 
 --
--- TOC entry 2916 (class 2606 OID 18126)
+-- TOC entry 2916 (class 2606 OID 18133)
 -- Name: main_app_userprofile main_app_userprofile_room_id_3c501e78_fk_main_app_room_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2118,7 +2215,7 @@ ALTER TABLE ONLY public.main_app_userprofile
     ADD CONSTRAINT main_app_userprofile_user_id_131f3a5f_fk_auth_user_id FOREIGN KEY (user_id) REFERENCES public.auth_user(id) DEFERRABLE INITIALLY DEFERRED;
 
 
--- Completed on 2020-09-01 20:15:39
+-- Completed on 2020-09-03 19:30:56
 
 --
 -- PostgreSQL database dump complete

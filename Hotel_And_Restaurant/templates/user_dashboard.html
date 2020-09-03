@@ -120,10 +120,19 @@
   <a style=" margin-left:30px;margin-right:30px; margin-top: 5px;margin-bottom: 5px;" class="btn btn-outline-primary custom" href="#" role="button">Order Food</a>
   <a style=" margin-left:30px;margin-right:30px; margin-top: 5px;margin-bottom: 5px;" class="btn btn-outline-primary custom" href="/user/roomservice" role="button">Order Room Service</a>
   <a style=" margin-left:30px;margin-right:30px; margin-top: 5px;margin-bottom: 5px;" class="btn btn-outline-primary custom" href="/user/laundry" role="button">Order Laundry Service</a>
-  <a style=" margin-left:30px;margin-right:30px; margin-top: 5px;margin-bottom: 5px;" class="btn btn-outline-danger custom" href="#" role="button">Checkout</a>
+  <a style=" margin-left:30px;margin-right:30px; margin-top: 5px;margin-bottom: 5px;" class="btn btn-outline-danger custom" href="/user/changepassword" role="button">Change Password</a>
 </div>
   </div>
 </div>
+{% if messages %}
+<script>
+  {% for message in messages %}
+  alert("{{ message }}");
+  
+</script>
+{% endfor %}
+
+{% endif %}
 
 
 
