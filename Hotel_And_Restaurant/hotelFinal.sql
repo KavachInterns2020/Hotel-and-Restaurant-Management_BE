@@ -5,7 +5,7 @@
 -- Dumped from database version 11.8
 -- Dumped by pg_dump version 11.8
 
--- Started on 2020-09-03 19:30:54
+-- Started on 2020-09-07 14:30:05
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -23,7 +23,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- TOC entry 203 (class 1259 OID 17666)
+-- TOC entry 196 (class 1259 OID 18140)
 -- Name: auth_group; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -36,7 +36,7 @@ CREATE TABLE public.auth_group (
 ALTER TABLE public.auth_group OWNER TO postgres;
 
 --
--- TOC entry 202 (class 1259 OID 17664)
+-- TOC entry 197 (class 1259 OID 18143)
 -- Name: auth_group_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -52,8 +52,8 @@ CREATE SEQUENCE public.auth_group_id_seq
 ALTER TABLE public.auth_group_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3090 (class 0 OID 0)
--- Dependencies: 202
+-- TOC entry 3113 (class 0 OID 0)
+-- Dependencies: 197
 -- Name: auth_group_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -61,7 +61,7 @@ ALTER SEQUENCE public.auth_group_id_seq OWNED BY public.auth_group.id;
 
 
 --
--- TOC entry 205 (class 1259 OID 17676)
+-- TOC entry 198 (class 1259 OID 18145)
 -- Name: auth_group_permissions; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -75,7 +75,7 @@ CREATE TABLE public.auth_group_permissions (
 ALTER TABLE public.auth_group_permissions OWNER TO postgres;
 
 --
--- TOC entry 204 (class 1259 OID 17674)
+-- TOC entry 199 (class 1259 OID 18148)
 -- Name: auth_group_permissions_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -91,8 +91,8 @@ CREATE SEQUENCE public.auth_group_permissions_id_seq
 ALTER TABLE public.auth_group_permissions_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3091 (class 0 OID 0)
--- Dependencies: 204
+-- TOC entry 3114 (class 0 OID 0)
+-- Dependencies: 199
 -- Name: auth_group_permissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -100,7 +100,7 @@ ALTER SEQUENCE public.auth_group_permissions_id_seq OWNED BY public.auth_group_p
 
 
 --
--- TOC entry 201 (class 1259 OID 17658)
+-- TOC entry 200 (class 1259 OID 18150)
 -- Name: auth_permission; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -115,7 +115,7 @@ CREATE TABLE public.auth_permission (
 ALTER TABLE public.auth_permission OWNER TO postgres;
 
 --
--- TOC entry 200 (class 1259 OID 17656)
+-- TOC entry 201 (class 1259 OID 18153)
 -- Name: auth_permission_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -131,8 +131,8 @@ CREATE SEQUENCE public.auth_permission_id_seq
 ALTER TABLE public.auth_permission_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3092 (class 0 OID 0)
--- Dependencies: 200
+-- TOC entry 3115 (class 0 OID 0)
+-- Dependencies: 201
 -- Name: auth_permission_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -140,7 +140,7 @@ ALTER SEQUENCE public.auth_permission_id_seq OWNED BY public.auth_permission.id;
 
 
 --
--- TOC entry 207 (class 1259 OID 17684)
+-- TOC entry 202 (class 1259 OID 18155)
 -- Name: auth_user; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -162,7 +162,7 @@ CREATE TABLE public.auth_user (
 ALTER TABLE public.auth_user OWNER TO postgres;
 
 --
--- TOC entry 209 (class 1259 OID 17694)
+-- TOC entry 203 (class 1259 OID 18161)
 -- Name: auth_user_groups; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -176,7 +176,7 @@ CREATE TABLE public.auth_user_groups (
 ALTER TABLE public.auth_user_groups OWNER TO postgres;
 
 --
--- TOC entry 208 (class 1259 OID 17692)
+-- TOC entry 204 (class 1259 OID 18164)
 -- Name: auth_user_groups_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -192,8 +192,8 @@ CREATE SEQUENCE public.auth_user_groups_id_seq
 ALTER TABLE public.auth_user_groups_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3093 (class 0 OID 0)
--- Dependencies: 208
+-- TOC entry 3116 (class 0 OID 0)
+-- Dependencies: 204
 -- Name: auth_user_groups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -201,7 +201,7 @@ ALTER SEQUENCE public.auth_user_groups_id_seq OWNED BY public.auth_user_groups.i
 
 
 --
--- TOC entry 206 (class 1259 OID 17682)
+-- TOC entry 205 (class 1259 OID 18166)
 -- Name: auth_user_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -217,8 +217,8 @@ CREATE SEQUENCE public.auth_user_id_seq
 ALTER TABLE public.auth_user_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3094 (class 0 OID 0)
--- Dependencies: 206
+-- TOC entry 3117 (class 0 OID 0)
+-- Dependencies: 205
 -- Name: auth_user_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -226,7 +226,7 @@ ALTER SEQUENCE public.auth_user_id_seq OWNED BY public.auth_user.id;
 
 
 --
--- TOC entry 211 (class 1259 OID 17702)
+-- TOC entry 206 (class 1259 OID 18168)
 -- Name: auth_user_user_permissions; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -240,7 +240,7 @@ CREATE TABLE public.auth_user_user_permissions (
 ALTER TABLE public.auth_user_user_permissions OWNER TO postgres;
 
 --
--- TOC entry 210 (class 1259 OID 17700)
+-- TOC entry 207 (class 1259 OID 18171)
 -- Name: auth_user_user_permissions_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -256,8 +256,8 @@ CREATE SEQUENCE public.auth_user_user_permissions_id_seq
 ALTER TABLE public.auth_user_user_permissions_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3095 (class 0 OID 0)
--- Dependencies: 210
+-- TOC entry 3118 (class 0 OID 0)
+-- Dependencies: 207
 -- Name: auth_user_user_permissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -265,7 +265,7 @@ ALTER SEQUENCE public.auth_user_user_permissions_id_seq OWNED BY public.auth_use
 
 
 --
--- TOC entry 213 (class 1259 OID 17762)
+-- TOC entry 208 (class 1259 OID 18173)
 -- Name: django_admin_log; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -285,7 +285,7 @@ CREATE TABLE public.django_admin_log (
 ALTER TABLE public.django_admin_log OWNER TO postgres;
 
 --
--- TOC entry 212 (class 1259 OID 17760)
+-- TOC entry 209 (class 1259 OID 18180)
 -- Name: django_admin_log_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -301,8 +301,8 @@ CREATE SEQUENCE public.django_admin_log_id_seq
 ALTER TABLE public.django_admin_log_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3096 (class 0 OID 0)
--- Dependencies: 212
+-- TOC entry 3119 (class 0 OID 0)
+-- Dependencies: 209
 -- Name: django_admin_log_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -310,7 +310,7 @@ ALTER SEQUENCE public.django_admin_log_id_seq OWNED BY public.django_admin_log.i
 
 
 --
--- TOC entry 199 (class 1259 OID 17648)
+-- TOC entry 210 (class 1259 OID 18182)
 -- Name: django_content_type; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -324,7 +324,7 @@ CREATE TABLE public.django_content_type (
 ALTER TABLE public.django_content_type OWNER TO postgres;
 
 --
--- TOC entry 198 (class 1259 OID 17646)
+-- TOC entry 211 (class 1259 OID 18185)
 -- Name: django_content_type_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -340,8 +340,8 @@ CREATE SEQUENCE public.django_content_type_id_seq
 ALTER TABLE public.django_content_type_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3097 (class 0 OID 0)
--- Dependencies: 198
+-- TOC entry 3120 (class 0 OID 0)
+-- Dependencies: 211
 -- Name: django_content_type_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -349,7 +349,7 @@ ALTER SEQUENCE public.django_content_type_id_seq OWNED BY public.django_content_
 
 
 --
--- TOC entry 197 (class 1259 OID 17637)
+-- TOC entry 212 (class 1259 OID 18187)
 -- Name: django_migrations; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -364,7 +364,7 @@ CREATE TABLE public.django_migrations (
 ALTER TABLE public.django_migrations OWNER TO postgres;
 
 --
--- TOC entry 196 (class 1259 OID 17635)
+-- TOC entry 213 (class 1259 OID 18193)
 -- Name: django_migrations_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -380,8 +380,8 @@ CREATE SEQUENCE public.django_migrations_id_seq
 ALTER TABLE public.django_migrations_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3098 (class 0 OID 0)
--- Dependencies: 196
+-- TOC entry 3121 (class 0 OID 0)
+-- Dependencies: 213
 -- Name: django_migrations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -389,7 +389,7 @@ ALTER SEQUENCE public.django_migrations_id_seq OWNED BY public.django_migrations
 
 
 --
--- TOC entry 214 (class 1259 OID 17967)
+-- TOC entry 214 (class 1259 OID 18195)
 -- Name: django_session; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -403,7 +403,7 @@ CREATE TABLE public.django_session (
 ALTER TABLE public.django_session OWNER TO postgres;
 
 --
--- TOC entry 234 (class 1259 OID 18064)
+-- TOC entry 215 (class 1259 OID 18201)
 -- Name: main_app_adminprofile; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -419,7 +419,7 @@ CREATE TABLE public.main_app_adminprofile (
 ALTER TABLE public.main_app_adminprofile OWNER TO postgres;
 
 --
--- TOC entry 233 (class 1259 OID 18062)
+-- TOC entry 216 (class 1259 OID 18204)
 -- Name: main_app_adminprofile_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -435,8 +435,8 @@ CREATE SEQUENCE public.main_app_adminprofile_id_seq
 ALTER TABLE public.main_app_adminprofile_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3099 (class 0 OID 0)
--- Dependencies: 233
+-- TOC entry 3122 (class 0 OID 0)
+-- Dependencies: 216
 -- Name: main_app_adminprofile_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -444,7 +444,7 @@ ALTER SEQUENCE public.main_app_adminprofile_id_seq OWNED BY public.main_app_admi
 
 
 --
--- TOC entry 232 (class 1259 OID 18054)
+-- TOC entry 217 (class 1259 OID 18206)
 -- Name: main_app_bills; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -462,7 +462,7 @@ CREATE TABLE public.main_app_bills (
 ALTER TABLE public.main_app_bills OWNER TO postgres;
 
 --
--- TOC entry 231 (class 1259 OID 18052)
+-- TOC entry 218 (class 1259 OID 18209)
 -- Name: main_app_bills_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -478,8 +478,8 @@ CREATE SEQUENCE public.main_app_bills_id_seq
 ALTER TABLE public.main_app_bills_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3100 (class 0 OID 0)
--- Dependencies: 231
+-- TOC entry 3123 (class 0 OID 0)
+-- Dependencies: 218
 -- Name: main_app_bills_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -487,23 +487,24 @@ ALTER SEQUENCE public.main_app_bills_id_seq OWNED BY public.main_app_bills.id;
 
 
 --
--- TOC entry 230 (class 1259 OID 18044)
+-- TOC entry 219 (class 1259 OID 18211)
 -- Name: main_app_foodservices; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.main_app_foodservices (
     id integer NOT NULL,
     quantity integer NOT NULL,
-    message character varying(100) NOT NULL,
-    menu_item_id integer NOT NULL,
-    service_id integer NOT NULL
+    menu_item character varying(100) NOT NULL,
+    service_id integer NOT NULL,
+    status boolean NOT NULL,
+    "where" character varying(3) NOT NULL
 );
 
 
 ALTER TABLE public.main_app_foodservices OWNER TO postgres;
 
 --
--- TOC entry 229 (class 1259 OID 18042)
+-- TOC entry 220 (class 1259 OID 18214)
 -- Name: main_app_foodservices_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -519,8 +520,8 @@ CREATE SEQUENCE public.main_app_foodservices_id_seq
 ALTER TABLE public.main_app_foodservices_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3101 (class 0 OID 0)
--- Dependencies: 229
+-- TOC entry 3124 (class 0 OID 0)
+-- Dependencies: 220
 -- Name: main_app_foodservices_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -528,7 +529,7 @@ ALTER SEQUENCE public.main_app_foodservices_id_seq OWNED BY public.main_app_food
 
 
 --
--- TOC entry 228 (class 1259 OID 18034)
+-- TOC entry 221 (class 1259 OID 18216)
 -- Name: main_app_guestprofile; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -537,14 +538,16 @@ CREATE TABLE public.main_app_guestprofile (
     table_number character varying(3) NOT NULL,
     phone character varying(10) NOT NULL,
     date timestamp with time zone NOT NULL,
-    user_id integer NOT NULL
+    user_id integer NOT NULL,
+    status boolean NOT NULL,
+    table_id integer
 );
 
 
 ALTER TABLE public.main_app_guestprofile OWNER TO postgres;
 
 --
--- TOC entry 227 (class 1259 OID 18032)
+-- TOC entry 222 (class 1259 OID 18219)
 -- Name: main_app_guestprofile_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -560,8 +563,8 @@ CREATE SEQUENCE public.main_app_guestprofile_id_seq
 ALTER TABLE public.main_app_guestprofile_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3102 (class 0 OID 0)
--- Dependencies: 227
+-- TOC entry 3125 (class 0 OID 0)
+-- Dependencies: 222
 -- Name: main_app_guestprofile_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -569,7 +572,7 @@ ALTER SEQUENCE public.main_app_guestprofile_id_seq OWNED BY public.main_app_gues
 
 
 --
--- TOC entry 226 (class 1259 OID 18024)
+-- TOC entry 223 (class 1259 OID 18221)
 -- Name: main_app_laundryservice; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -586,7 +589,7 @@ CREATE TABLE public.main_app_laundryservice (
 ALTER TABLE public.main_app_laundryservice OWNER TO postgres;
 
 --
--- TOC entry 225 (class 1259 OID 18022)
+-- TOC entry 224 (class 1259 OID 18224)
 -- Name: main_app_laundryservice_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -602,8 +605,8 @@ CREATE SEQUENCE public.main_app_laundryservice_id_seq
 ALTER TABLE public.main_app_laundryservice_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3103 (class 0 OID 0)
--- Dependencies: 225
+-- TOC entry 3126 (class 0 OID 0)
+-- Dependencies: 224
 -- Name: main_app_laundryservice_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -611,7 +614,7 @@ ALTER SEQUENCE public.main_app_laundryservice_id_seq OWNED BY public.main_app_la
 
 
 --
--- TOC entry 216 (class 1259 OID 17980)
+-- TOC entry 225 (class 1259 OID 18226)
 -- Name: main_app_menuitems; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -630,7 +633,7 @@ CREATE TABLE public.main_app_menuitems (
 ALTER TABLE public.main_app_menuitems OWNER TO postgres;
 
 --
--- TOC entry 215 (class 1259 OID 17978)
+-- TOC entry 226 (class 1259 OID 18229)
 -- Name: main_app_menuitems_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -646,8 +649,8 @@ CREATE SEQUENCE public.main_app_menuitems_id_seq
 ALTER TABLE public.main_app_menuitems_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3104 (class 0 OID 0)
--- Dependencies: 215
+-- TOC entry 3127 (class 0 OID 0)
+-- Dependencies: 226
 -- Name: main_app_menuitems_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -655,7 +658,51 @@ ALTER SEQUENCE public.main_app_menuitems_id_seq OWNED BY public.main_app_menuite
 
 
 --
--- TOC entry 218 (class 1259 OID 17988)
+-- TOC entry 238 (class 1259 OID 18467)
+-- Name: main_app_restaurantorders; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.main_app_restaurantorders (
+    id integer NOT NULL,
+    table_number character varying(3) NOT NULL,
+    menu_item character varying(100) NOT NULL,
+    quantity integer NOT NULL,
+    amount double precision NOT NULL,
+    status boolean NOT NULL,
+    user_id integer NOT NULL,
+    order_date timestamp with time zone NOT NULL
+);
+
+
+ALTER TABLE public.main_app_restaurantorders OWNER TO postgres;
+
+--
+-- TOC entry 237 (class 1259 OID 18465)
+-- Name: main_app_restaurantorders_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.main_app_restaurantorders_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.main_app_restaurantorders_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3128 (class 0 OID 0)
+-- Dependencies: 237
+-- Name: main_app_restaurantorders_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.main_app_restaurantorders_id_seq OWNED BY public.main_app_restaurantorders.id;
+
+
+--
+-- TOC entry 227 (class 1259 OID 18231)
 -- Name: main_app_room; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -671,7 +718,7 @@ CREATE TABLE public.main_app_room (
 ALTER TABLE public.main_app_room OWNER TO postgres;
 
 --
--- TOC entry 217 (class 1259 OID 17986)
+-- TOC entry 228 (class 1259 OID 18234)
 -- Name: main_app_room_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -687,8 +734,8 @@ CREATE SEQUENCE public.main_app_room_id_seq
 ALTER TABLE public.main_app_room_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3105 (class 0 OID 0)
--- Dependencies: 217
+-- TOC entry 3129 (class 0 OID 0)
+-- Dependencies: 228
 -- Name: main_app_room_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -696,7 +743,7 @@ ALTER SEQUENCE public.main_app_room_id_seq OWNED BY public.main_app_room.id;
 
 
 --
--- TOC entry 224 (class 1259 OID 18014)
+-- TOC entry 229 (class 1259 OID 18236)
 -- Name: main_app_roomservices; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -711,7 +758,7 @@ CREATE TABLE public.main_app_roomservices (
 ALTER TABLE public.main_app_roomservices OWNER TO postgres;
 
 --
--- TOC entry 223 (class 1259 OID 18012)
+-- TOC entry 230 (class 1259 OID 18239)
 -- Name: main_app_roomservices_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -727,8 +774,8 @@ CREATE SEQUENCE public.main_app_roomservices_id_seq
 ALTER TABLE public.main_app_roomservices_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3106 (class 0 OID 0)
--- Dependencies: 223
+-- TOC entry 3130 (class 0 OID 0)
+-- Dependencies: 230
 -- Name: main_app_roomservices_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -736,7 +783,7 @@ ALTER SEQUENCE public.main_app_roomservices_id_seq OWNED BY public.main_app_room
 
 
 --
--- TOC entry 222 (class 1259 OID 18006)
+-- TOC entry 231 (class 1259 OID 18241)
 -- Name: main_app_services; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -754,7 +801,7 @@ CREATE TABLE public.main_app_services (
 ALTER TABLE public.main_app_services OWNER TO postgres;
 
 --
--- TOC entry 221 (class 1259 OID 18004)
+-- TOC entry 232 (class 1259 OID 18244)
 -- Name: main_app_services_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -770,8 +817,8 @@ CREATE SEQUENCE public.main_app_services_id_seq
 ALTER TABLE public.main_app_services_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3107 (class 0 OID 0)
--- Dependencies: 221
+-- TOC entry 3131 (class 0 OID 0)
+-- Dependencies: 232
 -- Name: main_app_services_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -779,7 +826,46 @@ ALTER SEQUENCE public.main_app_services_id_seq OWNED BY public.main_app_services
 
 
 --
--- TOC entry 220 (class 1259 OID 17996)
+-- TOC entry 236 (class 1259 OID 18447)
+-- Name: main_app_tables; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.main_app_tables (
+    id integer NOT NULL,
+    table_number character varying(3) NOT NULL,
+    status boolean NOT NULL
+);
+
+
+ALTER TABLE public.main_app_tables OWNER TO postgres;
+
+--
+-- TOC entry 235 (class 1259 OID 18445)
+-- Name: main_app_tables_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.main_app_tables_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.main_app_tables_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3132 (class 0 OID 0)
+-- Dependencies: 235
+-- Name: main_app_tables_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.main_app_tables_id_seq OWNED BY public.main_app_tables.id;
+
+
+--
+-- TOC entry 233 (class 1259 OID 18246)
 -- Name: main_app_userprofile; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -800,7 +886,7 @@ CREATE TABLE public.main_app_userprofile (
 ALTER TABLE public.main_app_userprofile OWNER TO postgres;
 
 --
--- TOC entry 219 (class 1259 OID 17994)
+-- TOC entry 234 (class 1259 OID 18249)
 -- Name: main_app_userprofile_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -816,8 +902,8 @@ CREATE SEQUENCE public.main_app_userprofile_id_seq
 ALTER TABLE public.main_app_userprofile_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3108 (class 0 OID 0)
--- Dependencies: 219
+-- TOC entry 3133 (class 0 OID 0)
+-- Dependencies: 234
 -- Name: main_app_userprofile_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -825,7 +911,7 @@ ALTER SEQUENCE public.main_app_userprofile_id_seq OWNED BY public.main_app_userp
 
 
 --
--- TOC entry 2804 (class 2604 OID 17669)
+-- TOC entry 2813 (class 2604 OID 18251)
 -- Name: auth_group id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -833,7 +919,7 @@ ALTER TABLE ONLY public.auth_group ALTER COLUMN id SET DEFAULT nextval('public.a
 
 
 --
--- TOC entry 2805 (class 2604 OID 17679)
+-- TOC entry 2814 (class 2604 OID 18252)
 -- Name: auth_group_permissions id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -841,7 +927,7 @@ ALTER TABLE ONLY public.auth_group_permissions ALTER COLUMN id SET DEFAULT nextv
 
 
 --
--- TOC entry 2803 (class 2604 OID 17661)
+-- TOC entry 2815 (class 2604 OID 18253)
 -- Name: auth_permission id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -849,7 +935,7 @@ ALTER TABLE ONLY public.auth_permission ALTER COLUMN id SET DEFAULT nextval('pub
 
 
 --
--- TOC entry 2806 (class 2604 OID 17687)
+-- TOC entry 2816 (class 2604 OID 18254)
 -- Name: auth_user id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -857,7 +943,7 @@ ALTER TABLE ONLY public.auth_user ALTER COLUMN id SET DEFAULT nextval('public.au
 
 
 --
--- TOC entry 2807 (class 2604 OID 17697)
+-- TOC entry 2817 (class 2604 OID 18255)
 -- Name: auth_user_groups id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -865,7 +951,7 @@ ALTER TABLE ONLY public.auth_user_groups ALTER COLUMN id SET DEFAULT nextval('pu
 
 
 --
--- TOC entry 2808 (class 2604 OID 17705)
+-- TOC entry 2818 (class 2604 OID 18256)
 -- Name: auth_user_user_permissions id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -873,7 +959,7 @@ ALTER TABLE ONLY public.auth_user_user_permissions ALTER COLUMN id SET DEFAULT n
 
 
 --
--- TOC entry 2809 (class 2604 OID 17765)
+-- TOC entry 2819 (class 2604 OID 18257)
 -- Name: django_admin_log id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -881,7 +967,7 @@ ALTER TABLE ONLY public.django_admin_log ALTER COLUMN id SET DEFAULT nextval('pu
 
 
 --
--- TOC entry 2802 (class 2604 OID 17651)
+-- TOC entry 2821 (class 2604 OID 18258)
 -- Name: django_content_type id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -889,7 +975,7 @@ ALTER TABLE ONLY public.django_content_type ALTER COLUMN id SET DEFAULT nextval(
 
 
 --
--- TOC entry 2801 (class 2604 OID 17640)
+-- TOC entry 2822 (class 2604 OID 18259)
 -- Name: django_migrations id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -897,7 +983,7 @@ ALTER TABLE ONLY public.django_migrations ALTER COLUMN id SET DEFAULT nextval('p
 
 
 --
--- TOC entry 2820 (class 2604 OID 18067)
+-- TOC entry 2823 (class 2604 OID 18260)
 -- Name: main_app_adminprofile id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -905,7 +991,7 @@ ALTER TABLE ONLY public.main_app_adminprofile ALTER COLUMN id SET DEFAULT nextva
 
 
 --
--- TOC entry 2819 (class 2604 OID 18057)
+-- TOC entry 2824 (class 2604 OID 18261)
 -- Name: main_app_bills id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -913,7 +999,7 @@ ALTER TABLE ONLY public.main_app_bills ALTER COLUMN id SET DEFAULT nextval('publ
 
 
 --
--- TOC entry 2818 (class 2604 OID 18047)
+-- TOC entry 2825 (class 2604 OID 18262)
 -- Name: main_app_foodservices id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -921,7 +1007,7 @@ ALTER TABLE ONLY public.main_app_foodservices ALTER COLUMN id SET DEFAULT nextva
 
 
 --
--- TOC entry 2817 (class 2604 OID 18037)
+-- TOC entry 2826 (class 2604 OID 18263)
 -- Name: main_app_guestprofile id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -929,7 +1015,7 @@ ALTER TABLE ONLY public.main_app_guestprofile ALTER COLUMN id SET DEFAULT nextva
 
 
 --
--- TOC entry 2816 (class 2604 OID 18027)
+-- TOC entry 2827 (class 2604 OID 18264)
 -- Name: main_app_laundryservice id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -937,7 +1023,7 @@ ALTER TABLE ONLY public.main_app_laundryservice ALTER COLUMN id SET DEFAULT next
 
 
 --
--- TOC entry 2811 (class 2604 OID 17983)
+-- TOC entry 2828 (class 2604 OID 18265)
 -- Name: main_app_menuitems id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -945,7 +1031,15 @@ ALTER TABLE ONLY public.main_app_menuitems ALTER COLUMN id SET DEFAULT nextval('
 
 
 --
--- TOC entry 2812 (class 2604 OID 17991)
+-- TOC entry 2834 (class 2604 OID 18470)
+-- Name: main_app_restaurantorders id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.main_app_restaurantorders ALTER COLUMN id SET DEFAULT nextval('public.main_app_restaurantorders_id_seq'::regclass);
+
+
+--
+-- TOC entry 2829 (class 2604 OID 18266)
 -- Name: main_app_room id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -953,7 +1047,7 @@ ALTER TABLE ONLY public.main_app_room ALTER COLUMN id SET DEFAULT nextval('publi
 
 
 --
--- TOC entry 2815 (class 2604 OID 18017)
+-- TOC entry 2830 (class 2604 OID 18267)
 -- Name: main_app_roomservices id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -961,7 +1055,7 @@ ALTER TABLE ONLY public.main_app_roomservices ALTER COLUMN id SET DEFAULT nextva
 
 
 --
--- TOC entry 2814 (class 2604 OID 18009)
+-- TOC entry 2831 (class 2604 OID 18268)
 -- Name: main_app_services id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -969,7 +1063,15 @@ ALTER TABLE ONLY public.main_app_services ALTER COLUMN id SET DEFAULT nextval('p
 
 
 --
--- TOC entry 2813 (class 2604 OID 17999)
+-- TOC entry 2833 (class 2604 OID 18450)
+-- Name: main_app_tables id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.main_app_tables ALTER COLUMN id SET DEFAULT nextval('public.main_app_tables_id_seq'::regclass);
+
+
+--
+-- TOC entry 2832 (class 2604 OID 18269)
 -- Name: main_app_userprofile id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -977,24 +1079,24 @@ ALTER TABLE ONLY public.main_app_userprofile ALTER COLUMN id SET DEFAULT nextval
 
 
 --
--- TOC entry 3053 (class 0 OID 17666)
--- Dependencies: 203
+-- TOC entry 3065 (class 0 OID 18140)
+-- Dependencies: 196
 -- Data for Name: auth_group; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- TOC entry 3055 (class 0 OID 17676)
--- Dependencies: 205
+-- TOC entry 3067 (class 0 OID 18145)
+-- Dependencies: 198
 -- Data for Name: auth_group_permissions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- TOC entry 3051 (class 0 OID 17658)
--- Dependencies: 201
+-- TOC entry 3069 (class 0 OID 18150)
+-- Dependencies: 200
 -- Data for Name: auth_permission; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1062,50 +1164,62 @@ INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES 
 INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (62, 'Can change services', 16, 'change_services');
 INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (63, 'Can delete services', 16, 'delete_services');
 INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (64, 'Can view services', 16, 'view_services');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (65, 'Can add tables', 17, 'add_tables');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (66, 'Can change tables', 17, 'change_tables');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (67, 'Can delete tables', 17, 'delete_tables');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (68, 'Can view tables', 17, 'view_tables');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (69, 'Can add restaurant orders', 18, 'add_restaurantorders');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (70, 'Can change restaurant orders', 18, 'change_restaurantorders');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (71, 'Can delete restaurant orders', 18, 'delete_restaurantorders');
+INSERT INTO public.auth_permission (id, name, content_type_id, codename) VALUES (72, 'Can view restaurant orders', 18, 'view_restaurantorders');
 
 
 --
--- TOC entry 3057 (class 0 OID 17684)
--- Dependencies: 207
+-- TOC entry 3071 (class 0 OID 18155)
+-- Dependencies: 202
 -- Data for Name: auth_user; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (1, 'pbkdf2_sha256$150000$cD8VCIiB6Ghq$bAQLv3KNvMbIFZsaDc68v86jqjPGD6AyHtUnQPdwjdE=', '2020-09-03 12:48:15.512794+05:30', true, 'backend', '', '', '', true, true, '2020-08-31 15:28:51.30134+05:30');
-INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (4, 'pbkdf2_sha256$150000$LbTgmjC8b7cA$AcLOblmVP1mnchBazi++hn8ttF/uGeJqCjp4QhBa5pA=', '2020-09-03 12:50:38.047601+05:30', false, 'owner1', 'Roy', 'Birla', 'rbirla@gmail.com', false, true, '2020-08-31 15:33:20+05:30');
-INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (2, 'pbkdf2_sha256$150000$JYRDZFnDpxD1$cqMjRL6N5K/sQmCOrv2QbSDxNBwZSxVHtWbREelUQoI=', '2020-09-03 18:40:12.670061+05:30', false, 'chef1', 'Praveen', 'Maharaj', 'pmaharaj@gmail.com', false, true, '2020-08-31 15:30:26+05:30');
 INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (8, 'pbkdf2_sha256$150000$daVJoi6CvmKK$inHf9jtfYcygUg1xXrhNR8HFkia/9qf+aiH6xcxJeT0=', NULL, false, 'kkulkarni@gmail.com', 'Kaushik', 'Kulkarni', 'kkulkarni@gmail.com', false, true, '2020-09-02 12:52:08.281353+05:30');
-INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (6, 'pbkdf2_sha256$150000$Ju5kRS5urhXR$HeuNOrrU9dAjnCP5c8ESfPwfhdOGam5O1PlCaNz8uXk=', '2020-09-02 17:16:36.16698+05:30', false, 'mayurhebbar', 'Mayur', 'Hebbar', 'mhebbar@gmail.com', false, true, '2020-08-31 15:36:36+05:30');
 INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (10, 'pbkdf2_sha256$150000$bDLHK1Mpsn3Z$evmZ38brQaFKlqbVPoUy42AuSyXCieAzvmGci4wJc1Q=', NULL, false, 'jcena', 'John', 'Cena', 'jcena@gmail.com', false, true, '2020-09-02 12:56:48.466566+05:30');
 INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (9, 'pbkdf2_sha256$150000$iL4ipr6YT96V$gyPNuzXuMUdU4u3Y0n7n5TPCSsk5jHDjT3NT5q3avhY=', '2020-09-02 12:59:56.34235+05:30', false, 'rahulkp@gmail.com', 'Rahul', 'KP', 'rahulkp@gmail.com', false, true, '2020-09-02 12:53:52.16427+05:30');
-INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (7, 'pbkdf2_sha256$150000$pYvzI9m1HetG$4bFhNNbPxNphrce653LlWqMT/cdBM7toW8SCsLSSlpw=', '2020-09-02 15:14:35.972706+05:30', false, 'laundry1', 'Naresh', 'Jha', 'njha@gmail.com', false, true, '2020-08-31 17:46:56+05:30');
-INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (5, 'pbkdf2_sha256$150000$BnYvAQa6QDSQ$USsgA40bFmh8QHeQN/l2J+GOJq/BzFYM6yip+WnYo68=', '2020-09-02 15:19:36.317942+05:30', false, 'roomservice1', 'Anuj', 'Kumar', 'anujkumar@gmail.com', false, true, '2020-08-31 15:35:23+05:30');
 INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (15, 'pbkdf2_sha256$150000$FTr2Xpv6wABD$GSJrnLnXkFoGzist69ObtO7i6vAGzyLupAdC+oBTYag=', NULL, false, 'mukundacharya154', 'Manas', 'Sharma', 'mukundacharya154@gmail.com', false, true, '2020-09-02 17:47:04.851641+05:30');
 INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (11, 'pbkdf2_sha256$150000$iMlCMMRyNONB$nhoR1vdFpn5L5cTPBX9CbZpG2nyyeeVsUG3+AKGaVbY=', '2020-09-02 15:22:29.019902+05:30', false, 'nitinrao', 'Nitin', 'Rao', 'nitinrao@gmail.com', false, true, '2020-09-02 15:21:22.281309+05:30');
 INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (16, 'pbkdf2_sha256$150000$Dk8C0Iu5aK2C$bXm5D5t1HK3MPvOlOgY50kgppnNj+V8Azr3A381y/YU=', NULL, false, 'mukundacharya1', 'Rahul', 'Dhaka', 'mukundacharya1@gmail.com', false, true, '2020-09-02 18:07:57.816712+05:30');
 INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (12, 'pbkdf2_sha256$150000$3PU4Sb66t4ir$SrgsJqPPbMNEBxeLqa5y30Owl1+hlYScT4CMp0VuzRM=', NULL, false, 'mukuacharya30', 'Mukund', 'Acharya', 'mukuacharya30@gmail.com', false, true, '2020-09-02 16:36:32.390247+05:30');
-INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (3, 'pbkdf2_sha256$150000$kyaHJ1JPoZ0z$sjcY1mSf5H7vIJYZq3IwSkd6DYqAFNKrpAfJFW8jatE=', '2020-09-02 18:25:45.269611+05:30', false, 'recep1', 'Shreya', 'Verma', 'sverma@gmail.com', false, true, '2020-08-31 15:31:17+05:30');
 INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (13, 'pbkdf2_sha256$150000$ao8gXijNLTYq$hgMzYpDB8HOQpb3sZZQEfS63EKWxrszZ7hJJCIGxWF4=', NULL, false, 'mbhat', 'Madhur', 'Bhat', 'mbhat@gmail.com', false, true, '2020-09-02 17:45:57.522558+05:30');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (3, 'pbkdf2_sha256$180000$ugCqjoDhZMyp$PHYlhOJtsBBzs7JvRTtpyn+fQhWnExps9wtmwKfS24w=', '2020-09-05 12:19:12.391312+05:30', false, 'recep1', 'Shreya', 'Verma', 'sverma@gmail.com', false, true, '2020-08-31 15:31:17+05:30');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (5, 'pbkdf2_sha256$180000$OmvOfPHeHs0g$X+QSrIldAEfaZliugC0IgltgXJjZBwrM+eSTDsGlXy0=', '2020-09-05 11:50:57.08665+05:30', false, 'roomservice1', 'Anuj', 'Kumar', 'anujkumar@gmail.com', false, true, '2020-08-31 15:35:23+05:30');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (17, 'pbkdf2_sha256$180000$b9Ox20L4cLi0$eyIvHNJ9eH3GWq5KY8+HwmHGGcVW4jj6F2Axj6lrPdM=', '2020-09-05 15:33:50.474616+05:30', false, 'mvr77712', 'Anupam', 'Kher', 'mvr77712@gmail.com', false, true, '2020-09-03 20:17:22.09262+05:30');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (26, 'pbkdf2_sha256$150000$lkfh6TSHRoH3$7z9z2/y81trfqnR2/t6TkrPK4c7qgN96QBTmcRZwAD4=', '2020-09-05 22:51:01.256575+05:30', false, 'mukundacharya154@gmail.com', 'Mukund', 'Acharya', 'mukundacharya154@gmail.com', false, true, '2020-09-05 22:50:08.006418+05:30');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (1, 'pbkdf2_sha256$150000$cD8VCIiB6Ghq$bAQLv3KNvMbIFZsaDc68v86jqjPGD6AyHtUnQPdwjdE=', '2020-09-07 14:16:57.485513+05:30', true, 'backend', '', '', '', true, true, '2020-08-31 15:28:51.30134+05:30');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (4, 'pbkdf2_sha256$150000$tvnsmBNjYwl1$XygOp2HWjOVJLnHENwmbltUOCoSTC8alus/L3wXnEWI=', '2020-09-07 14:20:21.164678+05:30', false, 'owner1', 'Roy', 'Birla', 'rbirla@gmail.com', false, true, '2020-08-31 15:33:20+05:30');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (2, 'pbkdf2_sha256$150000$BDIKXbSpuXQo$RSMfUulYoNPy34mxvkH1cqHJCjGxOK+hv3Atn0vNdNQ=', '2020-09-07 14:21:19.741106+05:30', false, 'chef1', 'Praveen', 'Maharaj', 'pmaharaj@gmail.com', false, true, '2020-08-31 15:30:26+05:30');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (19, 'pbkdf2_sha256$150000$FFqkBlcAbaf9$WiyLZ+qQfWCHesQ8FVAl4MOu0DEqiSXHABdM2RV8g2o=', NULL, false, 'mukuacharya30@gmail.com', 'Mukund', 'Acharya', 'mukuacharya30@gmail.com', false, true, '2020-09-05 19:19:27.471074+05:30');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (25, 'pbkdf2_sha256$150000$gwXtYOhFqrru$hRxXGjDCAgJGBfS+lDNodfGHVlgqfDFME0fSw6bwlMg=', NULL, false, 'dnaik@gmail.com', 'Derek', 'Naik', 'dnaik@gmail.com', false, true, '2020-09-05 22:43:00.126521+05:30');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (7, 'pbkdf2_sha256$150000$pYvzI9m1HetG$4bFhNNbPxNphrce653LlWqMT/cdBM7toW8SCsLSSlpw=', '2020-09-07 14:09:11.693319+05:30', false, 'laundry1', 'Naresh', 'Jha', 'njha@gmail.com', false, true, '2020-08-31 17:46:56+05:30');
+INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) VALUES (6, 'pbkdf2_sha256$150000$Ju5kRS5urhXR$HeuNOrrU9dAjnCP5c8ESfPwfhdOGam5O1PlCaNz8uXk=', '2020-09-07 14:09:31.278324+05:30', false, 'mayurhebbar', 'Mayur', 'Hebbar', 'mhebbar@gmail.com', false, true, '2020-08-31 15:36:36+05:30');
 
 
 --
--- TOC entry 3059 (class 0 OID 17694)
--- Dependencies: 209
+-- TOC entry 3072 (class 0 OID 18161)
+-- Dependencies: 203
 -- Data for Name: auth_user_groups; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- TOC entry 3061 (class 0 OID 17702)
--- Dependencies: 211
+-- TOC entry 3075 (class 0 OID 18168)
+-- Dependencies: 206
 -- Data for Name: auth_user_user_permissions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- TOC entry 3063 (class 0 OID 17762)
--- Dependencies: 213
+-- TOC entry 3077 (class 0 OID 18173)
+-- Dependencies: 208
 -- Data for Name: django_admin_log; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1173,11 +1287,52 @@ INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, ac
 INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (62, '2020-09-03 16:19:42.349263+05:30', '17', 'MenuItems object (17)', 2, '[{"changed": {"fields": ["menu_type"]}}]', 13, 1);
 INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (63, '2020-09-03 16:29:23.846109+05:30', '17', 'MenuItems object (17)', 3, '', 13, 1);
 INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (64, '2020-09-03 16:45:48.547093+05:30', '19', 'MenuItems object (19)', 3, '', 13, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (65, '2020-09-05 17:53:49.027253+05:30', '18', 'guest1', 1, '[{"added": {}}]', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (66, '2020-09-05 17:54:17.585893+05:30', '18', 'guest1', 2, '[{"changed": {"fields": ["first_name", "last_name", "email"]}}]', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (67, '2020-09-05 17:58:14.393821+05:30', '1', 'GuestProfile object (1)', 1, '[{"added": {}}]', 15, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (68, '2020-09-05 18:10:13.89363+05:30', '1', 'Tables object (1)', 1, '[{"added": {}}]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (69, '2020-09-05 18:10:19.221362+05:30', '2', 'Tables object (2)', 1, '[{"added": {}}]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (70, '2020-09-05 18:10:35.182518+05:30', '1', 'Tables object (1)', 2, '[{"changed": {"fields": ["table_number"]}}]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (71, '2020-09-05 18:10:39.195145+05:30', '2', 'Tables object (2)', 2, '[{"changed": {"fields": ["table_number"]}}]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (72, '2020-09-05 18:10:43.941151+05:30', '3', 'Tables object (3)', 1, '[{"added": {}}]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (73, '2020-09-05 18:10:48.067849+05:30', '4', 'Tables object (4)', 1, '[{"added": {}}]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (74, '2020-09-05 18:10:50.697917+05:30', '5', 'Tables object (5)', 1, '[{"added": {}}]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (75, '2020-09-05 18:10:53.115018+05:30', '6', 'Tables object (6)', 1, '[{"added": {}}]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (76, '2020-09-05 18:10:55.405316+05:30', '7', 'Tables object (7)', 1, '[{"added": {}}]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (77, '2020-09-05 18:10:58.823349+05:30', '8', 'Tables object (8)', 1, '[{"added": {}}]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (78, '2020-09-05 18:11:01.178723+05:30', '9', 'Tables object (9)', 1, '[{"added": {}}]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (79, '2020-09-05 18:11:04.538482+05:30', '10', 'Tables object (10)', 1, '[{"added": {}}]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (80, '2020-09-05 18:13:31.10027+05:30', '1', 'GuestProfile object (1)', 2, '[{"changed": {"fields": ["table"]}}]', 15, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (81, '2020-09-05 18:59:51.581404+05:30', '1', 'Tables object (1)', 2, '[{"changed": {"fields": ["status"]}}]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (82, '2020-09-05 19:00:25.234851+05:30', '3', 'Tables object (3)', 2, '[{"changed": {"fields": ["table_number"]}}]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (83, '2020-09-05 19:15:40.967926+05:30', '1', 'Tables object (1)', 2, '[{"changed": {"fields": ["status"]}}]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (84, '2020-09-05 19:15:49.920189+05:30', '1', 'GuestProfile object (1)', 3, '', 15, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (85, '2020-09-05 19:16:00.179059+05:30', '18', 'guest1', 3, '', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (86, '2020-09-05 19:26:09.847865+05:30', '1', 'Tables object (1)', 2, '[{"changed": {"fields": ["status"]}}]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (87, '2020-09-05 19:31:58.163276+05:30', '3', 'Tables object (3)', 2, '[{"changed": {"fields": ["status"]}}]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (88, '2020-09-05 22:55:49.131172+05:30', '27', 'guest1', 1, '[{"added": {}}]', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (89, '2020-09-05 22:56:05.236326+05:30', '27', 'guest1', 2, '[{"changed": {"fields": ["first_name", "last_name", "email"]}}]', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (90, '2020-09-05 22:57:45.956868+05:30', '5', 'GuestProfile object (5)', 1, '[{"added": {}}]', 15, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (91, '2020-09-05 22:58:08.506845+05:30', '10', 'Tables object (10)', 2, '[{"changed": {"fields": ["status"]}}]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (92, '2020-09-06 17:21:57.279652+05:30', '28', 'mukund_acharya2000@rediffmail.com', 3, '', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (93, '2020-09-06 17:27:37.087931+05:30', '4', 'Tables object (4)', 2, '[{"changed": {"fields": ["status"]}}]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (94, '2020-09-07 14:13:40.923525+05:30', '29', 'mukund_acharya2000@rediffmail.com', 3, '', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (95, '2020-09-07 14:17:13.123195+05:30', '30', 'mukund_acharya2000@rediffmail.com', 3, '', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (96, '2020-09-07 14:17:52.325255+05:30', '10', 'Tables object (10)', 2, '[{"changed": {"fields": ["status"]}}]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (97, '2020-09-07 14:17:56.276733+05:30', '4', 'Tables object (4)', 2, '[]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (98, '2020-09-07 14:18:00.223636+05:30', '5', 'Tables object (5)', 2, '[{"changed": {"fields": ["status"]}}]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (99, '2020-09-07 14:18:03.153569+05:30', '6', 'Tables object (6)', 2, '[]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (100, '2020-09-07 14:18:06.204591+05:30', '7', 'Tables object (7)', 2, '[]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (101, '2020-09-07 14:18:08.843935+05:30', '8', 'Tables object (8)', 2, '[]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (102, '2020-09-07 14:18:11.351662+05:30', '9', 'Tables object (9)', 2, '[]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (103, '2020-09-07 14:18:13.75015+05:30', '10', 'Tables object (10)', 2, '[]', 17, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (104, '2020-09-07 14:18:49.574874+05:30', '27', 'guest1', 3, '', 4, 1);
+INSERT INTO public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) VALUES (105, '2020-09-07 14:19:06.290562+05:30', '10', 'Tables object (10)', 2, '[{"changed": {"fields": ["status"]}}]', 17, 1);
 
 
 --
--- TOC entry 3049 (class 0 OID 17648)
--- Dependencies: 199
+-- TOC entry 3079 (class 0 OID 18182)
+-- Dependencies: 210
 -- Data for Name: django_content_type; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1197,11 +1352,13 @@ INSERT INTO public.django_content_type (id, app_label, model) VALUES (13, 'main_
 INSERT INTO public.django_content_type (id, app_label, model) VALUES (14, 'main_app', 'bills');
 INSERT INTO public.django_content_type (id, app_label, model) VALUES (15, 'main_app', 'guestprofile');
 INSERT INTO public.django_content_type (id, app_label, model) VALUES (16, 'main_app', 'services');
+INSERT INTO public.django_content_type (id, app_label, model) VALUES (17, 'main_app', 'tables');
+INSERT INTO public.django_content_type (id, app_label, model) VALUES (18, 'main_app', 'restaurantorders');
 
 
 --
--- TOC entry 3047 (class 0 OID 17637)
--- Dependencies: 197
+-- TOC entry 3081 (class 0 OID 18187)
+-- Dependencies: 212
 -- Data for Name: django_migrations; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1241,15 +1398,27 @@ INSERT INTO public.django_migrations (id, app, name, applied) VALUES (33, 'main_
 INSERT INTO public.django_migrations (id, app, name, applied) VALUES (34, 'main_app', '0017_auto_20200902_1442', '2020-09-02 14:42:20.342471+05:30');
 INSERT INTO public.django_migrations (id, app, name, applied) VALUES (35, 'main_app', '0018_bills_payment_type', '2020-09-02 14:44:33.623961+05:30');
 INSERT INTO public.django_migrations (id, app, name, applied) VALUES (36, 'main_app', '0019_userprofile_room_number', '2020-09-02 17:53:01.821946+05:30');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (37, 'main_app', '0020_auto_20200904_1945', '2020-09-04 19:45:33.476411+05:30');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (38, 'main_app', '0021_auto_20200904_1950', '2020-09-04 19:50:53.674771+05:30');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (39, 'main_app', '0022_auto_20200904_2340', '2020-09-04 23:40:38.001191+05:30');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (40, 'main_app', '0023_auto_20200905_0157', '2020-09-05 01:57:42.00155+05:30');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (41, 'main_app', '0024_auto_20200905_1211', '2020-09-05 12:11:42.979664+05:30');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (42, 'main_app', '0025_guestprofile_status', '2020-09-05 17:52:16.010986+05:30');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (43, 'main_app', '0026_auto_20200905_1808', '2020-09-05 18:08:17.548481+05:30');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (44, 'main_app', '0027_auto_20200905_1814', '2020-09-05 18:14:05.79492+05:30');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (45, 'main_app', '0028_restaurantorders', '2020-09-06 11:22:35.319924+05:30');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (46, 'main_app', '0029_auto_20200906_1141', '2020-09-06 11:41:47.57818+05:30');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (47, 'main_app', '0030_restaurantorders_order_date', '2020-09-06 11:45:59.20903+05:30');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (48, 'main_app', '0031_auto_20200906_1638', '2020-09-06 16:38:07.002793+05:30');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (49, 'main_app', '0032_auto_20200906_1652', '2020-09-06 16:52:25.847036+05:30');
 
 
 --
--- TOC entry 3064 (class 0 OID 17967)
+-- TOC entry 3083 (class 0 OID 18195)
 -- Dependencies: 214
 -- Data for Name: django_session; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.django_session (session_key, session_data, expire_date) VALUES ('vmddb8yjb5xs8g28m0j1b6m4s3xluy72', 'NGY3MGM3N2QzYmE4ODRiNWYwZjUyZTlhMmI5ZGE2OGY0ODYzM2JhODp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI1ODI2MmIwNjc3M2YwMWQ0ODM2YTY1ZmE0ZjAzNDFhNjUxNWVmNzQ2In0=', '2020-09-17 12:48:15.51671+05:30');
 INSERT INTO public.django_session (session_key, session_data, expire_date) VALUES ('jhoavlofbt4ui29h32285vjnzz6j8frc', 'YjE4YTA1YTY0ODk4YTI4NTQ2MWE2OTkwZjAyODE3ZGJlMDNjNzZiYjp7fQ==', '2020-09-14 16:30:28.68189+05:30');
 INSERT INTO public.django_session (session_key, session_data, expire_date) VALUES ('5qhwkqwqeyuknsra7lg6tnonztax7voo', 'MDIyMDVkNDYxZjIxMTY4NmU4Y2U5MDIzN2NhMGY2OWFmZGM0NTdlMzp7Il9hdXRoX3VzZXJfaWQiOiI2IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIxYjRlZDYwMTFiYTQ4NjU5NTU2ZGY3NTBmNDA0YzdlMjdhNGJkODEyIn0=', '2020-09-14 16:34:38.138294+05:30');
 INSERT INTO public.django_session (session_key, session_data, expire_date) VALUES ('s1ykg8zdsezi7dnasoppbkkojxccuut7', 'M2EyZmNhMjQwYzk3OWM3YWE0YjI3NzNlOTcyOGNhM2ZjN2IyMmZhNjp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIwY2E1ZGMyYzE2N2Q4YTFlNWMzM2I5NWRhMGY2MGZiMDM5M2UxMzllIn0=', '2020-09-17 18:40:12.67704+05:30');
@@ -1257,23 +1426,23 @@ INSERT INTO public.django_session (session_key, session_data, expire_date) VALUE
 
 
 --
--- TOC entry 3084 (class 0 OID 18064)
--- Dependencies: 234
+-- TOC entry 3084 (class 0 OID 18201)
+-- Dependencies: 215
 -- Data for Name: main_app_adminprofile; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.main_app_adminprofile (id, admin_type, phone, status, user_id) VALUES (1, 'chef', '9988776655', true, 2);
 INSERT INTO public.main_app_adminprofile (id, admin_type, phone, status, user_id) VALUES (2, 'owner', '9080706050', true, 4);
 INSERT INTO public.main_app_adminprofile (id, admin_type, phone, status, user_id) VALUES (3, 'receptionist', '9876541234', true, 3);
 INSERT INTO public.main_app_adminprofile (id, admin_type, phone, status, user_id) VALUES (4, 'roomservice', '9876543210', true, 5);
 INSERT INTO public.main_app_adminprofile (id, admin_type, phone, status, user_id) VALUES (5, 'laundry', '9192939495', true, 7);
 INSERT INTO public.main_app_adminprofile (id, admin_type, phone, status, user_id) VALUES (6, 'laundry', '9080706050', true, 13);
 INSERT INTO public.main_app_adminprofile (id, admin_type, phone, status, user_id) VALUES (7, 'chef', '9898989898', true, 15);
+INSERT INTO public.main_app_adminprofile (id, admin_type, phone, status, user_id) VALUES (1, 'chef', '9988776655', true, 2);
 
 
 --
--- TOC entry 3082 (class 0 OID 18054)
--- Dependencies: 232
+-- TOC entry 3086 (class 0 OID 18206)
+-- Dependencies: 217
 -- Data for Name: main_app_bills; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1282,24 +1451,44 @@ INSERT INTO public.main_app_bills (id, total_amount, billing_date_from, billing_
 
 
 --
--- TOC entry 3080 (class 0 OID 18044)
--- Dependencies: 230
+-- TOC entry 3088 (class 0 OID 18211)
+-- Dependencies: 219
 -- Data for Name: main_app_foodservices; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.main_app_foodservices (id, quantity, menu_item, service_id, status, "where") VALUES (17, 1, 'Masala Dosa', 48, false, '205');
+INSERT INTO public.main_app_foodservices (id, quantity, menu_item, service_id, status, "where") VALUES (18, 1, 'Filter Coffee', 48, false, '205');
+INSERT INTO public.main_app_foodservices (id, quantity, menu_item, service_id, status, "where") VALUES (19, 2, 'Masala Chai', 48, false, '205');
+INSERT INTO public.main_app_foodservices (id, quantity, menu_item, service_id, status, "where") VALUES (20, 1, 'Gulab Jamun', 49, false, '205');
+INSERT INTO public.main_app_foodservices (id, quantity, menu_item, service_id, status, "where") VALUES (21, 1, 'Ras Malai', 49, false, '205');
+INSERT INTO public.main_app_foodservices (id, quantity, menu_item, service_id, status, "where") VALUES (22, 1, 'Fafda Jalebi', 49, false, '205');
+INSERT INTO public.main_app_foodservices (id, quantity, menu_item, service_id, status, "where") VALUES (24, 1, 'Masala Papad', 49, false, '205');
+INSERT INTO public.main_app_foodservices (id, quantity, menu_item, service_id, status, "where") VALUES (23, 1, 'Tomato Soup', 49, false, '205');
+INSERT INTO public.main_app_foodservices (id, quantity, menu_item, service_id, status, "where") VALUES (25, 1, 'Paneer Butter Masala', 49, false, '205');
+INSERT INTO public.main_app_foodservices (id, quantity, menu_item, service_id, status, "where") VALUES (26, 1, 'Tandoori Roti', 49, false, '205');
+INSERT INTO public.main_app_foodservices (id, quantity, menu_item, service_id, status, "where") VALUES (27, 2, 'Masala Chai', 49, false, '205');
+INSERT INTO public.main_app_foodservices (id, quantity, menu_item, service_id, status, "where") VALUES (31, 1, 'Masala Dosa', 51, false, '101');
+INSERT INTO public.main_app_foodservices (id, quantity, menu_item, service_id, status, "where") VALUES (30, 2, 'Filter Coffee', 51, false, '101');
+INSERT INTO public.main_app_foodservices (id, quantity, menu_item, service_id, status, "where") VALUES (29, 1, 'Chilli Paneer', 50, false, '205');
+INSERT INTO public.main_app_foodservices (id, quantity, menu_item, service_id, status, "where") VALUES (28, 1, 'Veg Spring Rolls', 50, false, '205');
+INSERT INTO public.main_app_foodservices (id, quantity, menu_item, service_id, status, "where") VALUES (32, 1, 'Veg Manchow Soup', 52, false, '101');
+INSERT INTO public.main_app_foodservices (id, quantity, menu_item, service_id, status, "where") VALUES (33, 1, 'Filter Coffee', 53, false, '101');
 
 
 --
--- TOC entry 3078 (class 0 OID 18034)
--- Dependencies: 228
+-- TOC entry 3090 (class 0 OID 18216)
+-- Dependencies: 221
 -- Data for Name: main_app_guestprofile; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.main_app_guestprofile (id, table_number, phone, date, user_id, status, table_id) VALUES (2, '1', '9887857553', '2020-09-05 19:19:27.595741+05:30', 19, true, 1);
+INSERT INTO public.main_app_guestprofile (id, table_number, phone, date, user_id, status, table_id) VALUES (3, '3', '9988776655', '2020-09-05 22:43:00.800387+05:30', 25, true, 3);
+INSERT INTO public.main_app_guestprofile (id, table_number, phone, date, user_id, status, table_id) VALUES (4, '2', '9887857553', '2020-09-05 22:50:08.129125+05:30', 26, true, 2);
 
 
 --
--- TOC entry 3076 (class 0 OID 18024)
--- Dependencies: 226
+-- TOC entry 3092 (class 0 OID 18221)
+-- Dependencies: 223
 -- Data for Name: main_app_laundryservice; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1313,11 +1502,13 @@ INSERT INTO public.main_app_laundryservice (id, quantity, garment_type, laundry_
 INSERT INTO public.main_app_laundryservice (id, quantity, garment_type, laundry_type, instructions, service_id) VALUES (8, 3, 'saari', 'iron', '', 24);
 INSERT INTO public.main_app_laundryservice (id, quantity, garment_type, laundry_type, instructions, service_id) VALUES (9, 1, 'saari', 'dryclean', 'please be careful!', 27);
 INSERT INTO public.main_app_laundryservice (id, quantity, garment_type, laundry_type, instructions, service_id) VALUES (10, 4, 'saari', 'iron', 'qw', 31);
+INSERT INTO public.main_app_laundryservice (id, quantity, garment_type, laundry_type, instructions, service_id) VALUES (11, 1, 'suits', 'dryclean', '', 36);
+INSERT INTO public.main_app_laundryservice (id, quantity, garment_type, laundry_type, instructions, service_id) VALUES (12, 3, 'shirts', 'iron', 'rgre', 54);
 
 
 --
--- TOC entry 3066 (class 0 OID 17980)
--- Dependencies: 216
+-- TOC entry 3094 (class 0 OID 18226)
+-- Dependencies: 225
 -- Data for Name: main_app_menuitems; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1328,7 +1519,6 @@ INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_pic
 INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (12, 'Masala Papad', 'Masala Papad is a delicious Indian snack made using roasted or fried papad topped with a tangy and spicy onion tomato mix.', 'pics/masala_papad.jpg', 100, 'Starters', 'Veg', true);
 INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (14, 'Tandoori Roti', 'Tandoori Roti is an Indian bread that was traditionally made in clay ovens or Tandoor.', 'pics/tandoori_roti.jpg', 50, 'Main Course', 'Veg', true);
 INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (8, 'Veg Spring Rolls', 'A spring roll is a Chinese food consisting of a small roll of thin pastry filled with vegetables and sometimes paneer,and then fried.', 'pics/spring_rolls.jpg', 135, 'Starters', 'Veg', true);
-INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (6, 'Fafda Jalebi', 'Fafda jalebi is a match made in heaven and Gujaratis treat themselves with this great combination on Dussehra.', 'pics/jalebi_fafda.jpg', 120, 'Breakfast', 'Veg', true);
 INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (3, 'Masala Dosa', 'Masala Dosa is made from rice, lentils, potato, methi, and curry leaves, and served with chutneys and sambar.', 'pics/masala_dosa.jpg', 85, 'Breakfast', 'Veg', true);
 INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (1, 'Masala Chai', 'Masala Chai is a flavoured tea beverage made by brewing black tea with a mixture of aromatic herb and spices', 'pics/masala_chai.jpg', 25, 'Breakfast', 'Veg', true);
 INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (4, 'Idli-Vada-Sambar', 'Idlis are made by steaming a batter consisting of fermented black lentils (de-husked) and rice.', 'pics/idli.jpeg', 85, 'Breakfast', 'Veg', true);
@@ -1338,11 +1528,20 @@ INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_pic
 INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (18, 'Mysore Pak', 'Mysore Pak is made of generous amounts of ghee, sugar, gram flour, and often cardamom. The texture of this sweet is similar to a buttery cookie.', 'pics/mysore_pak.jpg', 120, 'Dessert', 'Veg', true);
 INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (16, 'Ras Malai', 'Ras malai is a popular Indian dessert consisting of white cream, sugar, milk, and cardamom-flavored paneer cheese known as chhana.', 'pics/ras_malai.jpg', 150, 'Dessert', 'Veg', true);
 INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (15, 'Gulab Jamun', 'Gulab Jamun are deep-fried dumplings/donuts made of dried milk [khoya] are dipped in a rose-cardamom flavored sugar syrup. 2 per serving.', 'pics/gulab_jamun.jpg', 150, 'Dessert', 'Veg', true);
+INSERT INTO public.main_app_menuitems (id, item_name, item_description, item_picture, item_price, menu_type, food_type, available_status) VALUES (6, 'Fafda Jalebi', 'Fafda jalebi is a match made in heaven and Gujaratis treat themselves with this great combination on Dussehra.', 'pics/jalebi_fafda.jpg', 120, 'Breakfast', 'Veg', true);
 
 
 --
--- TOC entry 3068 (class 0 OID 17988)
--- Dependencies: 218
+-- TOC entry 3107 (class 0 OID 18467)
+-- Dependencies: 238
+-- Data for Name: main_app_restaurantorders; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- TOC entry 3096 (class 0 OID 18231)
+-- Dependencies: 227
 -- Data for Name: main_app_room; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1350,7 +1549,6 @@ INSERT INTO public.main_app_room (id, room_number, room_type, price, available) 
 INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (5, '105', 'Classic Double Bed', 2500, true);
 INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (6, '106', 'Deluxe Double Bed', 3000, true);
 INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (10, '204', 'Classic Single Bed', 1500, true);
-INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (11, '205', 'Classic Double Bed', 2500, true);
 INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (1, '101', 'Classic Single Bed', 1500, false);
 INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (7, '201', 'Classic Single Bed', 1500, true);
 INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (4, '104', 'Classic Single Bed', 1500, false);
@@ -1358,11 +1556,12 @@ INSERT INTO public.main_app_room (id, room_number, room_type, price, available) 
 INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (2, '102', 'Classic Double Bed', 2500, false);
 INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (8, '202', 'Classic Double Bed', 2500, false);
 INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (9, '203', 'Deluxe Double Bed', 3000, true);
+INSERT INTO public.main_app_room (id, room_number, room_type, price, available) VALUES (11, '205', 'Classic Double Bed', 2500, false);
 
 
 --
--- TOC entry 3074 (class 0 OID 18014)
--- Dependencies: 224
+-- TOC entry 3098 (class 0 OID 18236)
+-- Dependencies: 229
 -- Data for Name: main_app_roomservices; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1380,18 +1579,15 @@ INSERT INTO public.main_app_roomservices (id, option, message, service_id) VALUE
 INSERT INTO public.main_app_roomservices (id, option, message, service_id) VALUES (12, 'maintenance', 'maintenence', 28);
 INSERT INTO public.main_app_roomservices (id, option, message, service_id) VALUES (13, 'cleaning', '', 29);
 INSERT INTO public.main_app_roomservices (id, option, message, service_id) VALUES (14, 'cleaning', 'qw', 30);
+INSERT INTO public.main_app_roomservices (id, option, message, service_id) VALUES (15, 'cleaning', '', 35);
 
 
 --
--- TOC entry 3072 (class 0 OID 18006)
--- Dependencies: 222
+-- TOC entry 3100 (class 0 OID 18241)
+-- Dependencies: 231
 -- Data for Name: main_app_services; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (3, 0, 'roomservice', '2020-09-01 11:58:46.912704+05:30', 6, '101', true);
-INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (5, 0, 'roomservice', '2020-09-01 12:07:07.099548+05:30', 6, '101', true);
-INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (6, 0, 'roomservice', '2020-09-01 12:11:35.256152+05:30', 6, '101', true);
-INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (8, 0, 'roomservice', '2020-09-01 12:15:32.401857+05:30', 6, '101', true);
 INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (9, 240, 'laundry', '2020-09-01 13:55:13.167403+05:30', 6, '101', true);
 INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (12, 1000, 'laundry', '2020-09-01 15:05:45.846574+05:30', 6, '101', true);
 INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (1, 0, 'roomservice', '2020-09-01 10:43:58+05:30', 6, '101', false);
@@ -1421,11 +1617,43 @@ INSERT INTO public.main_app_services (id, amount, service_type, order_date, user
 INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (31, 240, 'laundry', '2020-09-02 16:18:04.28932+05:30', 6, '101', true);
 INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (32, 5000, 'Checkin Fees', '2020-09-02 16:36:32.387231+05:30', 12, '202', true);
 INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (33, 12000, 'Checkin Fees', '2020-09-02 18:07:57.814718+05:30', 16, '203', false);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (34, 7500, 'Checkin Fees', '2020-09-03 20:17:22.089642+05:30', 17, '205', true);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (35, 0, 'roomservice', '2020-09-03 20:24:41.747405+05:30', 17, '205', true);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (36, 100, 'laundry', '2020-09-03 20:25:12.353941+05:30', 17, '205', true);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (3, 0, 'roomservice', '2020-09-01 11:58:46.912704+05:30', 6, '101', false);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (5, 0, 'roomservice', '2020-09-01 12:07:07.099548+05:30', 6, '101', false);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (6, 0, 'roomservice', '2020-09-01 12:11:35.256152+05:30', 6, '101', false);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (8, 0, 'roomservice', '2020-09-01 12:15:32.401857+05:30', 6, '101', false);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (48, 160, 'food', '2020-09-05 12:13:18.504033+05:30', 17, '205', false);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (49, 960, 'food', '2020-09-05 12:20:30.480143+05:30', 17, '205', false);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (51, 135, 'food', '2020-09-05 16:48:53.443759+05:30', 6, '101', false);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (50, 270, 'food', '2020-09-05 15:34:02.274628+05:30', 17, '205', false);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (52, 136, 'food', '2020-09-06 13:56:33.940138+05:30', 6, '101', false);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (53, 26, 'food', '2020-09-07 14:07:44.663861+05:30', 6, '101', false);
+INSERT INTO public.main_app_services (id, amount, service_type, order_date, user_id, user_room_number, order_status) VALUES (54, 180, 'laundry', '2020-09-07 14:09:46.578221+05:30', 6, '101', true);
 
 
 --
--- TOC entry 3070 (class 0 OID 17996)
--- Dependencies: 220
+-- TOC entry 3105 (class 0 OID 18447)
+-- Dependencies: 236
+-- Data for Name: main_app_tables; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.main_app_tables (id, table_number, status) VALUES (1, '1', false);
+INSERT INTO public.main_app_tables (id, table_number, status) VALUES (3, '3', false);
+INSERT INTO public.main_app_tables (id, table_number, status) VALUES (2, '2', false);
+INSERT INTO public.main_app_tables (id, table_number, status) VALUES (4, '4', true);
+INSERT INTO public.main_app_tables (id, table_number, status) VALUES (5, '5', true);
+INSERT INTO public.main_app_tables (id, table_number, status) VALUES (6, '6', true);
+INSERT INTO public.main_app_tables (id, table_number, status) VALUES (7, '7', true);
+INSERT INTO public.main_app_tables (id, table_number, status) VALUES (8, '8', true);
+INSERT INTO public.main_app_tables (id, table_number, status) VALUES (9, '9', true);
+INSERT INTO public.main_app_tables (id, table_number, status) VALUES (10, '10', true);
+
+
+--
+-- TOC entry 3102 (class 0 OID 18246)
+-- Dependencies: 233
 -- Data for Name: main_app_userprofile; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1436,11 +1664,12 @@ INSERT INTO public.main_app_userprofile (id, phone, address, aadhar_number, star
 INSERT INTO public.main_app_userprofile (id, phone, address, aadhar_number, start_date, end_date, status, user_id, room_id, room_number) VALUES (3, '9886712113', 'Mysuru, Karnataka', '543210983471', '2020-09-02 12:53:52+05:30', '2020-09-20', false, 9, NULL, '102');
 INSERT INTO public.main_app_userprofile (id, phone, address, aadhar_number, start_date, end_date, status, user_id, room_id, room_number) VALUES (6, '9887857553', 'Hyderabad', '112233445566', '2020-09-02 16:36:32+05:30', '2020-09-04', true, 12, 8, '202');
 INSERT INTO public.main_app_userprofile (id, phone, address, aadhar_number, start_date, end_date, status, user_id, room_id, room_number) VALUES (7, '9887766551', 'Hyderabad', '543210983471', '2020-09-02 18:07:57.814718+05:30', '2020-09-02', false, 16, NULL, '203');
+INSERT INTO public.main_app_userprofile (id, phone, address, aadhar_number, start_date, end_date, status, user_id, room_id, room_number) VALUES (8, '9889745689', 'Delhi', '123456789782', '2020-09-03 20:17:22.089642+05:30', '2020-09-06', true, 17, 11, '205');
 
 
 --
--- TOC entry 3109 (class 0 OID 0)
--- Dependencies: 202
+-- TOC entry 3134 (class 0 OID 0)
+-- Dependencies: 197
 -- Name: auth_group_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1448,8 +1677,8 @@ SELECT pg_catalog.setval('public.auth_group_id_seq', 1, false);
 
 
 --
--- TOC entry 3110 (class 0 OID 0)
--- Dependencies: 204
+-- TOC entry 3135 (class 0 OID 0)
+-- Dependencies: 199
 -- Name: auth_group_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1457,17 +1686,17 @@ SELECT pg_catalog.setval('public.auth_group_permissions_id_seq', 1, false);
 
 
 --
--- TOC entry 3111 (class 0 OID 0)
--- Dependencies: 200
+-- TOC entry 3136 (class 0 OID 0)
+-- Dependencies: 201
 -- Name: auth_permission_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.auth_permission_id_seq', 64, true);
+SELECT pg_catalog.setval('public.auth_permission_id_seq', 72, true);
 
 
 --
--- TOC entry 3112 (class 0 OID 0)
--- Dependencies: 208
+-- TOC entry 3137 (class 0 OID 0)
+-- Dependencies: 204
 -- Name: auth_user_groups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1475,17 +1704,17 @@ SELECT pg_catalog.setval('public.auth_user_groups_id_seq', 1, false);
 
 
 --
--- TOC entry 3113 (class 0 OID 0)
--- Dependencies: 206
+-- TOC entry 3138 (class 0 OID 0)
+-- Dependencies: 205
 -- Name: auth_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.auth_user_id_seq', 16, true);
+SELECT pg_catalog.setval('public.auth_user_id_seq', 30, true);
 
 
 --
--- TOC entry 3114 (class 0 OID 0)
--- Dependencies: 210
+-- TOC entry 3139 (class 0 OID 0)
+-- Dependencies: 207
 -- Name: auth_user_user_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1493,35 +1722,35 @@ SELECT pg_catalog.setval('public.auth_user_user_permissions_id_seq', 1, false);
 
 
 --
--- TOC entry 3115 (class 0 OID 0)
--- Dependencies: 212
+-- TOC entry 3140 (class 0 OID 0)
+-- Dependencies: 209
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.django_admin_log_id_seq', 64, true);
+SELECT pg_catalog.setval('public.django_admin_log_id_seq', 105, true);
 
 
 --
--- TOC entry 3116 (class 0 OID 0)
--- Dependencies: 198
+-- TOC entry 3141 (class 0 OID 0)
+-- Dependencies: 211
 -- Name: django_content_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.django_content_type_id_seq', 16, true);
+SELECT pg_catalog.setval('public.django_content_type_id_seq', 18, true);
 
 
 --
--- TOC entry 3117 (class 0 OID 0)
--- Dependencies: 196
+-- TOC entry 3142 (class 0 OID 0)
+-- Dependencies: 213
 -- Name: django_migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.django_migrations_id_seq', 36, true);
+SELECT pg_catalog.setval('public.django_migrations_id_seq', 49, true);
 
 
 --
--- TOC entry 3118 (class 0 OID 0)
--- Dependencies: 233
+-- TOC entry 3143 (class 0 OID 0)
+-- Dependencies: 216
 -- Name: main_app_adminprofile_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1529,44 +1758,44 @@ SELECT pg_catalog.setval('public.main_app_adminprofile_id_seq', 7, true);
 
 
 --
--- TOC entry 3119 (class 0 OID 0)
--- Dependencies: 231
+-- TOC entry 3144 (class 0 OID 0)
+-- Dependencies: 218
 -- Name: main_app_bills_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.main_app_bills_id_seq', 2, true);
+SELECT pg_catalog.setval('public.main_app_bills_id_seq', 6, true);
 
 
 --
--- TOC entry 3120 (class 0 OID 0)
--- Dependencies: 229
+-- TOC entry 3145 (class 0 OID 0)
+-- Dependencies: 220
 -- Name: main_app_foodservices_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.main_app_foodservices_id_seq', 1, false);
+SELECT pg_catalog.setval('public.main_app_foodservices_id_seq', 33, true);
 
 
 --
--- TOC entry 3121 (class 0 OID 0)
--- Dependencies: 227
+-- TOC entry 3146 (class 0 OID 0)
+-- Dependencies: 222
 -- Name: main_app_guestprofile_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.main_app_guestprofile_id_seq', 1, false);
+SELECT pg_catalog.setval('public.main_app_guestprofile_id_seq', 8, true);
 
 
 --
--- TOC entry 3122 (class 0 OID 0)
--- Dependencies: 225
+-- TOC entry 3147 (class 0 OID 0)
+-- Dependencies: 224
 -- Name: main_app_laundryservice_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.main_app_laundryservice_id_seq', 10, true);
+SELECT pg_catalog.setval('public.main_app_laundryservice_id_seq', 12, true);
 
 
 --
--- TOC entry 3123 (class 0 OID 0)
--- Dependencies: 215
+-- TOC entry 3148 (class 0 OID 0)
+-- Dependencies: 226
 -- Name: main_app_menuitems_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1574,8 +1803,17 @@ SELECT pg_catalog.setval('public.main_app_menuitems_id_seq', 20, true);
 
 
 --
--- TOC entry 3124 (class 0 OID 0)
--- Dependencies: 217
+-- TOC entry 3149 (class 0 OID 0)
+-- Dependencies: 237
+-- Name: main_app_restaurantorders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.main_app_restaurantorders_id_seq', 16, true);
+
+
+--
+-- TOC entry 3150 (class 0 OID 0)
+-- Dependencies: 228
 -- Name: main_app_room_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1583,34 +1821,43 @@ SELECT pg_catalog.setval('public.main_app_room_id_seq', 12, true);
 
 
 --
--- TOC entry 3125 (class 0 OID 0)
--- Dependencies: 223
+-- TOC entry 3151 (class 0 OID 0)
+-- Dependencies: 230
 -- Name: main_app_roomservices_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.main_app_roomservices_id_seq', 14, true);
+SELECT pg_catalog.setval('public.main_app_roomservices_id_seq', 15, true);
 
 
 --
--- TOC entry 3126 (class 0 OID 0)
--- Dependencies: 221
+-- TOC entry 3152 (class 0 OID 0)
+-- Dependencies: 232
 -- Name: main_app_services_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.main_app_services_id_seq', 33, true);
+SELECT pg_catalog.setval('public.main_app_services_id_seq', 54, true);
 
 
 --
--- TOC entry 3127 (class 0 OID 0)
--- Dependencies: 219
+-- TOC entry 3153 (class 0 OID 0)
+-- Dependencies: 235
+-- Name: main_app_tables_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.main_app_tables_id_seq', 10, true);
+
+
+--
+-- TOC entry 3154 (class 0 OID 0)
+-- Dependencies: 234
 -- Name: main_app_userprofile_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.main_app_userprofile_id_seq', 7, true);
+SELECT pg_catalog.setval('public.main_app_userprofile_id_seq', 8, true);
 
 
 --
--- TOC entry 2834 (class 2606 OID 17791)
+-- TOC entry 2837 (class 2606 OID 18271)
 -- Name: auth_group auth_group_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1619,7 +1866,7 @@ ALTER TABLE ONLY public.auth_group
 
 
 --
--- TOC entry 2839 (class 2606 OID 17728)
+-- TOC entry 2842 (class 2606 OID 18273)
 -- Name: auth_group_permissions auth_group_permissions_group_id_permission_id_0cd325b0_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1628,7 +1875,7 @@ ALTER TABLE ONLY public.auth_group_permissions
 
 
 --
--- TOC entry 2842 (class 2606 OID 17681)
+-- TOC entry 2845 (class 2606 OID 18275)
 -- Name: auth_group_permissions auth_group_permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1637,7 +1884,7 @@ ALTER TABLE ONLY public.auth_group_permissions
 
 
 --
--- TOC entry 2836 (class 2606 OID 17671)
+-- TOC entry 2839 (class 2606 OID 18277)
 -- Name: auth_group auth_group_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1646,7 +1893,7 @@ ALTER TABLE ONLY public.auth_group
 
 
 --
--- TOC entry 2829 (class 2606 OID 17714)
+-- TOC entry 2848 (class 2606 OID 18279)
 -- Name: auth_permission auth_permission_content_type_id_codename_01ab375a_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1655,7 +1902,7 @@ ALTER TABLE ONLY public.auth_permission
 
 
 --
--- TOC entry 2831 (class 2606 OID 17663)
+-- TOC entry 2850 (class 2606 OID 18281)
 -- Name: auth_permission auth_permission_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1664,7 +1911,7 @@ ALTER TABLE ONLY public.auth_permission
 
 
 --
--- TOC entry 2850 (class 2606 OID 17699)
+-- TOC entry 2858 (class 2606 OID 18283)
 -- Name: auth_user_groups auth_user_groups_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1673,7 +1920,7 @@ ALTER TABLE ONLY public.auth_user_groups
 
 
 --
--- TOC entry 2853 (class 2606 OID 17743)
+-- TOC entry 2861 (class 2606 OID 18285)
 -- Name: auth_user_groups auth_user_groups_user_id_group_id_94350c0c_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1682,7 +1929,7 @@ ALTER TABLE ONLY public.auth_user_groups
 
 
 --
--- TOC entry 2844 (class 2606 OID 17689)
+-- TOC entry 2852 (class 2606 OID 18287)
 -- Name: auth_user auth_user_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1691,7 +1938,7 @@ ALTER TABLE ONLY public.auth_user
 
 
 --
--- TOC entry 2856 (class 2606 OID 17707)
+-- TOC entry 2864 (class 2606 OID 18289)
 -- Name: auth_user_user_permissions auth_user_user_permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1700,7 +1947,7 @@ ALTER TABLE ONLY public.auth_user_user_permissions
 
 
 --
--- TOC entry 2859 (class 2606 OID 17757)
+-- TOC entry 2867 (class 2606 OID 18291)
 -- Name: auth_user_user_permissions auth_user_user_permissions_user_id_permission_id_14a6b632_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1709,7 +1956,7 @@ ALTER TABLE ONLY public.auth_user_user_permissions
 
 
 --
--- TOC entry 2847 (class 2606 OID 17785)
+-- TOC entry 2855 (class 2606 OID 18293)
 -- Name: auth_user auth_user_username_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1718,7 +1965,7 @@ ALTER TABLE ONLY public.auth_user
 
 
 --
--- TOC entry 2862 (class 2606 OID 17771)
+-- TOC entry 2870 (class 2606 OID 18295)
 -- Name: django_admin_log django_admin_log_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1727,7 +1974,7 @@ ALTER TABLE ONLY public.django_admin_log
 
 
 --
--- TOC entry 2824 (class 2606 OID 17655)
+-- TOC entry 2873 (class 2606 OID 18297)
 -- Name: django_content_type django_content_type_app_label_model_76bd3d3b_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1736,7 +1983,7 @@ ALTER TABLE ONLY public.django_content_type
 
 
 --
--- TOC entry 2826 (class 2606 OID 17653)
+-- TOC entry 2875 (class 2606 OID 18299)
 -- Name: django_content_type django_content_type_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1745,7 +1992,7 @@ ALTER TABLE ONLY public.django_content_type
 
 
 --
--- TOC entry 2822 (class 2606 OID 17645)
+-- TOC entry 2877 (class 2606 OID 18301)
 -- Name: django_migrations django_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1754,7 +2001,7 @@ ALTER TABLE ONLY public.django_migrations
 
 
 --
--- TOC entry 2866 (class 2606 OID 17974)
+-- TOC entry 2880 (class 2606 OID 18303)
 -- Name: django_session django_session_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1763,7 +2010,7 @@ ALTER TABLE ONLY public.django_session
 
 
 --
--- TOC entry 2903 (class 2606 OID 18069)
+-- TOC entry 2883 (class 2606 OID 18305)
 -- Name: main_app_adminprofile main_app_adminprofile_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1772,7 +2019,7 @@ ALTER TABLE ONLY public.main_app_adminprofile
 
 
 --
--- TOC entry 2905 (class 2606 OID 18071)
+-- TOC entry 2885 (class 2606 OID 18307)
 -- Name: main_app_adminprofile main_app_adminprofile_user_id_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1781,7 +2028,7 @@ ALTER TABLE ONLY public.main_app_adminprofile
 
 
 --
--- TOC entry 2899 (class 2606 OID 18059)
+-- TOC entry 2887 (class 2606 OID 18309)
 -- Name: main_app_bills main_app_bills_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1790,16 +2037,7 @@ ALTER TABLE ONLY public.main_app_bills
 
 
 --
--- TOC entry 2901 (class 2606 OID 18061)
--- Name: main_app_bills main_app_bills_user_id_key; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.main_app_bills
-    ADD CONSTRAINT main_app_bills_user_id_key UNIQUE (user_id);
-
-
---
--- TOC entry 2895 (class 2606 OID 18049)
+-- TOC entry 2890 (class 2606 OID 18313)
 -- Name: main_app_foodservices main_app_foodservices_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1808,16 +2046,7 @@ ALTER TABLE ONLY public.main_app_foodservices
 
 
 --
--- TOC entry 2897 (class 2606 OID 18051)
--- Name: main_app_foodservices main_app_foodservices_service_id_key; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.main_app_foodservices
-    ADD CONSTRAINT main_app_foodservices_service_id_key UNIQUE (service_id);
-
-
---
--- TOC entry 2890 (class 2606 OID 18039)
+-- TOC entry 2893 (class 2606 OID 18315)
 -- Name: main_app_guestprofile main_app_guestprofile_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1826,7 +2055,16 @@ ALTER TABLE ONLY public.main_app_guestprofile
 
 
 --
--- TOC entry 2892 (class 2606 OID 18041)
+-- TOC entry 2895 (class 2606 OID 18454)
+-- Name: main_app_guestprofile main_app_guestprofile_table_id_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.main_app_guestprofile
+    ADD CONSTRAINT main_app_guestprofile_table_id_key UNIQUE (table_id);
+
+
+--
+-- TOC entry 2897 (class 2606 OID 18317)
 -- Name: main_app_guestprofile main_app_guestprofile_user_id_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1835,7 +2073,7 @@ ALTER TABLE ONLY public.main_app_guestprofile
 
 
 --
--- TOC entry 2886 (class 2606 OID 18029)
+-- TOC entry 2899 (class 2606 OID 18319)
 -- Name: main_app_laundryservice main_app_laundryservice_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1844,7 +2082,7 @@ ALTER TABLE ONLY public.main_app_laundryservice
 
 
 --
--- TOC entry 2888 (class 2606 OID 18031)
+-- TOC entry 2901 (class 2606 OID 18321)
 -- Name: main_app_laundryservice main_app_laundryservice_service_id_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1853,7 +2091,7 @@ ALTER TABLE ONLY public.main_app_laundryservice
 
 
 --
--- TOC entry 2869 (class 2606 OID 17985)
+-- TOC entry 2903 (class 2606 OID 18323)
 -- Name: main_app_menuitems main_app_menuitems_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1862,7 +2100,16 @@ ALTER TABLE ONLY public.main_app_menuitems
 
 
 --
--- TOC entry 2871 (class 2606 OID 17993)
+-- TOC entry 2922 (class 2606 OID 18472)
+-- Name: main_app_restaurantorders main_app_restaurantorders_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.main_app_restaurantorders
+    ADD CONSTRAINT main_app_restaurantorders_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2905 (class 2606 OID 18325)
 -- Name: main_app_room main_app_room_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1871,7 +2118,7 @@ ALTER TABLE ONLY public.main_app_room
 
 
 --
--- TOC entry 2882 (class 2606 OID 18019)
+-- TOC entry 2907 (class 2606 OID 18327)
 -- Name: main_app_roomservices main_app_roomservices_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1880,7 +2127,7 @@ ALTER TABLE ONLY public.main_app_roomservices
 
 
 --
--- TOC entry 2884 (class 2606 OID 18021)
+-- TOC entry 2909 (class 2606 OID 18329)
 -- Name: main_app_roomservices main_app_roomservices_service_id_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1889,7 +2136,7 @@ ALTER TABLE ONLY public.main_app_roomservices
 
 
 --
--- TOC entry 2879 (class 2606 OID 18011)
+-- TOC entry 2911 (class 2606 OID 18331)
 -- Name: main_app_services main_app_services_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1898,7 +2145,16 @@ ALTER TABLE ONLY public.main_app_services
 
 
 --
--- TOC entry 2873 (class 2606 OID 18001)
+-- TOC entry 2920 (class 2606 OID 18452)
+-- Name: main_app_tables main_app_tables_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.main_app_tables
+    ADD CONSTRAINT main_app_tables_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2914 (class 2606 OID 18333)
 -- Name: main_app_userprofile main_app_userprofile_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1907,7 +2163,7 @@ ALTER TABLE ONLY public.main_app_userprofile
 
 
 --
--- TOC entry 2875 (class 2606 OID 18120)
+-- TOC entry 2916 (class 2606 OID 18335)
 -- Name: main_app_userprofile main_app_userprofile_room_id_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1916,7 +2172,7 @@ ALTER TABLE ONLY public.main_app_userprofile
 
 
 --
--- TOC entry 2877 (class 2606 OID 18003)
+-- TOC entry 2918 (class 2606 OID 18337)
 -- Name: main_app_userprofile main_app_userprofile_user_id_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1925,7 +2181,7 @@ ALTER TABLE ONLY public.main_app_userprofile
 
 
 --
--- TOC entry 2832 (class 1259 OID 17792)
+-- TOC entry 2835 (class 1259 OID 18338)
 -- Name: auth_group_name_a6ea08ec_like; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -1933,7 +2189,7 @@ CREATE INDEX auth_group_name_a6ea08ec_like ON public.auth_group USING btree (nam
 
 
 --
--- TOC entry 2837 (class 1259 OID 17729)
+-- TOC entry 2840 (class 1259 OID 18339)
 -- Name: auth_group_permissions_group_id_b120cbf9; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -1941,7 +2197,7 @@ CREATE INDEX auth_group_permissions_group_id_b120cbf9 ON public.auth_group_permi
 
 
 --
--- TOC entry 2840 (class 1259 OID 17730)
+-- TOC entry 2843 (class 1259 OID 18340)
 -- Name: auth_group_permissions_permission_id_84c5c92e; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -1949,7 +2205,7 @@ CREATE INDEX auth_group_permissions_permission_id_84c5c92e ON public.auth_group_
 
 
 --
--- TOC entry 2827 (class 1259 OID 17715)
+-- TOC entry 2846 (class 1259 OID 18341)
 -- Name: auth_permission_content_type_id_2f476e4b; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -1957,7 +2213,7 @@ CREATE INDEX auth_permission_content_type_id_2f476e4b ON public.auth_permission 
 
 
 --
--- TOC entry 2848 (class 1259 OID 17745)
+-- TOC entry 2856 (class 1259 OID 18342)
 -- Name: auth_user_groups_group_id_97559544; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -1965,7 +2221,7 @@ CREATE INDEX auth_user_groups_group_id_97559544 ON public.auth_user_groups USING
 
 
 --
--- TOC entry 2851 (class 1259 OID 17744)
+-- TOC entry 2859 (class 1259 OID 18343)
 -- Name: auth_user_groups_user_id_6a12ed8b; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -1973,7 +2229,7 @@ CREATE INDEX auth_user_groups_user_id_6a12ed8b ON public.auth_user_groups USING 
 
 
 --
--- TOC entry 2854 (class 1259 OID 17759)
+-- TOC entry 2862 (class 1259 OID 18344)
 -- Name: auth_user_user_permissions_permission_id_1fbb5f2c; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -1981,7 +2237,7 @@ CREATE INDEX auth_user_user_permissions_permission_id_1fbb5f2c ON public.auth_us
 
 
 --
--- TOC entry 2857 (class 1259 OID 17758)
+-- TOC entry 2865 (class 1259 OID 18345)
 -- Name: auth_user_user_permissions_user_id_a95ead1b; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -1989,7 +2245,7 @@ CREATE INDEX auth_user_user_permissions_user_id_a95ead1b ON public.auth_user_use
 
 
 --
--- TOC entry 2845 (class 1259 OID 17786)
+-- TOC entry 2853 (class 1259 OID 18346)
 -- Name: auth_user_username_6821ab7c_like; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -1997,7 +2253,7 @@ CREATE INDEX auth_user_username_6821ab7c_like ON public.auth_user USING btree (u
 
 
 --
--- TOC entry 2860 (class 1259 OID 17782)
+-- TOC entry 2868 (class 1259 OID 18347)
 -- Name: django_admin_log_content_type_id_c4bce8eb; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2005,7 +2261,7 @@ CREATE INDEX django_admin_log_content_type_id_c4bce8eb ON public.django_admin_lo
 
 
 --
--- TOC entry 2863 (class 1259 OID 17783)
+-- TOC entry 2871 (class 1259 OID 18348)
 -- Name: django_admin_log_user_id_c564eba6; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2013,7 +2269,7 @@ CREATE INDEX django_admin_log_user_id_c564eba6 ON public.django_admin_log USING 
 
 
 --
--- TOC entry 2864 (class 1259 OID 17976)
+-- TOC entry 2878 (class 1259 OID 18349)
 -- Name: django_session_expire_date_a5c62663; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2021,7 +2277,7 @@ CREATE INDEX django_session_expire_date_a5c62663 ON public.django_session USING 
 
 
 --
--- TOC entry 2867 (class 1259 OID 17975)
+-- TOC entry 2881 (class 1259 OID 18350)
 -- Name: django_session_session_key_c0390e0f_like; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2029,15 +2285,31 @@ CREATE INDEX django_session_session_key_c0390e0f_like ON public.django_session U
 
 
 --
--- TOC entry 2893 (class 1259 OID 18108)
--- Name: main_app_foodservices_menu_item_id_9f0873d2; Type: INDEX; Schema: public; Owner: postgres
+-- TOC entry 2888 (class 1259 OID 18485)
+-- Name: main_app_bills_user_id_0f8160f4; Type: INDEX; Schema: public; Owner: postgres
 --
 
-CREATE INDEX main_app_foodservices_menu_item_id_9f0873d2 ON public.main_app_foodservices USING btree (menu_item_id);
+CREATE INDEX main_app_bills_user_id_0f8160f4 ON public.main_app_bills USING btree (user_id);
 
 
 --
--- TOC entry 2880 (class 1259 OID 18082)
+-- TOC entry 2891 (class 1259 OID 18351)
+-- Name: main_app_foodservices_service_id_f9c90948; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX main_app_foodservices_service_id_f9c90948 ON public.main_app_foodservices USING btree (service_id);
+
+
+--
+-- TOC entry 2923 (class 1259 OID 18478)
+-- Name: main_app_restaurantorders_user_id_2200432d; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX main_app_restaurantorders_user_id_2200432d ON public.main_app_restaurantorders USING btree (user_id);
+
+
+--
+-- TOC entry 2912 (class 1259 OID 18352)
 -- Name: main_app_services_user_id_c22ccd25; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2045,7 +2317,7 @@ CREATE INDEX main_app_services_user_id_c22ccd25 ON public.main_app_services USIN
 
 
 --
--- TOC entry 2908 (class 2606 OID 17722)
+-- TOC entry 2924 (class 2606 OID 18353)
 -- Name: auth_group_permissions auth_group_permissio_permission_id_84c5c92e_fk_auth_perm; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2054,7 +2326,7 @@ ALTER TABLE ONLY public.auth_group_permissions
 
 
 --
--- TOC entry 2907 (class 2606 OID 17717)
+-- TOC entry 2925 (class 2606 OID 18358)
 -- Name: auth_group_permissions auth_group_permissions_group_id_b120cbf9_fk_auth_group_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2063,7 +2335,7 @@ ALTER TABLE ONLY public.auth_group_permissions
 
 
 --
--- TOC entry 2906 (class 2606 OID 17708)
+-- TOC entry 2926 (class 2606 OID 18363)
 -- Name: auth_permission auth_permission_content_type_id_2f476e4b_fk_django_co; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2072,7 +2344,7 @@ ALTER TABLE ONLY public.auth_permission
 
 
 --
--- TOC entry 2910 (class 2606 OID 17737)
+-- TOC entry 2927 (class 2606 OID 18368)
 -- Name: auth_user_groups auth_user_groups_group_id_97559544_fk_auth_group_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2081,7 +2353,7 @@ ALTER TABLE ONLY public.auth_user_groups
 
 
 --
--- TOC entry 2909 (class 2606 OID 17732)
+-- TOC entry 2928 (class 2606 OID 18373)
 -- Name: auth_user_groups auth_user_groups_user_id_6a12ed8b_fk_auth_user_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2090,7 +2362,7 @@ ALTER TABLE ONLY public.auth_user_groups
 
 
 --
--- TOC entry 2912 (class 2606 OID 17751)
+-- TOC entry 2929 (class 2606 OID 18378)
 -- Name: auth_user_user_permissions auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2099,7 +2371,7 @@ ALTER TABLE ONLY public.auth_user_user_permissions
 
 
 --
--- TOC entry 2911 (class 2606 OID 17746)
+-- TOC entry 2930 (class 2606 OID 18383)
 -- Name: auth_user_user_permissions auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2108,7 +2380,7 @@ ALTER TABLE ONLY public.auth_user_user_permissions
 
 
 --
--- TOC entry 2913 (class 2606 OID 17772)
+-- TOC entry 2931 (class 2606 OID 18388)
 -- Name: django_admin_log django_admin_log_content_type_id_c4bce8eb_fk_django_co; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2117,7 +2389,7 @@ ALTER TABLE ONLY public.django_admin_log
 
 
 --
--- TOC entry 2914 (class 2606 OID 17777)
+-- TOC entry 2932 (class 2606 OID 18393)
 -- Name: django_admin_log django_admin_log_user_id_c564eba6_fk_auth_user_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2126,7 +2398,7 @@ ALTER TABLE ONLY public.django_admin_log
 
 
 --
--- TOC entry 2924 (class 2606 OID 18114)
+-- TOC entry 2933 (class 2606 OID 18398)
 -- Name: main_app_adminprofile main_app_adminprofile_user_id_522a2c0c_fk_auth_user_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2135,7 +2407,7 @@ ALTER TABLE ONLY public.main_app_adminprofile
 
 
 --
--- TOC entry 2923 (class 2606 OID 18109)
+-- TOC entry 2934 (class 2606 OID 18486)
 -- Name: main_app_bills main_app_bills_user_id_0f8160f4_fk_auth_user_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2144,16 +2416,7 @@ ALTER TABLE ONLY public.main_app_bills
 
 
 --
--- TOC entry 2921 (class 2606 OID 18098)
--- Name: main_app_foodservices main_app_foodservice_menu_item_id_9f0873d2_fk_main_app_; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.main_app_foodservices
-    ADD CONSTRAINT main_app_foodservice_menu_item_id_9f0873d2_fk_main_app_ FOREIGN KEY (menu_item_id) REFERENCES public.main_app_menuitems(id) DEFERRABLE INITIALLY DEFERRED;
-
-
---
--- TOC entry 2922 (class 2606 OID 18103)
+-- TOC entry 2935 (class 2606 OID 18408)
 -- Name: main_app_foodservices main_app_foodservice_service_id_f9c90948_fk_main_app_; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2162,7 +2425,16 @@ ALTER TABLE ONLY public.main_app_foodservices
 
 
 --
--- TOC entry 2920 (class 2606 OID 18093)
+-- TOC entry 2937 (class 2606 OID 18491)
+-- Name: main_app_guestprofile main_app_guestprofile_table_id_fead1246_fk_main_app_tables_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.main_app_guestprofile
+    ADD CONSTRAINT main_app_guestprofile_table_id_fead1246_fk_main_app_tables_id FOREIGN KEY (table_id) REFERENCES public.main_app_tables(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- TOC entry 2936 (class 2606 OID 18413)
 -- Name: main_app_guestprofile main_app_guestprofile_user_id_cfa3b6b3_fk_auth_user_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2171,7 +2443,7 @@ ALTER TABLE ONLY public.main_app_guestprofile
 
 
 --
--- TOC entry 2919 (class 2606 OID 18088)
+-- TOC entry 2938 (class 2606 OID 18418)
 -- Name: main_app_laundryservice main_app_laundryserv_service_id_1de4f9b4_fk_main_app_; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2180,7 +2452,16 @@ ALTER TABLE ONLY public.main_app_laundryservice
 
 
 --
--- TOC entry 2918 (class 2606 OID 18083)
+-- TOC entry 2943 (class 2606 OID 18479)
+-- Name: main_app_restaurantorders main_app_restaurantorders_user_id_2200432d_fk_auth_user_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.main_app_restaurantorders
+    ADD CONSTRAINT main_app_restaurantorders_user_id_2200432d_fk_auth_user_id FOREIGN KEY (user_id) REFERENCES public.auth_user(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- TOC entry 2939 (class 2606 OID 18423)
 -- Name: main_app_roomservices main_app_roomservice_service_id_72c7cb47_fk_main_app_; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2189,7 +2470,7 @@ ALTER TABLE ONLY public.main_app_roomservices
 
 
 --
--- TOC entry 2917 (class 2606 OID 18077)
+-- TOC entry 2940 (class 2606 OID 18428)
 -- Name: main_app_services main_app_services_user_id_c22ccd25_fk_auth_user_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2198,7 +2479,7 @@ ALTER TABLE ONLY public.main_app_services
 
 
 --
--- TOC entry 2916 (class 2606 OID 18133)
+-- TOC entry 2941 (class 2606 OID 18433)
 -- Name: main_app_userprofile main_app_userprofile_room_id_3c501e78_fk_main_app_room_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2207,7 +2488,7 @@ ALTER TABLE ONLY public.main_app_userprofile
 
 
 --
--- TOC entry 2915 (class 2606 OID 18072)
+-- TOC entry 2942 (class 2606 OID 18438)
 -- Name: main_app_userprofile main_app_userprofile_user_id_131f3a5f_fk_auth_user_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2215,7 +2496,7 @@ ALTER TABLE ONLY public.main_app_userprofile
     ADD CONSTRAINT main_app_userprofile_user_id_131f3a5f_fk_auth_user_id FOREIGN KEY (user_id) REFERENCES public.auth_user(id) DEFERRABLE INITIALLY DEFERRED;
 
 
--- Completed on 2020-09-03 19:30:56
+-- Completed on 2020-09-07 14:30:06
 
 --
 -- PostgreSQL database dump complete

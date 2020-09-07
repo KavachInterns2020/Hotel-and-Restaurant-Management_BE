@@ -3,6 +3,10 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from datetime import date
 
+class Tables(models.Model):
+    table_number=models.CharField(max_length=3)
+    status=models.BooleanField(default=True)
+
 class AdminProfile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     admin_type=models.CharField(max_length=20)
@@ -12,8 +16,10 @@ class AdminProfile(models.Model):
 class GuestProfile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     table_number=models.CharField(max_length=3)
+    table=models.OneToOneField(Tables,on_delete=models.CASCADE,null=True)
     phone=models.CharField(max_length=10)
     date=models.DateTimeField(default=timezone.now)
+    status=models.BooleanField(default=True)
 
 class Room(models.Model):
     room_number=models.CharField(max_length=3)
@@ -48,7 +54,7 @@ class LaundryService(models.Model):
     garment_type=models.CharField(max_length=50)
     laundry_type=models.CharField(max_length=50)
     instructions=models.CharField(max_length=100)
-    
+
 
 class RoomServices(models.Model):
     service=models.OneToOneField(Services,on_delete=models.CASCADE)
@@ -65,7 +71,7 @@ class MenuItems(models.Model):
     available_status=models.BooleanField(default=True)
 
 class Bills(models.Model):
-    user=models.OneToOneField(User,on_delete=models.CASCADE)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
     total_amount=models.FloatField()
     billing_date_from=models.DateTimeField()
     billing_date_to=models.DateField()
@@ -73,7 +79,20 @@ class Bills(models.Model):
     payment_type=models.CharField(max_length=100)
 
 class FoodServices(models.Model):
-    service=models.OneToOneField(Services,on_delete=models.CASCADE)
-    menu_item=models.ForeignKey(MenuItems,on_delete=models.CASCADE)
+    service=models.ForeignKey(Services,on_delete=models.CASCADE)
+    menu_item=models.CharField(max_length=100)
     quantity=models.IntegerField()
-    message=models.CharField(max_length=100)
+    where=models.CharField(max_length=3)
+    status=models.BooleanField(default=True)
+
+class RestaurantOrders(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    table_number=models.CharField(max_length=3)
+    order_date=models.DateTimeField(default=timezone.now)
+    menu_item=models.CharField(max_length=100)
+    quantity=models.IntegerField()
+    amount=models.FloatField()
+    status=models.BooleanField(default=True)
+
+
+

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'main_app',
     'user',
     'staff',
+    'restaurant',
 ]
 
 MIDDLEWARE = [

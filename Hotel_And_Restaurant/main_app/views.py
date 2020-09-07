@@ -27,7 +27,7 @@ def login(request):
 				elif hasattr(user,'userprofile'):
 					return redirect('/user/dashboard')
 				else:
-					return HttpResponse('Welcome ' + user.first_name + ' your table number is '+ user.guestprofile.table_number)
+					return redirect('/restaurant')
 					
 
 

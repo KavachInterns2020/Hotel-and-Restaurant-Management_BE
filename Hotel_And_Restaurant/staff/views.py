@@ -5,6 +5,7 @@ from django.contrib import messages
 from main_app.models import *
 from datetime import datetime,date,timedelta
 import smtplib
+from django.utils import timezone
 
 def dashboard(request):
 	user=request.user
@@ -59,7 +60,7 @@ def laundry_history(request):
 	total=Services.objects.filter(service_type='laundry').count()
 	services=Services.objects.filter(service_type='laundry')
 	completed=total-active
-	return render(request,'view_laundry_history.html',{'services':services,'active':active,'completed':completed,'total':total})	
+	return render(request,'view_laundry_history.html',{'services':services,'active':active,'completed':completed,'total':total})
 
 def roomservice_history(request):
 	active=Services.objects.filter(service_type='roomservice').filter(order_status=True).count()
@@ -67,18 +68,23 @@ def roomservice_history(request):
 	services=Services.objects.filter(service_type='roomservice')
 	completed=total-active
 	return render(request,'view_roomservice_history.html',{'services':services,'active':active,'completed':completed,'total':total})
-	
+
 def owner(request):
 	days=date.today().day
 	months=date.today().month
 	years=date.today().year
 	hotel_customers_today=UserProfile.objects.filter(start_date__contains=date(years,months,days)).count()
+	restaurant_customers_today=GuestProfile.objects.filter(date__contains=date(years,months,days)).count()
 	orders=Services.objects.filter(order_date__contains=date(years,months,days))
+	rest_orders=RestaurantOrders.objects.filter(order_date__contains=date(years,months,days))
+	total_rest_amount=0.0
+	for o in rest_orders:
+		total_rest_amount+=o.amount
 	hotel_customers=User.objects.filter(userprofile__isnull=False)
 	total_amount=0.0
 	for order in orders:
 		total_amount+=order.amount
-	return render(request,'owner_dashboard.html',{'hotel_customers':hotel_customers_today,'total_amount':total_amount,'customers':hotel_customers})
+	return render(request,'owner_dashboard.html',{'rest_amount':total_rest_amount,'restaurant_customers':restaurant_customers_today,'hotel_customers':hotel_customers_today,'total_amount':total_amount,'customers':hotel_customers})
 
 def reception(request):
 	total_number=UserProfile.objects.filter(status=True).count()
@@ -312,7 +318,52 @@ def deletemenu(request,pk):
 	return redirect('/staff/managemenu')
 
 def chef(request):
-	return render(request,'chef_dashboard.html')
+	foodservices=FoodServices.objects.filter(status=True)
+	restaurant_orders=RestaurantOrders.objects.filter(status=True)
+	today=Services.objects.filter(service_type='food').filter(order_date__date=date.today())
+	total=0
+	for i in today:
+		total+=FoodServices.objects.filter(service=i.id).count()
+	today_rest=RestaurantOrders.objects.filter(order_date__date=date.today()).count()
+	total+=today_rest
+	active=FoodServices.objects.filter(status=True).count()
+	active_rest=RestaurantOrders.objects.filter(status=True).count()
+	active+=active_rest
+	completed=total-active
+	if completed < 0:
+		completed=0
+	return render(request,'chef_dashboard.html',{'restaurant':restaurant_orders,'foodservices':foodservices,'active':active,'completed':completed,'total':total})
+
+def fsremoveorder(request,pk):
+	foodservice=FoodServices.objects.get(id=pk)
+	foodservice.status=False
+	foodservice.save()
+	service=Services.objects.filter(id=foodservice.service_id).filter(order_status=True)
+	if(len(service)>0):
+		order=Services.objects.get(id=foodservice.service_id)
+		order.order_status=False
+		order.save()
+
+	messages.info(request, 'Room service Order number '+str(foodservice.id)+' completed!')
+	return redirect('/staff/chef')
+
+def food_history(request):
+	foodservices=FoodServices.objects.all()
+	restaurant_orders=RestaurantOrders.objects.all()
+	today=Services.objects.filter(service_type='food').filter(order_date__date=date.today())
+	total=0
+	for i in today:
+		total+=FoodServices.objects.filter(service=i.id).count()
+	today_rest=RestaurantOrders.objects.filter(order_date__date=date.today()).count()
+	total+=today_rest
+	active=FoodServices.objects.filter(status=True).count()
+	active_rest=RestaurantOrders.objects.filter(status=True).count()
+	active+=active_rest
+	completed=total-active
+	if completed < 0:
+		completed=0
+	return render(request,'view_food_history.html',{'restaurant':restaurant_orders,'foodservices':foodservices,'active':active,'completed':completed,'total':total})
+
 
 def status(request):
 	breakfast=MenuItems.objects.filter(menu_type='Breakfast')
@@ -336,5 +387,34 @@ def updatestatus(request,pk):
 	messages.info(request,'Status for '+item.item_name+" has been changed from "+s1+" to "+s2)
 	return redirect('/staff/chef/status')
 
+def completeorder(request,pk):
+	food_order=RestaurantOrders.objects.get(id=pk)
+	food_order.status=False
+	food_order.save()
+	messages.info(request,'Restaurant Order number '+str(food_order.id)+ ' has been completed!')
+	return redirect('/staff/chef')
 
+def viewrestaurantcustomers(request):
+	days=date.today().day
+	months=date.today().month
+	years=date.today().year
+	today_customers=GuestProfile.objects.filter(date__contains=date(years,months,days)).count()
+	hotel_customers=User.objects.filter(guestprofile__isnull=False)
+	hotel_count=User.objects.filter(guestprofile__isnull=False).count()
+	context={'customers':hotel_customers,'today_count':today_customers,'total_count':hotel_count}
+	return render(request,'view_restuarant_customers.html',context)
 
+def viewrestaurantbills(request):
+	days=date.today().day
+	months=date.today().month
+	years=date.today().year
+	today_orders=RestaurantOrders.objects.filter(order_date__contains=date(years,months,days))
+	total_orders=RestaurantOrders.objects.all()
+	today_earnings=0.0
+	total_earnings=0.0
+	for t in today_orders:
+		today_earnings+=t.amount
+	for t in total_orders:
+		total_earnings+=t.amount
+	context={'orders':today_orders,'today':today_earnings,'total':total_earnings}
+	return render(request,'view_restuarant_bills.html',context)

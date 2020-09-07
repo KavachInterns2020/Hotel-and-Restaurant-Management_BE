@@ -6,6 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="30" />
     <link rel="manifest" href="site.webmanifest">
         <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico' %}">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
@@ -117,7 +118,7 @@
   <div style="text-align: center;" class="card-header">Options and Services</div>
   <div class="card-body text-center">
     <div id="btnsid">
-  <a style=" margin-left:30px;margin-right:30px; margin-top: 5px;margin-bottom: 5px;" class="btn btn-outline-primary custom" href="#" role="button">Order Food</a>
+  <a style=" margin-left:30px;margin-right:30px; margin-top: 5px;margin-bottom: 5px;" class="btn btn-outline-primary custom" href="/user/orderfood" role="button">Order Food</a>
   <a style=" margin-left:30px;margin-right:30px; margin-top: 5px;margin-bottom: 5px;" class="btn btn-outline-primary custom" href="/user/roomservice" role="button">Order Room Service</a>
   <a style=" margin-left:30px;margin-right:30px; margin-top: 5px;margin-bottom: 5px;" class="btn btn-outline-primary custom" href="/user/laundry" role="button">Order Laundry Service</a>
   <a style=" margin-left:30px;margin-right:30px; margin-top: 5px;margin-bottom: 5px;" class="btn btn-outline-danger custom" href="/user/changepassword" role="button">Change Password</a>
@@ -128,7 +129,7 @@
 <script>
   {% for message in messages %}
   alert("{{ message }}");
-  
+
 </script>
 {% endfor %}
 

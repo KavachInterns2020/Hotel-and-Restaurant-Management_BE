@@ -7,6 +7,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="10" />
     <link rel="manifest" href="site.webmanifest">
         <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico' %}">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
@@ -110,19 +111,19 @@
   <div class="card bg-primary" style="color: white;">
     <div style="text-align: center;" class="card-header">Total Orders Received Today</div>
     <div class="card-body text-center">
-      <h1 class="card-text" style="font-weight: bold; margin-bottom: 20px;">27</h1>
+      <h1 class="card-text" style="font-weight: bold; margin-bottom: 20px;">{{ total }}</h1>
     </div>
   </div>
   <div class="card bg-warning" style="color: white;">
     <div style="text-align: center;" class="card-header">Total Pending Orders</div>
     <div class="card-body text-center">
-      <h1 class="card-text" style="font-weight: bold; margin-bottom: 20px;">3</h1>
+      <h1 class="card-text" style="font-weight: bold; margin-bottom: 20px;">{{ active }}</h1>
     </div>
   </div>
   <div class="card bg-success" style="color: white;">
     <div style="text-align: center;" class="card-header">Orders Completed Till Now</div>
     <div class="card-body text-center">
-      <h1 class="card-text" style="font-weight: bold; margin-bottom: 20px;">24</h1>
+      <h1 class="card-text" style="font-weight: bold; margin-bottom: 20px;">{{ completed }}</h1>
     </div>
   </div>
 </div>
@@ -132,123 +133,63 @@
   <table class="table table-hover table-dark">
   <thead>
     <tr>
+      <th scope="col">Order Type</th>
       <th scope="col">Order Number</th>
       <th scope="col">Item Name</th>
+      <th scope="col">Quantity</th>
       <th scope="col">Serve</th>
-      <th scope="col">Order Date and Time</th>
       <th scope="col">Select</th>
     </tr>
   </thead>
   <tbody>
+        {% for r in restaurant %}
+
     <tr>
-      <th scope="row">1</th>
-      <td>Noodles</td>
+      <td>Restaurant</td>
+      <td>{{ r.id }}</td>
+      <td>{{ r.menu_item }}</td>
+      <td>{{ r.quantity }}</td>
+      <td>Table No.{{ r.table_number }}</td>
+      <td><div class="radio">
+                     <label><a href="{% url 'completeorder' r.id %}"  class="btn btn-danger">Complete Order</a></label>
+                 </div>
+      </td>
+    </tr>
+
+    {% endfor %}
+    {% for f in foodservices %}
+
+    <tr>
       <td>Hotel</td>
-      <td>27-08-2020 8pm</td>
+      <td>{{ f.id }}</td>
+      <td>{{ f.menu_item }}</td>
+      <td>{{ f.quantity }}</td>
+      <td>Room No.{{ f.where }}</td>
       <td><div class="radio">
-                     <label><button type="button" class="btn btn-danger">Complete Order</button></label>
+                     <label><a href="{% url 'fsremoveorder' f.id %}"  class="btn btn-danger">Complete Order</a></label>
                  </div>
       </td>
     </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Noodles</td>
-      <td>Restuarant</td>
-      <td>27-08-2020 8pm</td>
-      <td><div class="radio">
-                     <label><button type="button" class="btn btn-danger">Complete Order</button></label>
-                 </div>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Noodles</td>
-      <td>Hotel</td>
-      <td>27-08-2020 8pm</td>
-      <td><div class="radio">
-                     <label><button type="button" class="btn btn-danger">Complete Order</button></label>
-                 </div>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Noodles</td>
-      <td>Restuarant</td>
-      <td>27-08-2020 8pm</td>
-      <td><div class="radio">
-                     <label><button type="button" class="btn btn-danger">Complete Order</button></label>
-                 </div>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Noodles</td>
-      <td>Hotel</td>
-      <td>27-08-2020 8pm</td>
-      <td><div class="radio">
-                     <label><button type="button" class="btn btn-danger">Complete Order</button></label>
-                 </div>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Noodles</td>
-      <td>Restuarant</td>
-      <td>27-08-2020 8pm</td>
-      <td><div class="radio">
-                     <label><button type="button" class="btn btn-danger">Complete Order</button></label>
-                 </div>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Noodles</td>
-      <td>Hotel</td>
-      <td>27-08-2020 8pm</td>
-      <td><div class="radio">
-                     <label><button type="button" class="btn btn-danger">Complete Order</button></label>
-                 </div>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Noodles</td>
-      <td>Restuarant</td>
-      <td>27-08-2020 8pm</td>
-      <td><div class="radio">
-                     <label><button type="button" class="btn btn-danger">Complete Order</button></label>
-                 </div>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Noodles</td>
-      <td>Hotel</td>
-      <td>27-08-2020 8pm</td>
-      <td><div class="radio">
-                     <label><button type="button" class="btn btn-danger">Complete Order</button></label>
-                 </div>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Noodles</td>
-      <td>Restuarant</td>
-      <td>27-08-2020 8pm</td>
-      <td><div class="radio">
-                     <label><button type="button" class="btn btn-danger">Complete Order</button></label>
-                 </div>
-      </td>
-    </tr>
+
+    {% endfor %}
   </tbody>
-</table>
-</div>
+  </table>
+  </div>
+  {% if messages %}
+  <script>
+  {% for message in messages %}
+  alert("{{ message }}");
+
+  </script>
+  {% endfor %}
+
+  {% endif %}
 
 <div  style=" margin-left: 150px; margin-right: 150px; margin-top: 50px;" class="card">
   <div style="text-align: center;" class="card-header">Options and Services</div>
   <div class="card-body text-center">
     <div id="btnsid">
-  <a style=" margin-left:30px;margin-right:30px; margin-top: 5px;margin-bottom: 5px;" class="btn btn-outline-primary custom" href="#" role="button">View Order History</a>
+  <a style=" margin-left:30px;margin-right:30px; margin-top: 5px;margin-bottom: 5px;" class="btn btn-outline-primary custom" href="/staff/chef/history" role="button">View Order History</a>
   <a style=" margin-left:30px;margin-right:30px; margin-top: 5px;margin-bottom: 5px;" class="btn btn-outline-primary custom" href="/staff/chef/status" role="button">Update Item Status</a>
 </div>
   </div>

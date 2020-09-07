@@ -4,6 +4,7 @@ from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from main_app.models import *
 from datetime import datetime,timedelta,date
+import json
 
 # Create your views here.
 def dashboard(request):
@@ -48,7 +49,7 @@ def laundry(request):
 		garment_type=request.POST['garment_type']
 		laundry_type=request.POST['laundry_type']
 		instructions=request.POST['instructions']
-		
+
 
 		if garment_type=='notchoosen':
 			messages.info(request, 'Choose a Garment Type!')
@@ -128,5 +129,40 @@ def changepassword(request):
 			messages.info(request,'Your password has been changed, please relogin')
 			return redirect('/logout')
 
+def orderfood(request):
+	if request.method=='POST':
+		user=request.user
+		user_room_number=user.userprofile.room.room_number
+		service_type='food'
+		cart=request.POST['cart_list']
+		total=0.0
+		cart=json.loads(cart)
+		for item in cart:
+			price=item['product_price'].split('.')[0]
+			total+=int(price)*int(item['product_quantity'])
+		service=Services.objects.create(user=user,amount=total,service_type=service_type,user_room_number=user_room_number)
+		for item in cart:
+			menu=MenuItems.objects.get(item_name=item['product_name'])
+			quantity=int(item['product_quantity'])
+			foodservice=FoodServices.objects.create(service=service,menu_item=item['product_name'],where=user_room_number,quantity=quantity)
+		service.save()
+		foodservice.save()
 
 
+		messages.info(request, 'Your order has been placed! Check in your order history for all the food orders placed.')
+		return redirect('/user/dashboard')
+	else:
+		breakfast=MenuItems.objects.filter(menu_type='Breakfast')
+		starters=MenuItems.objects.filter(menu_type='Starters')
+		main_course=MenuItems.objects.filter(menu_type='Main Course')
+		desserts=MenuItems.objects.filter(menu_type='Dessert')
+		for b in breakfast:
+			b.item_price+=(5*b.item_price)//100
+		for s in starters:
+			s.item_price+=(5*b.item_price)//100
+		for m in main_course:
+			m.item_price+=(5*b.item_price)//100
+		for d in desserts:
+			d.item_price+=(5*b.item_price)//100
+		context={'breakfast':breakfast,'starters':starters,'maincourse':main_course,'desserts':desserts}
+		return render(request,'food_order.html',context)

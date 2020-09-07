@@ -6,6 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="30" />
     <link rel="manifest" href="site.webmanifest">
         <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico' %}">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
@@ -112,11 +113,11 @@ thead, tbody tr {
             <ul class="nav flex-column sticky-top pl-0 pt-5 mt-3">
                 <li class="nav-item"><a class="nav-link" href="/staff/add">Add Employee</a></li>
                 <li class="nav-item"><a class="nav-link" href="/staff/owner/viewhotelcustomers">View Hotel Customers</a> </li>
-                <li class="nav-item"><a class="nav-link" href="#">View Restaurant Customers</a></li>
+                <li class="nav-item"><a class="nav-link" href="/staff/owner/viewrestaurantcustomers">View Restaurant Customers</a></li>
                 <li class="nav-item"><a class="nav-link" href="/staff/owner/viewemployees">View Employees</a></li>
                 <li class="nav-item"><a class="nav-link" href="/staff/managemenu">Manage Menu</a></li>
                 <li class="nav-item"><a class="nav-link" href="/staff/owner/hotelbills">View Hotel Bills</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">View Restaurant Bills</a></li>
+                <li class="nav-item"><a class="nav-link" href="/staff/owner/viewrestaurantbills">View Restaurant Bills</a></li>
             </ul>
         </div>
         <!--/col-->
@@ -133,7 +134,7 @@ thead, tbody tr {
                       </div>
                         <div class="card-body bg-success">
                           <i class="fa fa-user fa-4x"></i>
-                            <h1 style="display:inline-block;" class="display-4">25</h1>
+                            <h1 style="display:inline-block;" class="display-4">{{restaurant_customers}}</h1>
                         </div>
                     </div>
                 </div>
@@ -155,7 +156,7 @@ thead, tbody tr {
                     </div>
                         <div class="card-body bg-info">
                               <i class="fa fa-rupee fa-4x"></i>
-                            <h1 style="display:inline-block;" class="display-4">57890</h1>
+                            <h1 style="display:inline-block;" class="display-4">{{rest_amount}}</h1>
                         </div>
                     </div>
                 </div>

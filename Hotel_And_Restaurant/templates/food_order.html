@@ -1,0 +1,1106 @@
+{% load static %}
+{% static 'images' as baseURL %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Order-MMVR International</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- Include Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- Include SmartCart CSS -->
+    <!-- <link href="../dist/css/smart_cart.min.css" rel="stylesheet" type="text/css" /> -->
+<style>
+
+*{
+  font-family: 'Lato', sans-serif;
+}
+.navbar-text{
+  padding-left:30px;
+  padding-right:30px;
+
+}
+  .footer{
+background: #152F4F;
+color:white;
+
+.links{
+ul {list-style-type: none;}
+li a{
+color: white;
+transition: color .2s;
+&:hover{
+  text-decoration:none;
+  color:#4180CB;
+  }
+}
+}
+.about-company{
+i{font-size: 25px;}
+a{
+color:white;
+transition: color .2s;
+&:hover{color:#4180CB}
+}
+}
+.location{
+i{font-size: 18px;}
+}
+.copyright p{border-top:1px solid rgba(255,255,255,.1);}
+}
+.product-holder {
+position: relative;
+display: block;
+}
+
+.plus-image {
+left: 100%;
+top: 0%;
+position: absolute;
+margin-left: -25px;
+margin-top: -10px;
+}
+
+.sc-cart-item-list {
+    min-height: 50px;
+}
+
+.sc-cart-remove {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.sc-cart-remove:hover {
+    color: red;
+}
+
+.sc-cart-empty-msg {
+    color: #999;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+.sc-cart-item-qty {
+    width: 55px;
+    border-radius: 3px;
+    font-size: 12px;
+    padding: 4px 0 3px 6px;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    -webkit-transition: border-color 0.15s ease-in-out 0s, -webkit-box-shadow 0.15s ease-in-out 0s;
+    transition: border-color 0.15s ease-in-out 0s, -webkit-box-shadow 0.15s ease-in-out 0s;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s, -webkit-box-shadow 0.15s ease-in-out 0s;
+}
+
+.sc-cart-item-summary {
+    text-align: right;
+    margin-top: 5px;
+    padding-top: 5px;
+}
+
+.sc-cart-summary {
+    text-align: right;
+    font-size: 1.5em;
+}
+
+.sc-cart-subtotal {
+}
+
+.sc-cart-toolbar {
+    margin-top: 10px;
+    text-align: right;
+}
+
+.sc-cart-toolbar button {
+    margin-left: 5px;
+}
+
+.sc-cart-toolbar button.disabled img {
+    opacity: .5;
+}
+
+.sc-cart-item img {
+    margin-right: 10px;
+    width: 60px;
+}
+
+.sc-highlight {
+    -webkit-animation: highlight 1s;
+    animation: highlight 1s;
+}
+
+@keyframes highlight {
+    from {
+        background: #faebcc;
+    }
+
+    to {
+        background: none;
+    }
+}
+
+@-webkit-keyframes highlight {
+    from {
+        background: #faebcc;
+    }
+
+    to {
+        background: none;
+    }
+}
+
+.sc-product-item {
+    position: relative;
+}
+
+.sc-product-item:after, .sc-product-item:before {
+    -webkit-transition: all 0.2s ease-in-out 0s;
+    transition: all 0.2s ease-in-out 0s;
+}
+
+.sc-added-item {
+    border-color: #5cb85c;
+}
+
+.sc-added-item:after {
+    content: "\2713 ";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 4px;
+    z-index: 99;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.sc-added-item:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    z-index: 98;
+    top: 0;
+    right: 0;
+    border-style: solid;
+    border-width: 0 40px 40px 0;
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+    border-color: rgba(255,255,255,0) #5cb85c rgba(255,255,255,0) rgba(255,255,255,0);
+}
+
+.sc-button-checkout-default {
+}
+
+.sc-button-checkout-paypal {
+    border: 0;
+    cursor: pointer;
+    padding: 0;
+    width: 170px;
+    height: 32px;
+}
+</style>
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <a class="navbar-brand" href="/">
+    <img src="{% static 'assets/img/logo/logo1.png' %}" width="104" height="24" class="d-inline-block align-top" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">About Us</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Contact</a>
+      </li>
+    </ul>
+
+    <form class="form-inline float-right">
+    <a class="btn btn-sm btn-default" href="/logout">Logout</a>
+  </form>
+  <span class="navbar-text pull-right">
+    Welcome {{user.first_name}}!
+  </span>
+  </div>
+</nav>
+
+<h1 style="text-align:center; margin-bottom: 50px; margin-top: 20px;">Order Food</h1>
+
+    <section class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <b>BREAKFAST</b>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <!-- BEGIN PRODUCTS -->
+                            {% for b in breakfast %}
+                              {% if b.available_status == True %}
+                            <div class="col-md-4 col-sm-6">
+                                <div class="sc-product-item thumbnail">
+                                  <div class='product-holder'>
+                              <img  style="width:100px;height: 100px; margin-bottom: 10px;" class="card-img-top" src={{b.item_picture.url}}  alt="Card image cap">
+                              {% if b.food_type == 'Veg' %}
+                              <img src="{% static 'assets/img/logo/veg.png' %}" height="28px" width="28px" class="plus-image">
+                              {% else %}
+                              <img src="{% static 'assets/img/logo/nonveg.png' %}" height="28px" width="28px" class="plus-image">
+                              {% endif %}
+                                  </div>
+                                    <div class="caption">
+                                        <h4 data-name="product_name">{{b.item_name}}</h4>
+                                        <p data-name="product_desc">{{b.item_description}}</p>
+                                        <hr class="line">
+
+                                        <div>
+                                            <!-- <div class="form-group2">
+                                                <input class="sc-cart-item-qty" name="product_quantity" min="1" value="1" type="number">
+                                            </div> -->
+                                            <strong class="price pull-left">₹ {{b.item_price}}</strong>
+
+                                            <input name="product_price" value="{{b.item_price}}" type="hidden" />
+                                            <input name="product_id" value="12" type="hidden" />
+                                            <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                              {% endfor %}
+                            <!-- END PRODUCTS -->
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <b>STARTERS</b>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <!-- BEGIN PRODUCTS -->
+                            {% for s in starters %}
+                            {% if s.available_status == True %}
+                            <div class="col-md-4 col-sm-6">
+                                <div class="sc-product-item thumbnail">
+                                  <div class='product-holder'>
+                              <img  style="width:100px;height: 100px; margin-bottom: 10px;" class="card-img-top" src={{s.item_picture.url}}  alt="Card image cap">
+                              {% if s.food_type == 'Veg' %}
+                              <img src="{% static 'assets/img/logo/veg.png' %}" height="28px" width="28px" class="plus-image">
+                              {% else %}
+                              <img src="{% static 'assets/img/logo/nonveg.png' %}" height="28px" width="28px" class="plus-image">
+                              {% endif %}
+                                  </div>
+                                    <div class="caption">
+                                        <h4 data-name="product_name">{{s.item_name}}</h4>
+                                        <p data-name="product_desc">{{s.item_description}}</p>
+                                        <hr class="line">
+
+                                        <div>
+                                            <!-- <div class="form-group2">
+                                                <input class="sc-cart-item-qty" name="product_quantity" min="1" value="1" type="number">
+                                            </div> -->
+                                            <strong class="price pull-left">₹ {{s.item_price}}</strong>
+
+                                            <input name="product_price" value="{{s.item_price}}" type="hidden" />
+                                            <input name="product_id" value="12" type="hidden" />
+                                            <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                              {% endfor %}
+                            <!-- END PRODUCTS -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <b>MAIN COURSE</b>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <!-- BEGIN PRODUCTS -->
+
+                            {% for m in maincourse %}
+                              {% if m.available_status == True %}
+                            <div class="col-md-4 col-sm-6">
+                                <div class="sc-product-item thumbnail">
+                                  <div class='product-holder'>
+                              <img  style="width:100px;height: 100px; margin-bottom: 10px;" class="card-img-top" src={{m.item_picture.url}}  alt="Card image cap">
+                              {% if m.food_type == 'Veg' %}
+                              <img src="{% static 'assets/img/logo/veg.png' %}" height="28px" width="28px" class="plus-image">
+                              {% else %}
+                              <img src="{% static 'assets/img/logo/nonveg.png' %}" height="28px" width="28px" class="plus-image">
+                              {% endif %}
+                                  </div>
+                                    <div class="caption">
+                                        <h4 data-name="product_name">{{m.item_name}}</h4>
+                                        <p data-name="product_desc">{{m.item_description}}</p>
+                                        <hr class="line">
+
+                                        <div>
+                                            <!-- <div class="form-group2">
+                                                <input class="sc-cart-item-qty" name="product_quantity" min="1" value="1" type="number">
+                                            </div> -->
+                                            <strong class="price pull-left">₹ {{m.item_price}}</strong>
+
+                                            <input name="product_price" value="{{m.item_price}}" type="hidden" />
+                                            <input name="product_id" value="12" type="hidden" />
+                                            <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                              {% endfor %}
+                            <!-- END PRODUCTS -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <b>DESSERTS</b>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <!-- BEGIN PRODUCTS -->
+                            {% for d in desserts %}
+                              {% if d.available_status == True %}
+                            <div class="col-md-4 col-sm-6">
+                                <div class="sc-product-item thumbnail">
+                                  <div class='product-holder'>
+                              <img  style="width:100px;height: 100px; margin-bottom: 10px;" class="card-img-top" src={{d.item_picture.url}}  alt="Card image cap">
+                              {% if d.food_type == 'Veg' %}
+                              <img src="{% static 'assets/img/logo/veg.png' %}" height="28px" width="28px" class="plus-image">
+                              {% else %}
+                              <img src="{% static 'assets/img/logo/nonveg.png' %}" height="28px" width="28px" class="plus-image">
+                              {% endif %}
+                                  </div>
+                                    <div class="caption">
+                                        <h4 data-name="product_name">{{d.item_name}}</h4>
+                                        <p data-name="product_desc">{{d.item_description}}</p>
+                                        <hr class="line">
+
+                                        <div>
+                                            <!-- <div class="form-group2">
+                                                <input class="sc-cart-item-qty" name="product_quantity" min="1" value="1" type="number">
+                                            </div> -->
+                                            <strong class="price pull-left">₹ {{d.item_price}}</strong>
+
+                                            <input name="product_price" value="{{d.item_price}}" type="hidden" />
+                                            <input name="product_id" value="12" type="hidden" />
+                                            <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                              {% endfor %}
+                            <!-- END PRODUCTS -->
+                        </div>
+                    </div>
+                </div>
+      </div>
+
+
+
+
+
+            <aside class="col-md-4">
+
+                <!-- Cart submit form -->
+                <form action="orderfood" method="POST">
+                    {% csrf_token %}
+                    <!-- SmartCart element -->
+                    <div id="smartcart"></div>
+                </form>
+
+            </aside>
+        </div>
+    </section>
+
+
+    {% if messages %}
+    <script>
+      {% for message in messages %}
+      alert("{{ message }}");
+
+    </script>
+    {% endfor %}
+
+    {% endif %}
+
+    <!-- footer-->
+    <div class="mt-5 pt-5 pb-5 footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 col-xs-12 about-company">
+          <h2>MMVR International</h2>
+          <p class="pr-5 text-white-50">The best Hotel and Restaurant in the town. </p>
+          <p><a href="#"><i class="fa fa-facebook-square mr-1"></i></a><a href="#"><i class="fa fa-linkedin-square"></i></a></p>
+        </div>
+        <div class="col-lg-3 col-xs-12 links">
+          <h4 class="mt-lg-0 mt-sm-3">Links</h4>
+            <ul class="m-0 p-0">
+              <li>- <a href="#">Home</a></li>
+              <li>- <a href="#">About Us</a></li>
+              <li>- <a href="#">Restaurant</a></li>
+              <li>- <a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-xs-12 location">
+          <h4 class="mt-lg-0 mt-sm-4">Location</h4>
+          <p>Mysuru, Karnataka</p>
+          <p class="mb-0"><i class="fa fa-phone mr-3"></i>(541) 754-3010</p>
+          <p><i class="fa fa-envelope-o mr-3"></i>info@hsdf.com</p>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript" ></script>
+    <!-- Include SmartCart -->
+    <script src="../dist/js/jquery.smartCart.min.js" type="text/javascript"></script>
+    <!-- Initialize -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            // Initialize Smart Cart
+            $('#smartcart').smartCart();
+		});
+
+    ;(function ($, window, document, undefined) {
+        "use strict";
+        // Default options
+
+        var defaults = {
+            cart: [], // initial products on cart
+            resultName: 'cart_list', // Submit name of the cart parameter
+            theme: 'default', // theme for the cart, related css need to include for other than default theme
+            combineProducts: true, // combine similar products on cart
+            highlightEffect: true, // highlight effect on adding/updating product in cart
+            cartItemTemplate: '<img class="img-responsive pull-left" src="{product_image}" /><h4 class="list-group-item-heading">{product_name}</h4>',
+            cartItemQtyTemplate: '{display_price} × {display_quantity} = {display_amount}',
+            productContainerSelector: '.sc-product-item',
+            productElementSelector: '*', // input, textarea, select, div, p
+            addCartSelector: '.sc-add-to-cart',
+            paramSettings: { // Map the paramters
+                productPrice: 'product_price',
+                productQuantity: 'product_quantity',
+                productName: 'product_name',
+                productId: 'product_id'
+            },
+            lang: { // Language variables
+                cartTitle: "Shopping Cart",
+                checkout: 'Checkout',
+                clear: 'Clear',
+                subtotal: 'Subtotal:',
+                cartRemove: '×',
+                cartEmpty: 'Cart is Empty!<br />Choose your products'
+            },
+            submitSettings: {
+                submitType: 'form', // form, paypal, ajax
+                ajaxURL: '', // Ajax submit URL
+                ajaxSettings: {} // Ajax extra settings for submit call
+            },
+            currencySettings: {
+                locales: 'en-IN', // A string with a BCP 47 language tag, or an array of such strings
+                currencyOptions: {
+                    style: 'currency',
+                    currency: 'INR',
+                    currencyDisplay: 'symbol'
+                } // extra settings for the currency formatter. Refer: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString
+            },
+            toolbarSettings: {
+                showToolbar: true,
+                showCheckoutButton: true,
+                showClearButton: true,
+                showCartSummary: true,
+                checkoutButtonStyle: 'default', // default, paypal, image
+                checkoutButtonImage: '', // image for the checkout button
+                toolbarExtraButtons: [] // Extra buttons to show on toolbar, array of jQuery input/buttons elements
+            },
+            debug: false
+        };
+
+        // The plugin constructor
+        function SmartCart(element, options) {
+            // Merge user settings with default, recursively
+            this.options = $.extend(true, {}, defaults, options);
+            // Cart array
+            this.cart = [];
+            // Cart element
+            this.cart_element = $(element);
+            // Call initial method
+            this.init();
+        }
+
+        $.extend(SmartCart.prototype, {
+
+            init: function () {
+                // Set the elements
+                this._setElements();
+
+                // Add toolbar
+                this._setToolbar();
+
+                // Assign plugin events
+                this._setEvents();
+
+                // Set initial products
+                var mi = this;
+                $(this.options.cart).each(function (i, p) {
+                    p = mi._addToCart(p);
+                });
+
+                // Call UI sync
+                this._hasCartChange();
+            },
+
+            // PRIVATE FUNCTIONS
+            /*
+             * Set basic elements for the cart
+             */
+            _setElements: function () {
+                // The element store all cart data and submit with form
+                var cartListElement = $('<input type="hidden" name="' + this.options.resultName + '" id="' + this.options.resultName + '" />');
+                this.cart_element.append(cartListElement);
+                // Set the cart main element
+                this.cart_element.addClass('panel panel-default sc-cart sc-theme-' + this.options.theme);
+                this.cart_element.append('<div class="panel-heading sc-cart-heading">' + this.options.lang.cartTitle + ' <span class="sc-cart-count badge">0</span></div>');
+                this.cart_element.append('<div class="list-group sc-cart-item-list"></div>');
+            },
+            /*
+             * Set the toolbar for the cart
+             */
+            _setToolbar: function () {
+                if (this.options.toolbarSettings.showToolbar !== true) {
+                    return false;
+                }
+
+                var toolbar = $('<div></div>').addClass('panel-footer sc-toolbar');
+                var toolbarButtonPanel = $('<div class="sc-cart-toolbar">');
+                var toolbarSummaryPanel = $('<div class="sc-cart-summary">');
+
+                // Checkout Button
+                if (this.options.toolbarSettings.showCheckoutButton) {
+                    var btnCheckout = '';
+                    switch (this.options.toolbarSettings.checkoutButtonStyle) {
+                        case 'paypal':
+                            btnCheckout = '<button class="sc-button-checkout-paypal sc-cart-checkout" type="submit"><img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-medium.png" alt="Check out with PayPal" /></button>';
+                            break;
+                        case 'image':
+                            btnCheckout = '<button class="sc-button-checkout-paypal sc-cart-checkout" type="submit"><img src="' + this.options.toolbarSettings.checkoutButtonImage + '" alt="Check out" /></button>';
+                            break;
+                        default:
+                            btnCheckout = '<button class="btn btn-info sc-cart-checkout" type="button">' + this.options.lang.checkout + '</button> ';
+                            break;
+                    }
+                    toolbarButtonPanel.append(btnCheckout);
+                }
+
+                // Clear Button
+                if (this.options.toolbarSettings.showClearButton) {
+                    var btnClear = $('<button class="btn btn-danger sc-cart-clear" type="button">').text(this.options.lang.clear);
+                    toolbarButtonPanel.append(btnClear);
+                }
+
+                // Add extra toolbar buttons
+                if (this.options.toolbarSettings.toolbarExtraButtons && this.options.toolbarSettings.toolbarExtraButtons.length > 0) {
+                    toolbarButtonPanel.append(this.options.toolbarSettings.toolbarExtraButtons);
+                }
+
+                // Cart Summary
+                if (this.options.toolbarSettings.showCartSummary) {
+                    var panelSubTotal = $('<div class="sc-cart-summary-subtotal">');
+                    panelSubTotal.append(this.options.lang.subtotal).append(' <span class="sc-cart-subtotal">0</span>');
+                    toolbarSummaryPanel.append(panelSubTotal);
+                }
+
+                toolbar.append(toolbarSummaryPanel);
+                toolbar.append(toolbarButtonPanel);
+                this.cart_element.append(toolbar);
+            },
+            /*
+             * Set events for the cart
+             */
+            _setEvents: function () {
+                var mi = this;
+                // Capture add to cart button events
+                $(this.options.addCartSelector).on("click", function (e) {
+                    e.preventDefault();
+                    var p = mi._getProductDetails($(this));
+                    p = mi._addToCart(p);
+                    $(this).parents(mi.options.productContainerSelector).addClass('sc-added-item').attr('data-product-unique-key', p.unique_key);
+                });
+
+                // Item remove event
+                $(this.cart_element).on("click", '.sc-cart-remove', function (e) {
+                    e.preventDefault();
+                    $(this).parents('.sc-cart-item').fadeOut("normal", function () {
+                        mi._removeFromCart($(this).data('unique-key'));
+                        $(this).remove();
+                        mi._hasCartChange();
+                    });
+                });
+
+                // Item quantity change event
+                $(this.cart_element).on("change", '.sc-cart-item-qty', function (e) {
+                    e.preventDefault();
+                    mi._updateCartQuantity($(this).parents('.sc-cart-item').data('unique-key'), $(this).val());
+                });
+
+                // Cart checkout event
+                $(this.cart_element).on("click", '.sc-cart-checkout', function (e) {
+                    if ($(this).hasClass('disabled')) {
+                        return false;
+                    }
+                    e.preventDefault();
+                    mi._submitCart();
+                });
+
+                // Cart clear event
+                $(this.cart_element).on("click", '.sc-cart-clear', function (e) {
+                    if ($(this).hasClass('disabled')) {
+                        return false;
+                    }
+                    e.preventDefault();
+                    $('.sc-cart-item-list > .sc-cart-item', this.cart_element).fadeOut("normal", function () {
+                        $(this).remove();
+                        mi._clearCart();
+                        mi._hasCartChange();
+                    });
+                });
+            },
+            /*
+             * Get the parameters of a product by seaching elements with name attribute/data.
+             * Product details will be return as an object
+             */
+            _getProductDetails: function (elm) {
+                var mi = this;
+                var p = {};
+                elm.parents(this.options.productContainerSelector).find(this.options.productElementSelector).each(function () {
+                    if ($(this).is('[name]') === true || typeof $(this).data('name') !== typeof undefined) {
+                        var key = $(this).attr('name') ? $(this).attr('name') : $(this).data('name');
+                        var val = mi._getContent($(this));
+                        if (key && val) {
+                            p[key] = val;
+                        }
+                    }
+                });
+                return p;
+            },
+            /*
+             * Add the product object to the cart
+             */
+            _addToCart: function (p) {
+                var mi = this;
+
+                if (!p.hasOwnProperty(this.options.paramSettings.productPrice)) {
+                    this._logError('Price is not set for the item');
+                    return false;
+                }
+
+                if (!p.hasOwnProperty(this.options.paramSettings.productQuantity)) {
+                    this._logMessage('Quantity not found, default to 1');
+                    p[this.options.paramSettings.productQuantity] = 1;
+                }
+
+                if (!p.hasOwnProperty('unique_key')) {
+                    p.unique_key = this._getUniqueKey();
+                }
+
+                if (this.options.combineProducts) {
+                    var pf = $.grep(this.cart, function (n, i) {
+                        return mi._isObjectsEqual(n, p);
+                    });
+                    if (pf.length > 0) {
+                        var idx = this.cart.indexOf(pf[0]);
+                        this.cart[idx][this.options.paramSettings.productQuantity] = this.cart[idx][this.options.paramSettings.productQuantity] - 0 + (p[this.options.paramSettings.productQuantity] - 0);
+                        p = this.cart[idx];
+                        // Trigger "itemUpdated" event
+                        this._triggerEvent("itemUpdated", [p]);
+                    } else {
+                        this.cart.push(p);
+                        // Trigger "itemAdded" event
+                        this._triggerEvent("itemAdded", [p]);
+                    }
+                } else {
+                    this.cart.push(p);
+                    // Trigger "itemAdded" event
+                    this._triggerEvent("itemAdded", [p]);
+                }
+
+                this._addUpdateCartItem(p);
+                return p;
+            },
+            /*
+             * Remove the product object from the cart
+             */
+            _removeFromCart: function (unique_key) {
+                var mi = this;
+                $.each(this.cart, function (i, n) {
+                    if (n.unique_key === unique_key) {
+                        var itemRemove = mi.cart[i];
+                        mi.cart.splice(i, 1);
+                        $('*[data-product-unique-key="' + unique_key + '"]').removeClass('sc-added-item');
+                        mi._hasCartChange();
+
+                        // Trigger "itemRemoved" event
+                        this._triggerEvent("itemRemoved", [itemRemove]);
+                        return false;
+                    }
+                });
+            },
+            /*
+             * Clear all products from the cart
+             */
+            _clearCart: function () {
+                this.cart = [];
+                // Trigger "cartCleared" event
+                this._triggerEvent("cartCleared");
+                this._hasCartChange();
+            },
+            /*
+             * Update the quantity of an item in the cart
+             */
+            _updateCartQuantity: function (unique_key, qty) {
+                var mi = this;
+                var qv = this._getValidateNumber(qty);
+                $.each(this.cart, function (i, n) {
+                    if (n.unique_key === unique_key) {
+                        if (qv) {
+                            mi.cart[i][mi.options.paramSettings.productQuantity] = qty;
+                        }
+                        mi._addUpdateCartItem(mi.cart[i]);
+                        // Trigger "quantityUpdate" event
+                        this._triggerEvent("quantityUpdated", [mi.cart[i], qty]);
+                        return false;
+                    }
+                });
+            },
+            /*
+             * Update the UI of the cart list
+             */
+            _addUpdateCartItem: function (p) {
+                var productAmount = (p[this.options.paramSettings.productQuantity] - 0) * (p[this.options.paramSettings.productPrice] - 0);
+                var cartList = $('.sc-cart-item-list', this.cart_element);
+                var elmMain = cartList.find("[data-unique-key='" + p.unique_key + "']");
+                if (elmMain && elmMain.length > 0) {
+                    elmMain.find(".sc-cart-item-qty").val(p[this.options.paramSettings.productQuantity]);
+                    elmMain.find(".sc-cart-item-amount").text(this._getMoneyFormatted(productAmount));
+                } else {
+                    elmMain = $('<div></div>').addClass('sc-cart-item list-group-item');
+                    elmMain.append('<button type="button" class="sc-cart-remove">' + this.options.lang.cartRemove + '</button>');
+                    elmMain.attr('data-unique-key', p.unique_key);
+
+                    elmMain.append(this._formatTemplate(this.options.cartItemTemplate, p));
+
+                    var itemSummary = '<div class="sc-cart-item-summary"><span class="sc-cart-item-price">' + this._getMoneyFormatted(p[this.options.paramSettings.productPrice]) + '</span>';
+                    itemSummary += ' × <input type="number" min="1" max="1000" class="sc-cart-item-qty" value="' + this._getValueOrEmpty(p[this.options.paramSettings.productQuantity]) + '" />';
+                    itemSummary += ' = <span class="sc-cart-item-amount">' + this._getMoneyFormatted(productAmount) + '</span></div>';
+
+                    elmMain.append(itemSummary);
+                    cartList.append(elmMain);
+                }
+
+                // Apply the highlight effect
+                if (this.options.highlightEffect === true) {
+                    elmMain.addClass('sc-highlight');
+                    setTimeout(function () {
+                        elmMain.removeClass('sc-highlight');
+                    }, 500);
+                }
+
+                this._hasCartChange();
+            },
+            /*
+             * Handles the changes in the cart
+             */
+            _hasCartChange: function () {
+                $('.sc-cart-count', this.cart_element).text(this.cart.length);
+                $('.sc-cart-subtotal', this.element).text(this._getCartSubtotal());
+
+                if (this.cart.length === 0) {
+                    $('.sc-cart-item-list', this.cart_element).empty().append($('<div class="sc-cart-empty-msg">' + this.options.lang.cartEmpty + '</div>'));
+                    $(this.options.productContainerSelector).removeClass('sc-added-item');
+                    $('.sc-cart-checkout, .sc-cart-clear').addClass('disabled');
+
+                    // Trigger "cartEmpty" event
+                    this._triggerEvent("cartEmpty");
+                } else {
+                    $('.sc-cart-item-list > .sc-cart-empty-msg', this.cart_element).remove();
+                    $('.sc-cart-checkout, .sc-cart-clear').removeClass('disabled');
+                }
+
+                // Update cart value to the  cart hidden element
+                $('#' + this.options.resultName, this.cart_element).val(JSON.stringify(this.cart));
+            },
+            /*
+             * Calculates the cart subtotal
+             */
+            _getCartSubtotal: function () {
+                var mi = this;
+                var subtotal = 0;
+                $.each(this.cart, function (i, p) {
+                    if (mi._getValidateNumber(p[mi.options.paramSettings.productPrice])) {
+                        subtotal += (p[mi.options.paramSettings.productPrice] - 0) * (p[mi.options.paramSettings.productQuantity] - 0);
+                    }
+                });
+                return this._getMoneyFormatted(subtotal);
+            },
+            /*
+             * Cart submit functionalities
+             */
+            _submitCart: function () {
+                var mi = this;
+                var formElm = this.cart_element.parents('form');
+                if (!formElm) {
+                    this._logError('Form not found to submit');
+                    return false;
+                }
+
+                switch (this.options.submitSettings.submitType) {
+                    case 'ajax':
+                        var ajaxURL = this.options.submitSettings.ajaxURL && this.options.submitSettings.ajaxURL.length > 0 ? this.options.submitSettings.ajaxURL : formElm.attr('action');
+
+                        var ajaxSettings = $.extend(true, {}, {
+                            url: ajaxURL,
+                            type: "POST",
+                            data: formElm.serialize(),
+                            beforeSend: function () {
+                                mi.cart_element.addClass('loading');
+                            },
+                            error: function (jqXHR, status, message) {
+                                mi.cart_element.removeClass('loading');
+                                mi._logError(message);
+                            },
+                            success: function (res) {
+                                mi.cart_element.removeClass('loading');
+                                mi._triggerEvent("cartSubmitted", [mi.cart]);
+                                mi._clearCart();
+                            }
+                        }, this.options.submitSettings.ajaxSettings);
+
+                        $.ajax(ajaxSettings);
+
+                        break;
+                    case 'paypal':
+                        formElm.children('.sc-paypal-input').remove();
+                        // Add paypal specific fields for cart products
+                        $.each(this.cart, function (i, p) {
+                            var itemNumber = i + 1;
+                            formElm.append('<input class="sc-paypal-input" name="item_number_' + itemNumber + '" value="' + mi._getValueOrEmpty(p[mi.options.paramSettings.productId]) + '" type="hidden">').append('<input class="sc-paypal-input" name="item_name_' + itemNumber + '" value="' + mi._getValueOrEmpty(p[mi.options.paramSettings.productName]) + '" type="hidden">').append('<input class="sc-paypal-input" name="amount_' + itemNumber + '" value="' + mi._getValueOrEmpty(p[mi.options.paramSettings.productPrice]) + '" type="hidden">').append('<input class="sc-paypal-input" name="quantity_' + itemNumber + '" value="' + mi._getValueOrEmpty(p[mi.options.paramSettings.productQuantity]) + '" type="hidden">');
+                        });
+
+                        formElm.submit();
+                        this._triggerEvent("cartSubmitted", [this.cart]);
+
+                        break;
+                    default:
+                        formElm.submit();
+                        this._triggerEvent("cartSubmitted", [this.cart]);
+
+                        break;
+                }
+
+                return true;
+            },
+
+            // HELPER FUNCTIONS
+            /*
+             * Get the content of an HTML element irrespective of its type
+             */
+            _getContent: function (elm) {
+                if (elm.is(":checkbox, :radio")) {
+                    return elm.is(":checked") ? elm.val() : '';
+                } else if (elm.is("[value], select")) {
+                    return elm.val();
+                } else if (elm.is("img")) {
+                    return elm.attr('src');
+                } else {
+                    return elm.text();
+                }
+                return '';
+            },
+            /*
+             * Compare equality of two product objects
+             */
+            _isObjectsEqual: function (o1, o2) {
+                if (Object.getOwnPropertyNames(o1).length !== Object.getOwnPropertyNames(o2).length) {
+                    return false;
+                }
+                for (var p in o1) {
+                    if (p === 'unique_key' || p === this.options.paramSettings.productQuantity) {
+                        continue;
+                    }
+                    if (typeof o1[p] === typeof undefined && typeof o2[p] === typeof undefined) {
+                        continue;
+                    }
+                    if (o1[p] !== o2[p]) {
+                        return false;
+                    }
+                }
+                return true;
+            },
+            /*
+             * Format money
+             */
+            _getMoneyFormatted: function (n) {
+                n = n - 0;
+                return Number(n.toFixed(2)).toLocaleString(this.options.currencySettings.locales, this.options.currencySettings.currencyOptions);
+            },
+            /*
+             * Get the value of an element and empty value if the element not exists
+             */
+            _getValueOrEmpty: function (v) {
+                return v && typeof v !== typeof undefined ? v : '';
+            },
+            /*
+             * Validate Number
+             */
+            _getValidateNumber: function (n) {
+                n = n - 0;
+                if (n && n > 0) {
+                    return true;
+                }
+                return false;
+            },
+            /*
+             * Small templating function
+             */
+            _formatTemplate: function (t, o) {
+                var r = t.split("{"),
+                    fs = '';
+                for (var i = 0; i < r.length; i++) {
+                    var vr = r[i].substring(0, r[i].indexOf("}"));
+                    if (vr.length > 0) {
+                        fs += r[i].replace(vr + '}', this._getValueOrEmpty(o[vr]));
+                    } else {
+                        fs += r[i];
+                    }
+                }
+                return fs;
+            },
+            /*
+             * Event raiser
+             */
+            _triggerEvent: function (name, params) {
+                // Trigger an event
+                var e = $.Event(name);
+                this.cart_element.trigger(e, params);
+                if (e.isDefaultPrevented()) {
+                    return false;
+                }
+                return e.result;
+            },
+            /*
+             * Get unique key
+             */
+            _getUniqueKey: function () {
+                var d = new Date();
+                return d.getTime();
+            },
+            /*
+             * Log message to console
+             */
+            _logMessage: function (msg) {
+                if (this.options.debug !== true) {
+                    return false;
+                }
+                // Log message
+                console.log(msg);
+            },
+            /*
+             * Log error to console and terminate execution
+             */
+            _logError: function (msg) {
+                if (this.options.debug !== true) {
+                    return false;
+                }
+                // Log error
+                $.error(msg);
+            },
+
+            // PUBLIC FUNCTIONS
+            /*
+             * Public function to sumbit the cart
+             */
+            submit: function () {
+                this._submitCart();
+            },
+            /*
+             * Public function to clear the cart
+             */
+            clear: function () {
+                this._clearCart();
+            }
+        });
+
+        // Wrapper for the plugin
+        $.fn.smartCart = function (options) {
+            var args = arguments;
+            var instance;
+
+            if (options === undefined || typeof options === 'object') {
+                return this.each(function () {
+                    if (!$.data(this, "smartCart")) {
+                        $.data(this, "smartCart", new SmartCart(this, options));
+                    }
+                });
+            } else if (typeof options === 'string' && options[0] !== '_' && options !== 'init') {
+                instance = $.data(this[0], 'smartCart');
+
+                if (options === 'destroy') {
+                    $.data(this, 'smartCart', null);
+                }
+                if (instance instanceof SmartCart && typeof instance[options] === 'function') {
+                    return instance[options].apply(instance, Array.prototype.slice.call(args, 1));
+                } else {
+                    return this;
+                }
+            }
+        };
+    })(jQuery, window, document);
+    </script>
+
+</body>
+</html>
