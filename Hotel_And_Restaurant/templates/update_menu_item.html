@@ -1,0 +1,202 @@
+{% load static %}
+{% static 'images' as baseURL %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <title>Update Menu Item-MMVR International</title>
+    <style>
+      *{
+        font-family: 'Lato', sans-serif;
+      }
+      .navbar-text{
+        padding-left:30px;
+        padding-right:30px;
+
+    }
+        .footer{
+  background: #152F4F;
+  color:white;
+  
+  .links{
+    ul {list-style-type: none;}
+    li a{
+      color: white;
+      transition: color .2s;
+      &:hover{
+        text-decoration:none;
+        color:#4180CB;
+        }
+    }
+  }  
+  .about-company{
+    i{font-size: 25px;}
+    a{
+      color:white;
+      transition: color .2s;
+      &:hover{color:#4180CB}
+    }
+  } 
+  .location{
+    i{font-size: 18px;}
+  }
+  .copyright p{border-top:1px solid rgba(255,255,255,.1);} 
+}
+    </style>
+    </head>
+    <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <a class="navbar-brand" href="/">
+    <img src="{% static 'assets/img/logo/logo1.png' %}" width="104" height="24" class="d-inline-block align-top" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">About Us</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Contact</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      Welcome {{user.first_name}}!
+    </span>
+    <form class="form-inline">
+    <a class="btn btn-sm btn-outline-secondary" href="/logout">Logout</a>
+  </form>
+  </div>
+</nav>
+<h1 style="text-align: center; margin-bottom: 50px; margin-top: 20px;">Update Menu Item</h1>
+
+<div class="card" style="margin-left: 200px; margin-right: 200px;">
+  <form style="padding: 30px;" action="{% url 'updatemenu' item.id %}" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+  <div class="form-group row">
+    <label for="iname" class="col-sm-2 col-form-label">Item Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="iname" name="itemname" placeholder="Item Name" value="{{item.item_name}}" required>
+    </div>
+  </div>
+    <div class="form-group row">
+    <label for="item_img" class="col-sm-2 col-form-label">Upload Image</label>
+    <div class="col-sm-10">
+      <input type="file" class="form-control-file" id="item_img" name="item_img">
+    </div>
+  </div>
+    <div class="form-group row">
+    <label for="desc" class="col-sm-2 col-form-label">Description</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" id="desc" rows="5"  name="description" placeholder="Limit to 150 characters" required>{{item.item_description}}</textarea>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="price" class="col-sm-2 col-form-label">Price</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" min=0  value="{{item.item_price}}" id="price" name="price" placeholder="In rupees" required>
+    </div>
+  </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label" for="inlineFormCustomSelect">Menu Designation</label>
+      <div class="col-sm-10">
+      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="menutype" required>
+        {% if item.menu_type == 'Breakfast' %}
+        <option selected value="Breakfast">Breakfast</option>
+        <option value="Starters">Starters</option>
+        <option value="Main Course">Main Course</option>
+        <option value="Dessert">Dessert</option>
+        {% elif item.menu_type == 'Starters' %}
+        <option value="Breakfast">Breakfast</option>
+        <option selected value="Starters">Starters</option>
+        <option value="Main Course">Main Course</option>
+        <option value="Dessert">Dessert</option>
+        {% elif item.menu_type == 'Main Course' %}
+        <option value="Breakfast">Breakfast</option>
+        <option value="Starters">Starters</option>
+        <option selected value="Main Course">Main Course</option>
+        <option value="Dessert">Dessert</option>
+        {% else %}
+        <option value="Breakfast">Breakfast</option>
+        <option value="Starters">Starters</option>
+        <option value="Main Course">Main Course</option>
+        <option selected value="Dessert">Dessert</option>
+        {% endif %}
+        </select>
+    </div>
+    </div>
+        <div class="form-group row">
+      <label class="col-sm-2 col-form-label" for="food_type">Food Type</label>
+      <div class="col-sm-10">
+      <select class="custom-select mr-sm-2" id="food_type" name="food_type" required>
+        {% if item.food_type == 'Veg' %}
+        <option selected value="Veg">Vegetarian</option>
+        <option value="Non Veg">Non-Vegetarian</option>
+        {% else %}
+        <option selected value="Veg">Vegetarian</option>
+        <option value="Non Veg">Non-Vegetarian</option>
+        {% endif %}
+      </select>
+    </div>
+    </div>
+  <div style="text-align: center;">
+<button  type="submit" class="btn btn-primary">Submit</button>
+</div>
+
+</form>
+</div>
+{% if messages %}
+<script>
+  {% for message in messages %}
+  alert("{{ message }}");
+  
+</script>
+{% endfor %}
+
+{% endif %}
+
+<!-- footer-->
+<div class="mt-5 pt-5 pb-5 footer">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5 col-xs-12 about-company">
+      <h2>MMVR International</h2>
+      <p class="pr-5 text-white-50">The best Hotel and Restaurant in the town. </p>
+      <p><a href="#"><i class="fa fa-facebook-square mr-1"></i></a><a href="#"><i class="fa fa-linkedin-square"></i></a></p>
+    </div>
+    <div class="col-lg-3 col-xs-12 links">
+      <h4 class="mt-lg-0 mt-sm-3">Links</h4>
+        <ul class="m-0 p-0">
+          <li>- <a href="#">Home</a></li>
+          <li>- <a href="#">About Us</a></li>
+          <li>- <a href="#">Restaurant</a></li>
+          <li>- <a href="#">Contact</a></li>
+        </ul>
+    </div>
+    <div class="col-lg-4 col-xs-12 location">
+      <h4 class="mt-lg-0 mt-sm-4">Location</h4>
+      <p>Mysuru, Karnataka</p>
+      <p class="mb-0"><i class="fa fa-phone mr-3"></i>(541) 754-3010</p>
+      <p><i class="fa fa-envelope-o mr-3"></i>info@hsdf.com</p>
+    </div>
+  </div>
+</div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>
